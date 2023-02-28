@@ -1,0 +1,90 @@
+.header {
+  display: flex;
+  position: sticky;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 48px;
+
+  box-shadow: 0px 1px 0px $color__elemets;
+
+  @include onDesktop {
+    height: 64px;
+  }
+
+  &__nav {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      height: 100%;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__home-link {
+    display: flex;
+    text-align: center;
+    padding: 0 16px;
+    height: 100%;
+
+    @include onTablet {
+      margin-right: 16px;
+    }
+
+    @include onDesktop {
+      margin-right: 24px;
+    }
+  }
+
+  &__logo {
+    width: 64px;
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 48px;
+    height: 100%;
+
+    box-shadow: -1px 0px 0px $color__elemets;
+
+    &-icon {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 14px;
+      height: 14px;
+
+      &--closed {
+        background-image: url('./Header.images/menu-closed.svg');
+      }
+
+      &--opened {
+        background-image: url('./Header.images/menu-opened.svg');
+      }
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__icons {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 100%;
+    }
+  }
+}
