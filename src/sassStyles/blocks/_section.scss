@@ -1,0 +1,11 @@
+.section {
+  margin-bottom: 57px;
+
+  @include onTablet {
+    margin-bottom: 65px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 80px;
+  }
+}
