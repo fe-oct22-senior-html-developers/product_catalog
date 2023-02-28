@@ -9,7 +9,7 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
   return (
     <>
       <div>Breadcrumbs</div>
-      <PageTitle>{ pageTitle }</PageTitle>
+      <PageTitle>{pageTitle}</PageTitle>
       <div>Data amount</div>
       <div>Sorting</div>
       <div>Datalist</div>

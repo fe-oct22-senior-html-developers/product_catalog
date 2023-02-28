@@ -22,7 +22,5 @@ module.exports = {
     '@typescript-eslint/semi': ['error'],
   },
   parser: '@typescript-eslint/parser',
-  plugins: [
-    '@typescript-eslint',
-  ],
+  plugins: ['@typescript-eslint'],
 };

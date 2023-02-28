@@ -8,7 +8,7 @@ type Props = {
 export const HomePage: React.FC<Props> = ({ pageTitle }) => {
   return (
     <>
-      <PageTitle>{ pageTitle }</PageTitle>
+      <PageTitle>{pageTitle}</PageTitle>
       <div>Carousel 1</div>
       <div>Carousel 2</div>
       <div>Shop by category</div>

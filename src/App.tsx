@@ -18,14 +18,26 @@ export const App: React.FC = () => {
       {/* container class might be removed */}
       <main className="page__main container">
         <Routes>
-          <Route path="/" element={<HomePage pageTitle="Welcome to Nice Gadgets store!" />} />
+          <Route
+            path="/"
+            element={<HomePage pageTitle="Welcome to Nice Gadgets store!" />}
+          />
 
-          <Route path="phones" element={<ProductPage pageTitle="Mobile Phones" />} />
+          <Route
+            path="phones"
+            element={<ProductPage pageTitle="Mobile Phones" />}
+          />
           <Route path="tablets" element={<ProductPage pageTitle="Tablets" />} />
-          <Route path="accessories" element={<ProductPage pageTitle="Accessories" />} />
+          <Route
+            path="accessories"
+            element={<ProductPage pageTitle="Accessories" />}
+          />
 
           <Route path="/cart" element={<CartPage pageTitle="Cart" />} />
-          <Route path="/favourites" element={<FavouritesPage pageTitle="Favourites" />} />
+          <Route
+            path="/favourites"
+            element={<FavouritesPage pageTitle="Favourites" />}
+          />
 
           <Route path="product/:productId" element={<ProductDetailsPage />} />
 

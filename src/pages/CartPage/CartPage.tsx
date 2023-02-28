@@ -9,7 +9,7 @@ export const CartPage: React.FC<Props> = ({ pageTitle }) => {
   return (
     <>
       <div>Breadcrumbs</div>
-      <PageTitle>{ pageTitle }</PageTitle>
+      <PageTitle>{pageTitle}</PageTitle>
       <div>Products</div>
     </>
   );
