@@ -1,5 +1,5 @@
 {
-  "homepage": ".",
+  "homepage": "https://fe-oct22-senior-html-developers.github.io/product_catalog",
   "name": "react-typescript-starter-pack",
   "version": "0.1.0",
   "dependencies": {
@@ -54,7 +54,7 @@
   "devDependencies": {
     "@mate-academy/eslint-config-react-typescript": "^0.0.4",
     "eslint": "^7.25.0",
-    "gh-pages": "^3.1.0",
+    "gh-pages": "^3.2.3",
     "husky": "^8.0.3",
     "lint-staged": "^13.1.2",
     "node-sass": "^5.0.0",
