@@ -1,4 +1,5 @@
 import React from 'react';
+import { ShopByCategory } from '../../components/HomePage/ShopByCategory';
 import { PageTitle } from '../../components/PageTitle';
 
 type Props = {
@@ -11,7 +12,7 @@ export const HomePage: React.FC<Props> = ({ pageTitle }) => {
       <PageTitle>{pageTitle}</PageTitle>
       <div>Carousel 1</div>
       <div>Carousel 2</div>
-      <div>Shop by category</div>
+      <ShopByCategory />
       <div>Carousel 3</div>
     </>
   );
