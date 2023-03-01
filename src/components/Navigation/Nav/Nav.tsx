@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavItem } from '../NavItem/NavItem';
+import './Nav.scss';
+import { NavItem } from './NavItem';
 
 export const Navigation: React.FC = React.memo(() => {
   return (

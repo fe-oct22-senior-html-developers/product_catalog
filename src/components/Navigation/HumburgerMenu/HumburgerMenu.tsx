@@ -1,16 +1,18 @@
 import React, { memo } from 'react';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
-import { Navigation } from '../Navigation/Navigation';
+import { Navigation } from '../Nav/Nav';
 
 interface Props {
-  isOpen: boolean,
+  isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const HumurgerMenu: React.FC<Props> = memo(({ isOpen }) => {
   return (
-    <section className={cn('humburgerMenu', { 'humburgerMenu--isActive': isOpen })}>
+    <section
+      className={cn('humburgerMenu', { 'humburgerMenu--isActive': isOpen })}
+    >
       <Navigation />
 
       <div className="humburgerMenu__icons">

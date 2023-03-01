@@ -1,5 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
+import './IconBlock.scss';
 import { NavLink, To } from 'react-router-dom';
 
 interface Props {
@@ -14,11 +15,10 @@ export const IconBlock: React.FC<Props> = React.memo(({ iconName, to }) => {
       <NavLink
         to={to}
         className={({ isActive }) => cn('iconBlock__link', {
-          'iconBlock__link--isActive': isActive,
+          'iconBlock__link--active': isActive,
         })}
       >
         <div className={`iconBlock__icon iconBlock__icon--${iconName}`}></div>
-        {/* <div className="iconBlock__icon, iconBlock__icon--favourites"></div> */}
       </NavLink>
     </div>
   );

@@ -1,3 +1,6 @@
+@import '../../../sassStyles/colors';
+@import '../../../sassStyles/mixins';
+
 .header {
   display: flex;
   position: sticky;
@@ -11,39 +14,17 @@
   @include onDesktop {
     height: 64px;
   }
-
-  &__nav {
-    display: none;
-
-    @include onTablet {
-      display: block;
-      height: 100%;
-    }
-  }
-
+  
   &__links {
+    margin-left: 16px;
     display: flex;
+    gap: 24px;
     align-items: center;
     height: 100%;
-  }
-
-  &__home-link {
-    display: flex;
-    text-align: center;
-    padding: 0 16px;
-    height: 100%;
-
-    @include onTablet {
-      margin-right: 16px;
-    }
 
     @include onDesktop {
-      margin-right: 24px;
+      margin-left: 24px;
     }
-  }
-
-  &__logo {
-    width: 64px;
   }
 
   &__menu {
@@ -64,11 +45,11 @@
       height: 14px;
 
       &--closed {
-        background-image: url('./Header.images/menu-closed.svg');
+        background-image: url('../../../static/Header.images/menu-closed.svg');
       }
 
       &--opened {
-        background-image: url('./Header.images/menu-opened.svg');
+        background-image: url('../../../static/Header.images/menu-opened.svg');
       }
     }
 

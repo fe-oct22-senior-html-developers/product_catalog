@@ -1,17 +1,17 @@
 // Utils
 @import './sassStyles/reset';
 @import './sassStyles/typography';
-@import './sassStyles/colors';
-@import './sassStyles/mixins';
+// @import './sassStyles/colors';
+// @import './sassStyles/mixins';
 
 // Blocks
 @import './sassStyles/blocks/container';
 @import './sassStyles/blocks/grid';
-@import './components/Header/Header.module';
-@import './components/Navigation/Navigation.module';
-@import './components/IconBlock/IconBlock.module';
-@import './components/HumburgerMenu/HumburgerMenu.module';
-@import './components/NavItem/NavItem.module';
+// @import './components/Header/Header.module';
+// @import './components/Navigation/Navigation.module';
+// @import './components/IconBlock/IconBlock.module';
+// @import './components/HumburgerMenu/HumburgerMenu.module';
+// @import './components/NavItem/NavItem.module';
 
 :root {
   font-family: 'Mont', sans-serif;

@@ -1,3 +1,6 @@
+@import '../../../sassStyles/colors';
+@import '../../../sassStyles/mixins';
+
 .iconBlock {
   display: flex;
 
@@ -15,11 +18,26 @@
     justify-content: center;
     align-items: center;
 
+    position: relative;
+
     width: 100%;
 
-    &--isActive {
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      height: 3px;
+      width: 100%;
+      
+      transition: background-color 0.3s ease;
+    }
+
+    &--active {
       color: $color__primary;
-      border-bottom: 3px solid $color__primary;
+
+      &::after {
+        background: $color__primary;
+      }
     }
   }
 
@@ -32,11 +50,11 @@
     height: 100%;
 
     &--favourites {
-      background-image: url('../Header/Header.images/favourites-icon.svg');
+      background-image: url('../../../static/Header.images/favourites-icon.svg');
     }
 
     &--cart {
-      background-image: url('../Header/Header.images/cart-icon.svg');
+      background-image: url('../../../static/Header.images/cart-icon.svg');
     }
   }
 }

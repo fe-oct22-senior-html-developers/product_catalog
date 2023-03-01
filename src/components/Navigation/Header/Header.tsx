@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
-import { Link } from 'react-router-dom';
-import logo from './Header.images/Logo.svg';
-import { Navigation } from '../Navigation/Navigation';
+import './Header.scss';
+import { Navigation } from '../Nav/Nav';
 import { IconBlock } from '../IconBlock';
 import { HumurgerMenu } from '../HumburgerMenu/HumburgerMenu';
+import { Logo } from '../../Logo';
 
 export const Header: React.FC = React.memo(() => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,13 +21,8 @@ export const Header: React.FC = React.memo(() => {
     <>
       <header className="header page__header">
         <div className="header__links">
-          <Link to="/" className="header__home-link">
-            <img className="header__logo" src={logo} alt="Nice Gadgets logo" />
-          </Link>
-
-          <section className="header__nav">
-            <Navigation />
-          </section>
+          <Logo />
+          <Navigation />
         </div>
 
         <div className="header__menu">
@@ -52,10 +47,7 @@ export const Header: React.FC = React.memo(() => {
         </div>
       </header>
 
-      <HumurgerMenu
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-      />
+      <HumurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
   );
 });
