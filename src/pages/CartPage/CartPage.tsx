@@ -10,7 +10,9 @@ export const CartPage: React.FC<Props> = ({ pageTitle }) => {
   return (
     <div className="cart-page">
       <div>Breadcrumbs</div>
-      <PageTitle mixClass="cart-page__title">{pageTitle}</PageTitle>
+      <div className="container">
+        <PageTitle mixClass="cart-page__title">{pageTitle}</PageTitle>
+      </div>
       <div>Products</div>
     </div>
   );

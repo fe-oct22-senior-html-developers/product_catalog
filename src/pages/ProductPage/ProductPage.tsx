@@ -10,7 +10,9 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
   return (
     <div className="product-page">
       <div>Breadcrumbs</div>
-      <PageTitle mixClass="product-page__title">{pageTitle}</PageTitle>
+      <div className="container">
+        <PageTitle mixClass="product-page__title">{pageTitle}</PageTitle>
+      </div>
       <div>Data amount</div>
       <div>Sorting</div>
       <div>Datalist</div>
