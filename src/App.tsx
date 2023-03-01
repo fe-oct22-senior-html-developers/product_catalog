@@ -15,8 +15,7 @@ export const App: React.FC = () => {
     <>
       <header style={{ fontSize: '24px' }}>Navigation</header>
 
-      {/* container class might be removed */}
-      <main className="page__main container">
+      <main className="page__main">
         <Routes>
           <Route
             path="/"
