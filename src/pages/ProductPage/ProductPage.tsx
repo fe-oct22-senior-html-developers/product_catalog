@@ -1,4 +1,5 @@
 import React from 'react';
+import './ProductPage.scss';
 import { PageTitle } from '../../components/PageTitle';
 
 type Props = {
@@ -7,13 +8,13 @@ type Props = {
 
 export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
   return (
-    <>
+    <div className="product-page">
       <div>Breadcrumbs</div>
-      <PageTitle>{pageTitle}</PageTitle>
+      <PageTitle mixClass="product-page__title">{pageTitle}</PageTitle>
       <div>Data amount</div>
       <div>Sorting</div>
       <div>Datalist</div>
       <div>Pagination</div>
-    </>
+    </div>
   );
 };
