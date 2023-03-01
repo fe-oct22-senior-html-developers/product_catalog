@@ -9,20 +9,16 @@ interface Props {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const NavItem: FC<Props> = ({ to, title, setIsOpen }) => {
-  return (
-    <li className="nav__item nav__item--active">
-      <NavLink
-        to={to}
-        className={({ isActive }) =>
-          cn('nav__link', {
-            'nav__link--active': isActive,
-          })
-        }
-        onClick={() => setIsOpen(false)}
-      >
-        {title}
-      </NavLink>
-    </li>
-  );
-};
+export const NavItem: FC<Props> = ({ to, title, setIsOpen }) => (
+  <li className="nav__item nav__item--active">
+    <NavLink
+      to={to}
+      className={({ isActive }) => cn('nav__link', {
+        'nav__link--active': isActive,
+      })}
+      onClick={() => setIsOpen(false)}
+    >
+      {title}
+    </NavLink>
+  </li>
+);

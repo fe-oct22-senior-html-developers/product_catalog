@@ -15,16 +15,19 @@
     height: 64px;
   }
 
+  &__logo {
+    padding: 0 16;
+
+    @include onDesktop {
+      padding: 0 24px;
+    }
+  }
+
   &__links {
-    margin-left: 16px;
     display: flex;
     gap: 24px;
     align-items: center;
     height: 100%;
-
-    @include onDesktop {
-      margin-left: 24px;
-    }
   }
 
   &__menu {
@@ -45,11 +48,11 @@
       height: 14px;
 
       &--closed {
-        background-image: url('../../../static/Header.images/menu-closed.svg');
+        background-image: url('../../../static/Header/menu-closed.svg');
       }
 
       &--opened {
-        background-image: url('../../../static/Header.images/menu-opened.svg');
+        background-image: url('../../../static/Header/menu-opened.svg');
       }
     }
 

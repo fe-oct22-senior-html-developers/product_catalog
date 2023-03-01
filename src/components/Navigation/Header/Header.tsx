@@ -21,7 +21,9 @@ export const Header: React.FC = React.memo(() => {
     <>
       <header className="header page__header">
         <div className="header__links">
-          <Logo />
+          <div className="header__logo">
+            <Logo setIsOpen={setIsOpen} />
+          </div>
           <div className="header__nav">
             <Nav setIsOpen={setIsOpen} />
           </div>
@@ -38,7 +40,8 @@ export const Header: React.FC = React.memo(() => {
                 'header__menu-icon--opened': isOpen,
                 'header__menu-icon--closed': !isOpen,
               })}
-            ></div>
+            >
+            </div>
           </a>
         </div>
 

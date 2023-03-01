@@ -3,10 +3,26 @@ import { Link } from 'react-router-dom';
 import './Logo.scss';
 import logo from '../../static/Logo.svg';
 
-export const Logo: React.FC = memo(() => {
-  return (
-    <Link className="logo" to="/">
-      <img src={logo} className="logo__image" alt="NiceGadgets logo" />
-    </Link>
-  );
+interface Props {
+  setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>,
+}
+
+export const Logo: React.FC<Props> = memo(({ setIsOpen }) => {
+  return setIsOpen
+    ? (
+      <Link
+        className="logo"
+        to="/"
+        onClick={() => setIsOpen(false)}
+      >
+        <img src={logo} className="logo_image" alt="NiceGadgets logo" />
+      </Link>
+    ) : (
+      <Link
+        className="logo"
+        to="/"
+      >
+        <img src={logo} className="logo__image" alt="NiceGadgets logo" />
+      </Link>
+    );
 });
