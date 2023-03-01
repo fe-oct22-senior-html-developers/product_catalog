@@ -6,7 +6,7 @@
   align-items: flex-start;
   padding: 0px;
 
-  &_image {
+  &__image {
     width: 64px;
 
     @include onDesktop {
