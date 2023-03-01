@@ -1,0 +1,21 @@
+@import '../../../sassStyles/mixins';
+
+.shop-by-category {
+  margin-bottom: 56px;
+
+  @include onTablet {
+    margin-bottom: 64px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 80px;
+  }
+
+  &__categories {
+    row-gap: 32px;
+
+    @include onTablet {
+      row-gap: 0px;
+    }
+  }
+}

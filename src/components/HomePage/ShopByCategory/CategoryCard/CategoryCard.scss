@@ -1,0 +1,36 @@
+@import '../../../../sassStyles/colors';
+
+.category-card {
+  &:hover &__image {
+    transform: scale(1.05);
+  }
+
+  &__image {
+    width: 100%;
+    margin-bottom: 24px;
+
+    transition: transform 0.5s;
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__title {
+    margin-bottom: 4px;
+
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 25px;
+
+    color: $color__primary;
+  }
+
+  &__models-amount {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+
+    color: $color__secondary;
+  }
+}
