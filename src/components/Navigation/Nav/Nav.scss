@@ -2,9 +2,6 @@
 @import '../../../sassStyles/mixins';
 
 .nav {
-  // display: none;
-  // height: 100%;
-
   @include onTablet {
     display: block;
     height: 100%;
@@ -24,25 +21,6 @@
 
   &__item {
     height: 100%;
-
-    // @include onDesktop {
-    //   &::after {
-    //     content: "";
-    //     position: absolute;
-    //     top: 0;
-    //     height: 4px;
-    //     width: 100%;
-
-    //     transition: background-color 0.5s;
-    //   }
-
-    // @each $planet, $color in $planets {
-    //   &--#{$planet}:hover, &--#{$planet}-active {
-    //     &::after {
-    //       background: #{$color};
-    //     }
-    //   }
-    // }
 
     &:not(:last-child) {
       margin-bottom: 16px;

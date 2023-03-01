@@ -14,9 +14,11 @@ export const IconBlock: React.FC<Props> = React.memo(({ iconName, to }) => {
     <div className="iconBlock">
       <NavLink
         to={to}
-        className={({ isActive }) => cn('iconBlock__link', {
-          'iconBlock__link--active': isActive,
-        })}
+        className={({ isActive }) =>
+          cn('iconBlock__link', {
+            'iconBlock__link--active': isActive,
+          })
+        }
       >
         <div className={`iconBlock__icon iconBlock__icon--${iconName}`}></div>
       </NavLink>

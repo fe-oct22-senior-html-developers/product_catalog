@@ -38,8 +38,7 @@ export const Header: React.FC = React.memo(() => {
                 'header__menu-icon--opened': isOpen,
                 'header__menu-icon--closed': !isOpen,
               })}
-            >
-            </div>
+            ></div>
           </a>
         </div>
 
