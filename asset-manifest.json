@@ -1,21 +1,24 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.310abaeb.chunk.css",
-    "main.js": "/product_catalog/static/js/main.bce6731a.chunk.js",
-    "main.js.map": "/product_catalog/static/js/main.bce6731a.chunk.js.map",
+    "main.css": "/product_catalog/static/css/main.62bb12ef.chunk.css",
+    "main.js": "/product_catalog/static/js/main.3a3e43cd.chunk.js",
+    "main.js.map": "/product_catalog/static/js/main.3a3e43cd.chunk.js.map",
     "runtime-main.js": "/product_catalog/static/js/runtime-main.253a5a2e.js",
     "runtime-main.js.map": "/product_catalog/static/js/runtime-main.253a5a2e.js.map",
-    "static/js/2.0f2c1b53.chunk.js": "/product_catalog/static/js/2.0f2c1b53.chunk.js",
-    "static/js/2.0f2c1b53.chunk.js.map": "/product_catalog/static/js/2.0f2c1b53.chunk.js.map",
+    "static/js/2.8871861f.chunk.js": "/product_catalog/static/js/2.8871861f.chunk.js",
+    "static/js/2.8871861f.chunk.js.map": "/product_catalog/static/js/2.8871861f.chunk.js.map",
     "index.html": "/product_catalog/index.html",
-    "static/css/main.310abaeb.chunk.css.map": "/product_catalog/static/css/main.310abaeb.chunk.css.map",
-    "static/js/2.0f2c1b53.chunk.js.LICENSE.txt": "/product_catalog/static/js/2.0f2c1b53.chunk.js.LICENSE.txt",
-    "static/media/App.scss": "/product_catalog/static/media/Mont-SemiBold.0b5e68eb.ttf"
+    "static/css/main.62bb12ef.chunk.css.map": "/product_catalog/static/css/main.62bb12ef.chunk.css.map",
+    "static/js/2.8871861f.chunk.js.LICENSE.txt": "/product_catalog/static/js/2.8871861f.chunk.js.LICENSE.txt",
+    "static/media/App.scss": "/product_catalog/static/media/Mont-SemiBold.0b5e68eb.ttf",
+    "static/media/category__accessories.3b9d45fd.jpg": "/product_catalog/static/media/category__accessories.3b9d45fd.jpg",
+    "static/media/category__phones.5745f0cd.jpg": "/product_catalog/static/media/category__phones.5745f0cd.jpg",
+    "static/media/category__tablets.05b3d251.jpg": "/product_catalog/static/media/category__tablets.05b3d251.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.253a5a2e.js",
-    "static/js/2.0f2c1b53.chunk.js",
-    "static/css/main.310abaeb.chunk.css",
-    "static/js/main.bce6731a.chunk.js"
+    "static/js/2.8871861f.chunk.js",
+    "static/css/main.62bb12ef.chunk.css",
+    "static/js/main.3a3e43cd.chunk.js"
   ]
 }
