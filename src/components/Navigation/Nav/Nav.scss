@@ -2,19 +2,17 @@
 @import '../../../sassStyles/mixins';
 
 .nav {
-  display: none;
-
   @include onTablet {
     display: block;
     height: 100%;
   }
 
   &__list {
-    padding: 0;
     display: flex;
     flex-direction: column;
     height: 100%;
     align-items: center;
+    height: 100%;
 
     @include onTablet {
       flex-direction: row;
@@ -23,25 +21,6 @@
 
   &__item {
     height: 100%;
-
-    // @include onDesktop {
-    //   &::after {
-    //     content: "";
-    //     position: absolute;
-    //     top: 0;
-    //     height: 4px;
-    //     width: 100%;
-        
-    //     transition: background-color 0.5s;
-    //   }
-
-      // @each $planet, $color in $planets {
-      //   &--#{$planet}:hover, &--#{$planet}-active {
-      //     &::after {
-      //       background: #{$color};
-      //     }
-      //   }
-      // }
 
     &:not(:last-child) {
       margin-bottom: 16px;
@@ -57,31 +36,31 @@
     }
   }
 
-&__link {
-  position: relative;
+  &__link {
+    position: relative;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  // padding: 8px 0;
-  height: 100%;
+    padding: 8px 0;
+    height: 100%;
 
-  color: $color__secondary;
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+    color: $color__secondary;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
 
-  transition: color 0.3s ease;
+    transition: color 0.3s ease;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       bottom: 0;
       height: 3px;
       width: 100%;
-      
+
       transition: background-color 0.3s ease;
     }
 
