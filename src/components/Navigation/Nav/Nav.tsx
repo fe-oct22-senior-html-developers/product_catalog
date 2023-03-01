@@ -2,14 +2,37 @@ import React from 'react';
 import './Nav.scss';
 import { NavItem } from './NavItem';
 
-export const Navigation: React.FC = React.memo(() => {
+interface Props {
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>,
+}
+
+export const Nav: React.FC<Props> = React.memo(({ setIsOpen }) => {
   return (
     <nav className="nav">
       <ul className="nav__list">
-        <NavItem title="home" to="/" />
-        <NavItem title="Phones" to="phones" />
-        <NavItem title="Tablets" to="tablets" />
-        <NavItem title="Accessories" to="accesories" />
+        <NavItem
+          setIsOpen={setIsOpen}
+          title="home"
+          to="/"
+        />
+
+        <NavItem
+          setIsOpen={setIsOpen}
+          title="Phones"
+          to="phones"
+        />
+
+        <NavItem
+          setIsOpen={setIsOpen}
+          title="Tablets"
+          to="tablets"
+        />
+
+        <NavItem
+          setIsOpen={setIsOpen}
+          title="Accessories"
+          to="accessories"
+        />
       </ul>
     </nav>
   );

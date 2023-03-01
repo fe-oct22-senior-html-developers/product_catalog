@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
 import './Header.scss';
-import { Navigation } from '../Nav/Nav';
+import { Nav } from '../Nav/Nav';
 import { IconBlock } from '../IconBlock';
-import { HumurgerMenu } from '../HumburgerMenu/HumburgerMenu';
 import { Logo } from '../../Logo';
+import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 
 export const Header: React.FC = React.memo(() => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +22,9 @@ export const Header: React.FC = React.memo(() => {
       <header className="header page__header">
         <div className="header__links">
           <Logo />
-          <Navigation />
+          <div className="header__nav">
+            <Nav setIsOpen={setIsOpen} />
+          </div>
         </div>
 
         <div className="header__menu">
@@ -47,7 +49,7 @@ export const Header: React.FC = React.memo(() => {
         </div>
       </header>
 
-      <HumurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+      <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
   );
 });
