@@ -14,7 +14,7 @@ export const Logo: React.FC<Props> = memo(({ setIsOpen }) => {
     </Link>
   ) : (
     <Link className="logo" to="/">
-      <img src={logo} className="logo__image" alt="NiceGadgets logo" />
+      <img src={logo} className="logo_image" alt="NiceGadgets logo" />
     </Link>
   );
 });

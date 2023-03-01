@@ -16,8 +16,7 @@ export const App: React.FC = () => {
     <>
       <Header />
 
-      {/* container class might be removed */}
-      <main className="page__main container">
+      <main className="page__main">
         <Routes>
           <Route
             path="/"
