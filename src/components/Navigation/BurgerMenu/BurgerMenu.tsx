@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import cn from 'classnames';
 import './BurgerMenu.scss';
 import { NavLink } from 'react-router-dom';
-import { Nav } from '../Nav/Nav';
+import { Nav } from '../Nav';
 
 interface Props {
   isMenuOpen: boolean;
@@ -11,31 +11,33 @@ interface Props {
 
 export const BurgerMenu: React.FC<Props> = memo(
   ({ isMenuOpen, setIsMenuOpened }) => (
-    <section className={cn('burgerMenu', { 'burgerMenu--active': isMenuOpen })}>
+    <section className={cn('burger-menu', { 'burger-menu--active': isMenuOpen })}>
       <Nav setIsMenuOpened={setIsMenuOpened} />
 
-      <div className="burgerMenu__icons">
-        <div className="burgerMenu__icon-block">
+      <div className="burger-menu__icons">
+        <div className="burger-menu__icon-block">
           <NavLink
+            aria-label="favourites"
             to="/favourites"
-            className={({ isActive }) => cn('burgerMenu__icon-link', {
-              'burgerMenu__icon-link--active': isActive,
+            className={({ isActive }) => cn('burger-menu__icon-link', {
+              'burger-menu__icon-link--active': isActive,
             })}
             onClick={() => setIsMenuOpened(false)}
           >
-            <div className="burgerMenu__icon burgerMenu__icon--favourites"></div>
+            <div className="burger-menu__icon burger-menu__icon--favourites"></div>
           </NavLink>
         </div>
 
-        <div className="burgerMenu__icon-block">
+        <div className="burger-menu__icon-block">
           <NavLink
+            aria-label="cart"
             to="/cart"
-            className={({ isActive }) => cn('burgerMenu__icon-link', {
-              'burgerMenu__icon-link--active': isActive,
+            className={({ isActive }) => cn('burger-menu__icon-link', {
+              'burger-menu__icon-link--active': isActive,
             })}
             onClick={() => setIsMenuOpened(false)}
           >
-            <div className="burgerMenu__icon burgerMenu__icon--cart"></div>
+            <div className="burger-menu__icon burger-menu__icon--cart"></div>
           </NavLink>
         </div>
       </div>

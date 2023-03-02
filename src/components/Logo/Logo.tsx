@@ -4,7 +4,7 @@ import './Logo.scss';
 import logo from '../../static/Logo.svg';
 
 interface Props {
-  setIsMenuOpened?: React.Dispatch<React.SetStateAction<boolean>>,
+  setIsMenuOpened?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const Logo: React.FC<Props> = memo(({ setIsMenuOpened }) => {

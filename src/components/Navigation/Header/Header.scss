@@ -68,6 +68,11 @@
 
     height: 100%;
     width: 100%;
+
+    border: none;
+    background-color: $color__main;
+
+    cursor: pointer;
   }
 
   &__icons {

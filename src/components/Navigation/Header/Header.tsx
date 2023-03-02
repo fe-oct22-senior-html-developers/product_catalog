@@ -5,7 +5,6 @@ import { Nav } from '../Nav/Nav';
 import { IconBlock } from '../IconBlock';
 import { Logo } from '../../Logo';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
-// import { is } from '@babel/types';
 
 export const Header: React.FC = React.memo(() => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
@@ -13,20 +12,16 @@ export const Header: React.FC = React.memo(() => {
   const handleMenuOpening = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       event.preventDefault();
-      setIsMenuOpened(current => !current);
-    }, [],
+      setIsMenuOpened((current) => !current);
+    },
+    [],
   );
 
-  useEffect(() => {
-    return isMenuOpened
+  useEffect(() => (
+    isMenuOpened
       ? document.body.classList.add('page--with-menu')
-      : document.body.classList.remove('page--with-menu');
-  }, [isMenuOpened]);
-  // const handleMenuClosing = () => {
-  //   setIsMenuOpen(false);
-
-  //   document.body.classList.remove('page--with-menu');
-  // };
+      : document.body.classList.remove('page--with-menu')
+  ), [isMenuOpened]);
 
   return (
     <>
@@ -42,6 +37,7 @@ export const Header: React.FC = React.memo(() => {
 
         <div className="header__menu">
           <button
+            aria-label="menu button"
             type="button"
             className="header__menu-opener"
             onClick={(event) => handleMenuOpening(event)}
