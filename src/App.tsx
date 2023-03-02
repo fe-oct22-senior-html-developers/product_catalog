@@ -16,7 +16,6 @@ export const App: React.FC = () => {
   return (
     <>
       <Header />
-
       <main className="page__main">
         <Routes>
           <Route
