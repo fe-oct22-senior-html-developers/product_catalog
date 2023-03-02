@@ -12,6 +12,7 @@ interface Props {
 export const IconBlock: React.FC<Props> = React.memo(({ iconName, to }) => (
   <div className="iconBlock">
     <NavLink
+      title={iconName}
       aria-label={iconName}
       to={to}
       className={({ isActive }) => cn('iconBlock__link', {

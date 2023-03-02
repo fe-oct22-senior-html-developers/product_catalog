@@ -1,9 +1,10 @@
 @import '../../../sassStyles/colors';
 @import '../../../sassStyles/mixins';
+@import '../../../sassStyles/sizes';
 
 .burger-menu {
   position: fixed;
-  top: 49px;
+  top: $header-height-mobile;
   left: 0;
   right: 0;
   bottom: 0;

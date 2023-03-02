@@ -1,5 +1,6 @@
 @import '../../sassStyles/colors';
 @import '../../sassStyles/mixins';
+@import '../../sassStyles/sizes';
 
 .footer {
   background-color: $color__main;
@@ -10,14 +11,14 @@
     box-sizing: border-box;
     flex-direction: column;
     justify-content: center;
-    height: 260px;
+    height: $footer-height-mobile;
     gap: 32px;
 
     @include onTablet {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      height: 100px;
+      height: $footer-height-tablet;
     }
   }
 

@@ -17,6 +17,7 @@ export const BurgerMenu: React.FC<Props> = memo(
       <div className="burger-menu__icons">
         <div className="burger-menu__icon-block">
           <NavLink
+            title="Favourites"
             aria-label="favourites"
             to="/favourites"
             className={({ isActive }) => cn('burger-menu__icon-link', {
@@ -30,6 +31,7 @@ export const BurgerMenu: React.FC<Props> = memo(
 
         <div className="burger-menu__icon-block">
           <NavLink
+            title="Cart"
             aria-label="cart"
             to="/cart"
             className={({ isActive }) => cn('burger-menu__icon-link', {
