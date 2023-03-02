@@ -2,6 +2,7 @@ import React from 'react';
 import './HomePage.scss';
 import { ShopByCategory } from '../../components/HomePage/ShopByCategory';
 import { PageTitle } from '../../components/PageTitle';
+import { WebSiteTitle } from '../../components/WebSiteTitle';
 
 type Props = {
   pageTitle: string;
@@ -10,6 +11,7 @@ type Props = {
 export const HomePage: React.FC<Props> = ({ pageTitle }) => {
   return (
     <div className="home-page">
+      <WebSiteTitle />
       <div className="container">
         <PageTitle mixClass="home-page__title">{pageTitle}</PageTitle>
       </div>
