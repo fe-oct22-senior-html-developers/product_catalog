@@ -11,11 +11,10 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import { ProductDetailsPage } from './pages/ProductDetailsPage';
 import { ProductPage } from './pages/ProductPage';
 
-export const App: React.FC = () => {
+export const App:React.FC = () => {
   return (
     <>
       <Header />
-
       <main className="page__main">
         <Routes>
           <Route

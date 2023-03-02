@@ -14,7 +14,13 @@ export const Header: React.FC = React.memo(() => {
   ) => {
     event.preventDefault();
 
-    return setIsOpen(!isOpen);
+    if (isOpen) {
+      document.body.classList.remove('page--with-menu');
+    } else {
+      document.body.classList.add('page--with-menu');
+    }
+
+    setIsOpen(!isOpen);
   };
 
   return (

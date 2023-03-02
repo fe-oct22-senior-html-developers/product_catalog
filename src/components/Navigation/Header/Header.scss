@@ -40,25 +40,34 @@
 
     box-shadow: -1px 0px 0px $color__elemets;
 
-    &-icon {
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
-      width: 14px;
-      height: 14px;
-
-      &--closed {
-        background-image: url('../../../static/Header/menu-closed.svg');
-      }
-
-      &--opened {
-        background-image: url('../../../static/Header/menu-opened.svg');
-      }
-    }
-
     @include onTablet {
       display: none;
     }
+  }
+
+  &__menu-icon {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 14px;
+    height: 14px;
+
+    &--closed {
+      background-image: url('../../../static/Header/menu-closed.svg');
+    }
+
+    &--opened {
+      background-image: url('../../../static/Header/menu-opened.svg');
+    }
+  }
+
+  &__menu-opener {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    width: 100%;
   }
 
   &__icons {
