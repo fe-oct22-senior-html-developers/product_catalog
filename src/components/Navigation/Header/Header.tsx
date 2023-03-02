@@ -10,7 +10,9 @@ import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 export const Header: React.FC = React.memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleMenuOpening = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleMenuOpening = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
     event.preventDefault();
     setIsMenuOpen(true);
 
@@ -36,24 +38,23 @@ export const Header: React.FC = React.memo(() => {
         </div>
 
         <div className="header__menu">
-          {isMenuOpen
-            ? (
-              <button
-                type="button"
-                className="header__menu-opener"
-                onClick={() => handleMenuClosing()}
-              >
-                <div className="header__menu-icon header__menu-icon--opened"></div>
-              </button>
-            ) : (
-              <button
-                type="button"
-                className="header__menu-opener"
-                onClick={(event) => handleMenuOpening(event)}
-              >
-                <div className="header__menu-icon header__menu-icon--closed"></div>
-              </button>
-            )}
+          {isMenuOpen ? (
+            <button
+              type="button"
+              className="header__menu-opener"
+              onClick={() => handleMenuClosing()}
+            >
+              <div className="header__menu-icon header__menu-icon--opened"></div>
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="header__menu-opener"
+              onClick={(event) => handleMenuOpening(event)}
+            >
+              <div className="header__menu-icon header__menu-icon--closed"></div>
+            </button>
+          )}
         </div>
 
         <div className="header__icons">
@@ -61,7 +62,10 @@ export const Header: React.FC = React.memo(() => {
           <IconBlock iconName="cart" to="/cart" />
         </div>
       </header>
-      <BurgerMenu isMenuOpen={isMenuOpen} handleMenuClosing={handleMenuClosing} />
+      <BurgerMenu
+        isMenuOpen={isMenuOpen}
+        handleMenuClosing={handleMenuClosing}
+      />
     </>
   );
 });
