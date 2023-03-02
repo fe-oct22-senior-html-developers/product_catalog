@@ -1,0 +1,116 @@
+@import "../../sassStyles/reset";
+@import "../../sassStyles/mixins";
+@import "../../sassStyles/colors";
+
+.card {
+    display: inline-block;
+    max-width: 212px;
+    width: 100%;
+  
+    font-family: "Mone", sans-serif;
+    border: 1px solid $color__elemets;
+    padding: 32px;
+  
+    @include onTablet {
+      max-width: 237px;
+      width: 100%;
+    }
+  
+    @include onDesktop {
+      max-width: 272px;
+      width: 100%;
+    }
+  
+    &__img {
+      height: 129px;
+      width: 100%;
+      display: block;
+      margin: 0 auto;
+      padding-bottom: 24px;
+  
+      object-fit: contain;
+      box-sizing: content-box;
+  
+      @include onTablet {
+        height: 202px;
+      }
+  
+      @include onDesktop {
+        height: 196px;
+      }
+    }
+  
+    &__title {
+      padding-bottom: 8px;
+  
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 21px;
+      color: $color__primary;
+    }
+  
+    &__price {
+      font-size: 22px;
+      font-weight: 800;
+      padding-bottom: 8px;
+  
+      &::after {
+        content: "$899";
+        padding-left: 8px;
+        font-weight: 500;
+        color: $color__secondary;
+        text-decoration: line-through;
+        text-decoration-line: line-through;
+        text-decoration-thickness: 2px;
+      }
+    }
+  
+    &__specifications {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-top: solid 1px;
+      border-color: $color__elemets;
+      padding-top: 16px;
+  
+      &--feature {
+        display: flex;
+        flex-direction: column;
+        font-weight: 700;
+        font-size: 12px;
+      }
+  
+      &--feature:nth-child(2) {
+        align-items: end;
+      }
+  
+      &--feature:first-child span {
+        color: $color__secondary;
+        padding-bottom: 8px;
+      }
+  
+      &--feature:nth-child(2) span {
+        color: $color__primary;
+        padding-bottom: 8px;
+      }
+    }
+  
+    &__footer {
+      display: flex;
+      &--favorites {
+        min-width: 40px;
+        min-height: 40px;
+        margin-left: 8px;
+        border: 1px solid $color__icons;
+        background-image: url("../../static/favorite.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+  
+        &:hover {
+          fill: #5046e5;
+        }
+      }
+    }
+  }
+  

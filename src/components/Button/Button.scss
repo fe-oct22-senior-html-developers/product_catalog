@@ -1,0 +1,18 @@
+@import '../../sassStyles/colors';
+
+.button {
+  width: 100%;
+  height: 40px;
+
+  &__standard {
+    background-color: $color__primary;
+    color: $color__main;
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
+
+.button:hover {
+  cursor: pointer;
+}
