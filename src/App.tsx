@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.scss';
+import { Footer } from './components/Footer';
 
 // Pages
 import { CartPage } from './pages/CartPage';
@@ -44,7 +45,7 @@ export const App: React.FC = () => {
         </Routes>
       </main>
 
-      <footer style={{ fontSize: '24px' }}>Footer</footer>
+      <Footer />
     </>
   );
 };
