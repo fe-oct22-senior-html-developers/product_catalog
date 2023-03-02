@@ -11,7 +11,7 @@ interface Props {
 
 export const BurgerMenu: React.FC<Props> = memo(
   ({ isMenuOpen, setIsMenuOpened }) => (
-    <section
+    <div
       className={cn('burger-menu', { 'burger-menu--active': isMenuOpen })}
     >
       <Nav setIsMenuOpened={setIsMenuOpened} />
@@ -43,6 +43,6 @@ export const BurgerMenu: React.FC<Props> = memo(
           </NavLink>
         </div>
       </div>
-    </section>
+    </div>
   ),
 );
