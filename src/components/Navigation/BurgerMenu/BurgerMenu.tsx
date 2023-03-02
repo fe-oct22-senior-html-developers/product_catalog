@@ -5,13 +5,13 @@ import { NavLink } from 'react-router-dom';
 import { Nav } from '../Nav/Nav';
 
 interface Props {
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isMenuOpen: boolean;
+  handleMenuClosing: () => void;
 }
 
-export const BurgerMenu: React.FC<Props> = memo(({ isOpen, setIsOpen }) => (
-  <section className={cn('burgerMenu', { 'burgerMenu--active': isOpen })}>
-    <Nav setIsOpen={setIsOpen} />
+export const BurgerMenu: React.FC<Props> = memo(({ isMenuOpen, handleMenuClosing }) => (
+  <section className={cn('burgerMenu', { 'burgerMenu--active': isMenuOpen })}>
+    <Nav handleMenuClosing={handleMenuClosing} />
 
     <div className="burgerMenu__icons">
       <div className="burgerMenu__icon-block">
@@ -20,7 +20,7 @@ export const BurgerMenu: React.FC<Props> = memo(({ isOpen, setIsOpen }) => (
           className={({ isActive }) => cn('burgerMenu__icon-link', {
             'burgerMenu__icon-link--active': isActive,
           })}
-          onClick={() => setIsOpen(false)}
+          onClick={() => handleMenuClosing()}
         >
           <div className="burgerMenu__icon burgerMenu__icon--favourites"></div>
         </NavLink>
@@ -32,7 +32,7 @@ export const BurgerMenu: React.FC<Props> = memo(({ isOpen, setIsOpen }) => (
           className={({ isActive }) => cn('burgerMenu__icon-link', {
             'burgerMenu__icon-link--active': isActive,
           })}
-          onClick={() => setIsOpen(false)}
+          onClick={() => handleMenuClosing()}
         >
           <div className="burgerMenu__icon burgerMenu__icon--cart"></div>
         </NavLink>

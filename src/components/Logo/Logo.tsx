@@ -4,12 +4,12 @@ import './Logo.scss';
 import logo from '../../static/Logo.svg';
 
 interface Props {
-  setIsOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+  handleMenuClosing?: () => void;
 }
 
-export const Logo: React.FC<Props> = memo(({ setIsOpen }) => {
-  return setIsOpen ? (
-    <Link className="logo" to="/" onClick={() => setIsOpen(false)}>
+export const Logo: React.FC<Props> = memo(({ handleMenuClosing }) => {
+  return handleMenuClosing ? (
+    <Link className="logo" to="/" onClick={() => handleMenuClosing()}>
       <img src={logo} className="logo__image" alt="NiceGadgets logo" />
     </Link>
   ) : (
