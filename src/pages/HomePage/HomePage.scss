@@ -1,0 +1,15 @@
+@import '../../sassStyles/mixins';
+
+.home-page {
+  &__title {
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 32px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+}

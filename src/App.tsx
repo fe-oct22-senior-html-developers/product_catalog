@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.scss';
+import { Header } from './components/Navigation/Header';
 import { Footer } from './components/Footer';
 
 // Pages
@@ -14,7 +15,7 @@ import { ProductPage } from './pages/ProductPage';
 export const App: React.FC = () => {
   return (
     <>
-      <header style={{ fontSize: '24px' }}>Navigation</header>
+      <Header />
 
       <main className="page__main">
         <Routes>

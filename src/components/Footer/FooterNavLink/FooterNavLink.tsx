@@ -7,7 +7,7 @@ type Props = {
 };
 
 export const FooterNavLink: React.FC<Props> = memo(({ to, text }) => (
-  <a href={to} className="link">
+  <a href={to} className="footer__nav-link">
     {text}
   </a>
 ));

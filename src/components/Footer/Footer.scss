@@ -2,119 +2,123 @@
 @import '../../sassStyles/mixins';
 
 .footer {
-  display: flex;
-  box-sizing: border-box;
   background-color: $color__main;
+  box-shadow: 0px -1px $color__elemets;
 
-  &__shadow {
-    box-shadow: 0px -1px $color__elemets;
+  &__content {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    height: 260px;
+    gap: 32px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 100px;
+    }
   }
 
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  height: 260px;
-  gap: 32px;
-  padding: 32px 16px;
-
-  @include onTablet {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 100px;
-    padding: 32px 24px;
-  }
-
-  @include onDesktop {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-}
-
-.navigation {
-  display: flex;
-
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-
-  padding: 0px;
-
-  @include onTablet {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
+  &__nav {
+    display: flex;
+  
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  
     padding: 0px;
-    gap: 64px;
-  }
-}
-
-.link {
-  text-decoration: none;
-  letter-spacing: 0.04em;
-  color: $color__secondary;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 11px;
-  text-transform: uppercase;
-
-  border-bottom: 1px solid transparent;
-
-  &_back_to_top {
-    font-weight: 600;
+  
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+  
+      padding: 0px;
+      gap: 14px;
+    }
+  
+    @include onDesktop {
+      gap: 107px;
+    }
   }
 
-  transition: all 0.3s ease-in-out;
-
-  &:hover {
-    transform: scale(1.1);
-    border-bottom: 1px solid $color__primary;
+  &__nav-link {
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    color: $color__secondary;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 11px;
+    text-transform: uppercase;
+  
+    border-bottom: 1px solid transparent;
+  
+    &_back_to_top {
+      font-weight: 600;
+    }
+  
+    transition: all 0.3s ease-in-out;
+  
+    &:hover {
+      transform: scale(1.1);
+      border-bottom: 1px solid $color__primary;
+    }
+  
+    &:active {
+      color: $color__elemets;
+    }
   }
 
-  &:active {
-    color: $color__elemets;
-  }
-}
-
-.back_to_top {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  padding: 0px;
-  gap: 16px;
-
-  @include onTablet {
-    justify-content: flex-end;
+  &__back-to-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-  }
-}
-
-.btn {
-  width: 32px;
-  height: 32px;
-  padding: 0px 0px 3px;
-
-  border: 1px solid $color__icons;
-  background-color: $color__main;
-  color: $color__primary;
-
-  transition: all 0.3s ease-in-out;
-
-  &:hover {
-    transform: scale(1.1);
-    box-shadow: 1px 4px 16px 0 #e8e8f066;
+  
+    // margin: 0 auto;
+    padding: 0px;
+    gap: 16px;
+  
+    @include onTablet {
+      justify-content: flex-end;
+      align-items: center;
+    }
   }
 
-  &:active {
-    box-shadow: 1px 4px 16px 0 $color__elemets;
-  }
-
-  &::before {
-    content: url('./FooterButton/stroke.svg');
+  &__back-btn {
     width: 32px;
     height: 32px;
+    padding: 0px 0px 3px;
+  
+    border: 1px solid $color__icons;
+    background-color: $color__main;
+    color: $color__primary;
+  
+    transition: all 0.3s ease-in-out;
+  
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 1px 4px 16px 0 #e8e8f066;
+    }
+  
+    &:active {
+      box-shadow: 1px 4px 16px 0 $color__elemets;
+    }
+  
+    &::before {
+      content: url('../../static/footer/stroke.svg');
+      width: 32px;
+      height: 32px;
+    }
   }
 }
+
+
+
+
+
+
+
+

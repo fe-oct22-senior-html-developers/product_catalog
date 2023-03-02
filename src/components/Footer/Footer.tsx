@@ -6,12 +6,12 @@ import './Footer.scss';
 
 export const Footer: React.FC = memo(() => {
   return (
-    <div className="footer__shadow">
-      <footer className="footer ">
+    <footer className="footer">
+      <div className="footer__content container">
         <Logo />
         <FooterNav />
         <FooterButton />
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 });

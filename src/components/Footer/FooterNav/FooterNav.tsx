@@ -4,13 +4,13 @@ import '../Footer.scss';
 
 export const FooterNav: React.FC = memo(() => {
   return (
-    <div className="navigation">
+    <div className="footer__nav">
       <FooterNavLink
         to="https://github.com/fe-oct22-senior-html-developers/product_catalog"
         text="github"
       />
-      <FooterNavLink to="/contacts" text="contacts" />
-      <FooterNavLink to="/rights" text="rights" />
+      <FooterNavLink to="#" text="contacts" />
+      <FooterNavLink to="#" text="rights" />
     </div>
   );
 });

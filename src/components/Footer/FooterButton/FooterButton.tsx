@@ -4,11 +4,15 @@ import '../Footer.scss';
 
 export const FooterButton: React.FC = memo(() => {
   return (
-    <div className="back_to_top">
-      <a href="/" className="link_back_to_top link">
+    <div className="footer__back-to-top">
+      <a href="/#" className="footer__nav-link">
         Back to top
       </a>
-      <button className="btn" type="button" />
+      <button
+        className="footer__back-btn"
+        type="button"
+        aria-label="Back to top btn"
+      />
     </div>
   );
 });
