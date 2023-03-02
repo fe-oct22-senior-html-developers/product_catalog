@@ -11,9 +11,7 @@ interface Props {
 
 export const BurgerMenu: React.FC<Props> = memo(
   ({ isMenuOpen, setIsMenuOpened }) => (
-    <div
-      className={cn('burger-menu', { 'burger-menu--active': isMenuOpen })}
-    >
+    <div className={cn('burger-menu', { 'burger-menu--active': isMenuOpen })}>
       <Nav setIsMenuOpened={setIsMenuOpened} />
 
       <div className="burger-menu__icons">
