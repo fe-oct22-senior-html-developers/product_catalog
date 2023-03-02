@@ -17,11 +17,12 @@ export const Header: React.FC = React.memo(() => {
     [],
   );
 
-  useEffect(() => (
-    isMenuOpened
+  useEffect(
+    () => (isMenuOpened
       ? document.body.classList.add('page--with-menu')
-      : document.body.classList.remove('page--with-menu')
-  ), [isMenuOpened]);
+      : document.body.classList.remove('page--with-menu')),
+    [isMenuOpened],
+  );
 
   return (
     <>
