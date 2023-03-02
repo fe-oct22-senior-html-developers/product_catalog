@@ -3,25 +3,25 @@ import './Nav.scss';
 import { NavItem } from './NavItem';
 
 interface Props {
-  handleMenuClosing: () => void;
+  setIsMenuOpened: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const Nav: React.FC<Props> = React.memo(({ handleMenuClosing }) => (
+export const Nav: React.FC<Props> = React.memo(({ setIsMenuOpened }) => (
   <nav className="nav">
     <ul className="nav__list">
-      <NavItem handleMenuClosing={handleMenuClosing} title="home" to="/" />
+      <NavItem setIsMenuOpened={setIsMenuOpened} title="home" to="/" />
       <NavItem
-        handleMenuClosing={handleMenuClosing}
+        setIsMenuOpened={setIsMenuOpened}
         title="Phones"
         to="phones"
       />
       <NavItem
-        handleMenuClosing={handleMenuClosing}
+        setIsMenuOpened={setIsMenuOpened}
         title="Tablets"
         to="tablets"
       />
       <NavItem
-        handleMenuClosing={handleMenuClosing}
+        setIsMenuOpened={setIsMenuOpened}
         title="Accessories"
         to="accessories"
       />

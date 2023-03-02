@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-// import cn from 'classnames';
+import React, { useCallback, useEffect, useState } from 'react';
+import cn from 'classnames';
 import './Header.scss';
 import { Nav } from '../Nav/Nav';
 import { IconBlock } from '../IconBlock';
@@ -8,53 +8,52 @@ import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 // import { is } from '@babel/types';
 
 export const Header: React.FC = React.memo(() => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpened, setIsMenuOpened] = useState(false);
 
-  const handleMenuOpening = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-  ) => {
-    event.preventDefault();
-    setIsMenuOpen(true);
+  const handleMenuOpening = useCallback(
+    (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      event.preventDefault();
+      setIsMenuOpened(current => !current);
+    }, [],
+  );
 
-    document.body.classList.add('page--with-menu');
-  };
+  useEffect(() => {
+    return isMenuOpened
+      ? document.body.classList.add('page--with-menu')
+      : document.body.classList.remove('page--with-menu');
+  }, [isMenuOpened]);
+  // const handleMenuClosing = () => {
+  //   setIsMenuOpen(false);
 
-  const handleMenuClosing = () => {
-    setIsMenuOpen(false);
-
-    document.body.classList.remove('page--with-menu');
-  };
+  //   document.body.classList.remove('page--with-menu');
+  // };
 
   return (
     <>
       <header className="header page__header">
         <div className="header__links">
           <div className="header__logo">
-            <Logo handleMenuClosing={handleMenuClosing} />
+            <Logo setIsMenuOpened={setIsMenuOpened} />
           </div>
           <div className="header__nav">
-            <Nav handleMenuClosing={handleMenuClosing} />
+            <Nav setIsMenuOpened={setIsMenuOpened} />
           </div>
         </div>
 
         <div className="header__menu">
-          {isMenuOpen ? (
-            <button
-              type="button"
-              className="header__menu-opener"
-              onClick={() => handleMenuClosing()}
+          <button
+            type="button"
+            className="header__menu-opener"
+            onClick={(event) => handleMenuOpening(event)}
+          >
+            <div
+              className={cn('header__menu-icon', {
+                'header__menu-icon--opened': isMenuOpened,
+                'header__menu-icon--closed': !isMenuOpened,
+              })}
             >
-              <div className="header__menu-icon header__menu-icon--opened"></div>
-            </button>
-          ) : (
-            <button
-              type="button"
-              className="header__menu-opener"
-              onClick={(event) => handleMenuOpening(event)}
-            >
-              <div className="header__menu-icon header__menu-icon--closed"></div>
-            </button>
-          )}
+            </div>
+          </button>
         </div>
 
         <div className="header__icons">
@@ -62,10 +61,7 @@ export const Header: React.FC = React.memo(() => {
           <IconBlock iconName="cart" to="/cart" />
         </div>
       </header>
-      <BurgerMenu
-        isMenuOpen={isMenuOpen}
-        handleMenuClosing={handleMenuClosing}
-      />
+      <BurgerMenu isMenuOpen={isMenuOpened} setIsMenuOpened={setIsMenuOpened} />
     </>
   );
 });
