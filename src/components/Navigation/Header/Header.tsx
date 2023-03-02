@@ -50,7 +50,6 @@ export const Header: React.FC = React.memo(() => {
           <IconBlock iconName="cart" to="/cart" />
         </div>
       </header>
-
       <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
   );
