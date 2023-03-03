@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.bb570c9b.chunk.css",
-    "main.js": "/product_catalog/static/js/main.2e14e275.chunk.js",
-    "main.js.map": "/product_catalog/static/js/main.2e14e275.chunk.js.map",
+    "main.css": "/product_catalog/static/css/main.4edbe480.chunk.css",
+    "main.js": "/product_catalog/static/js/main.52b9ecd9.chunk.js",
+    "main.js.map": "/product_catalog/static/js/main.52b9ecd9.chunk.js.map",
     "runtime-main.js": "/product_catalog/static/js/runtime-main.076c123b.js",
     "runtime-main.js.map": "/product_catalog/static/js/runtime-main.076c123b.js.map",
     "static/js/2.b8af89dc.chunk.js": "/product_catalog/static/js/2.b8af89dc.chunk.js",
     "static/js/2.b8af89dc.chunk.js.map": "/product_catalog/static/js/2.b8af89dc.chunk.js.map",
     "index.html": "/product_catalog/index.html",
-    "static/css/main.bb570c9b.chunk.css.map": "/product_catalog/static/css/main.bb570c9b.chunk.css.map",
+    "static/css/main.4edbe480.chunk.css.map": "/product_catalog/static/css/main.4edbe480.chunk.css.map",
     "static/js/2.b8af89dc.chunk.js.LICENSE.txt": "/product_catalog/static/js/2.b8af89dc.chunk.js.LICENSE.txt",
     "static/media/Logo.3c6bd188.svg": "/product_catalog/static/media/Logo.3c6bd188.svg",
     "static/media/App.scss": "/product_catalog/static/media/Mont-SemiBold.0b5e68eb.ttf",
@@ -22,7 +22,7 @@
   "entrypoints": [
     "static/js/runtime-main.076c123b.js",
     "static/js/2.b8af89dc.chunk.js",
-    "static/css/main.bb570c9b.chunk.css",
-    "static/js/main.2e14e275.chunk.js"
+    "static/css/main.4edbe480.chunk.css",
+    "static/js/main.52b9ecd9.chunk.js"
   ]
 }
