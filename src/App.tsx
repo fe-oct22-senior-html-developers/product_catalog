@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.scss';
 import { Header } from './components/Navigation/Header';
+import { Footer } from './components/Footer';
 
 // Pages
 import { CartPage } from './pages/CartPage';
@@ -15,7 +16,6 @@ export const App: React.FC = () => {
   return (
     <>
       <Header />
-
       <main className="page__main">
         <Routes>
           <Route
@@ -45,7 +45,7 @@ export const App: React.FC = () => {
         </Routes>
       </main>
 
-      <footer style={{ fontSize: '24px' }}>Footer</footer>
+      <Footer />
     </>
   );
 };
