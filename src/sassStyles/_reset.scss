@@ -9,7 +9,8 @@ h3,
 h4,
 ul,
 li,
-p {
+p,
+button {
   margin: 0;
   padding: 0;
 }
@@ -20,4 +21,10 @@ a {
 
 li {
   list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
 }
