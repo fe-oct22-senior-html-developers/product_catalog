@@ -23,22 +23,22 @@
 
   &__nav {
     display: flex;
-  
+
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
-  
+
     padding: 0px;
-  
+
     @include onTablet {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-  
+
       padding: 0px;
       gap: 14px;
     }
-  
+
     @include onDesktop {
       gap: 107px;
     }
@@ -52,20 +52,20 @@
     font-size: 12px;
     line-height: 11px;
     text-transform: uppercase;
-  
+
     border-bottom: 1px solid transparent;
-  
+
     &_back_to_top {
       font-weight: 600;
     }
-  
+
     transition: all 0.3s ease-in-out;
-  
+
     &:hover {
       transform: scale(1.1);
       border-bottom: 1px solid $color__primary;
     }
-  
+
     &:active {
       color: $color__elemets;
     }
@@ -76,11 +76,11 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-  
+
     // margin: 0 auto;
     padding: 0px;
     gap: 16px;
-  
+
     @include onTablet {
       justify-content: flex-end;
       align-items: center;
@@ -91,22 +91,23 @@
     width: 32px;
     height: 32px;
     padding: 0px 0px 3px;
-  
+
     border: 1px solid $color__icons;
     background-color: $color__main;
     color: $color__primary;
-  
+    cursor: pointer;
+
     transition: all 0.3s ease-in-out;
-  
+
     &:hover {
       transform: scale(1.1);
       box-shadow: 1px 4px 16px 0 #e8e8f066;
     }
-  
+
     &:active {
       box-shadow: 1px 4px 16px 0 $color__elemets;
     }
-  
+
     &::before {
       content: url('../../static/footer/stroke.svg');
       width: 32px;
@@ -114,11 +115,3 @@
     }
   }
 }
-
-
-
-
-
-
-
-
