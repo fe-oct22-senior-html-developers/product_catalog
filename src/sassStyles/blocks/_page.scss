@@ -1,15 +1,30 @@
 @import '../mixins';
 
 .page {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
   &__header {
+    position: sticky;
+    top: 0;
+
     margin-bottom: 25px;
+
+    z-index: 1;
   }
 
   &--with-menu {
     overflow: hidden;
 
     @include onTablet {
-      overflow: auto;
+      overflow: visible;
     }
+  }
+
+  &__main {
+    flex-grow: 1;
   }
 }

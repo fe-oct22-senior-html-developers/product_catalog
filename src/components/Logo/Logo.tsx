@@ -9,11 +9,16 @@ interface Props {
 
 export const Logo: React.FC<Props> = memo(({ setIsMenuOpened }) => {
   return setIsMenuOpened ? (
-    <Link className="logo" to="/" onClick={() => setIsMenuOpened(false)}>
+    <Link
+      title="Nice Gadgets - Home Page"
+      className="logo"
+      to="/"
+      onClick={() => setIsMenuOpened(false)}
+    >
       <img src={logo} className="logo__image" alt="NiceGadgets logo" />
     </Link>
   ) : (
-    <Link className="logo" to="/">
+    <Link title="Nice Gadgets - Home Page" className="logo" to="/">
       <img src={logo} className="logo__image" alt="NiceGadgets logo" />
     </Link>
   );
