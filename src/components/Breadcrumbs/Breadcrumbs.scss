@@ -5,21 +5,19 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  // justify-content: center;
-  height: min-content;
   gap: 13px;
 
   &__route {
     display: flex;
     flex-direction: row;
-    // text-transform: ;
   }
 
   &__link {
-    color: $color__secondary;
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
+
+    color: $color__secondary;
 
     transition: color 0.2s ease;
 
@@ -28,26 +26,24 @@
     }
   }
 
-  &__home-icon {
-    // display: flex;
-    // align-items: center;
+  &__icon {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    width: $icon-size;
-    height: $icon-size;
 
-    background-image: url('../../static/Breadcrumbs/Home-icon.svg');
-  }
+    &--home {
+      width: $icon-size;
+      height: $icon-size;
   
-  &__arrow-icon {
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: $color__icons;
-    width: 5px;
-    height: 9px;
-  
-    background-image: url('../../static/Breadcrumbs/Arrow-icon.svg');
+      background-image: url('../../static/Breadcrumbs/Home-icon.svg');
+    }
+
+    &--arrow {
+      color: $color__icons;
+      width: 5px;
+      height: 9px;
+
+      background-image: url('../../static/Breadcrumbs/Arrow-icon.svg');
+    }
   }
 }
