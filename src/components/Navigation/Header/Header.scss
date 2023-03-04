@@ -50,8 +50,8 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    width: 14px;
-    height: 14px;
+    width: $icon-size;
+    height: $icon-size;
 
     &--closed {
       background-image: url('../../../static/Header/menu-closed.svg');

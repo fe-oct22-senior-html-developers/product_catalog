@@ -1,0 +1,53 @@
+@import '../../sassStyles/sizes';
+@import '../../sassStyles/colors';
+
+.breadcrumbs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  // justify-content: center;
+  height: min-content;
+  gap: 13px;
+
+  &__route {
+    display: flex;
+    flex-direction: row;
+    // text-transform: ;
+  }
+
+  &__link {
+    color: $color__secondary;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color__primary;
+    }
+  }
+
+  &__home-icon {
+    // display: flex;
+    // align-items: center;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: $icon-size;
+    height: $icon-size;
+
+    background-image: url('../../static/Breadcrumbs/Home-icon.svg');
+  }
+  
+  &__arrow-icon {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: $color__icons;
+    width: 5px;
+    height: 9px;
+  
+    background-image: url('../../static/Breadcrumbs/Arrow-icon.svg');
+  }
+}

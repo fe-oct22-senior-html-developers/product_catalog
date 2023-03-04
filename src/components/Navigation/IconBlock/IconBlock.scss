@@ -1,5 +1,6 @@
 @import '../../../sassStyles/colors';
 @import '../../../sassStyles/mixins';
+@import '../../../sassStyles/sizes';
 
 .iconBlock {
   display: flex;
@@ -46,8 +47,8 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    width: 14px;
-    height: 100%;
+    width: $icon-size;
+    height: $icon-size;
 
     &--Favourites {
       background-image: url('../../../static/Header/favourites-icon.svg');

@@ -1,0 +1,15 @@
+@import './sizes';
+
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%background-icon {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: $icon-size;
+  height: $icon-size;
+}
