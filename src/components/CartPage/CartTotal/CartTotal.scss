@@ -4,10 +4,6 @@
 .cart-total {
   padding: 24px;
 
-  @include onTablet {
-    margin-bottom: 80px;
-  }
-
   text-align: center;
   border: 1px solid $color__elemets;
 

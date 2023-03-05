@@ -1,5 +1,6 @@
 import React from 'react';
-// import './CartPage.scss';
+
+import './CartPage.scss';
 import { PageTitle } from '../../components/PageTitle';
 import { Cart } from '../../components/CartPage/Cart';
 

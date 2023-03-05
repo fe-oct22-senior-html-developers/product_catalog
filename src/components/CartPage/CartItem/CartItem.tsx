@@ -1,10 +1,11 @@
 import React from 'react';
 import './CartItem.scss';
+import { Link } from 'react-router-dom';
 
-import img from '../../../static/cart/phone.jpg';
-import close from '../../../static/cart/close.svg';
-import minus from '../../../static/cart/minus.svg';
-import plus from '../../../static/cart/plus.svg';
+import Img from '../../../static/cart/phone.jpg';
+import Close from '../../../static/cart/close.svg';
+import Minus from '../../../static/cart/minus.svg';
+import Plus from '../../../static/cart/plus.svg';
 
 import { Phone } from '../Cart/tempData/phone';
 
@@ -17,35 +18,28 @@ export const CartItem: React.FC<Props> = ({ phone }) => {
 
   return (
     <article className="cart-item">
-      {/* grid__item—desktop_1-n */}
       <div className="cart-item__container">
         <button type="button" className="cart-item__close-button">
-          <img src={close} alt="x" />
+          <img src={Close} alt="BUTTON TO REMOVE ITEM FROM CART" />
         </button>
 
-        <img src={img} alt={name} className="cart-item__img" />
+        <img src={Img} alt={name} className="cart-item__img" />
 
-        <a href="/" className="cart-item__title">
+        <Link to="/product/:productId" className="cart-item__title">
           {`${name}`}
-        </a>
+        </Link>
       </div>
 
       <div className="cart-item__container cart-item__container__bottom ">
         <div className="cart-item__counter">
-          <button
-            type="button"
-            className="cart-item__counter-button-minus"
-          >
-            <img src={minus} alt="-" />
+          <button type="button" className="cart-item__counter-button-minus">
+            <img src={Minus} alt="BUTTON TO DELETE 1 MORE ITEM" />
           </button>
 
           <p className="cart-item__counter-number">{1}</p>
 
-          <button
-            type="button"
-            className="cart-item__counter-button-plus"
-          >
-            <img src={plus} alt="+" />
+          <button type="button" className="cart-item__counter-button-plus">
+            <img src={Plus} alt="BUTTON TO ADD 1 MORE ITEM" />
           </button>
         </div>
 

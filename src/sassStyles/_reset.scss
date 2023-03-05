@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  border: none;
 }
 
 body,
@@ -21,3 +22,8 @@ a {
 li {
   list-style: none;
 }
+
+button {
+  cursor: pointer;
+}
+
