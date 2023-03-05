@@ -2,6 +2,7 @@ import React from 'react';
 import './ProductPage.scss';
 import { PageTitle } from '../../components/PageTitle';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
+import { BackButton } from '../../components/BackButton';
 
 type Props = {
   pageTitle: string;
@@ -10,8 +11,9 @@ type Props = {
 export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
   return (
     <div className="product-page">
-      <Breadcrumbs />
       <div className="container">
+        <Breadcrumbs />
+        <BackButton />
         <PageTitle mixClass="product-page__title">{pageTitle}</PageTitle>
       </div>
       <div>Data amount</div>

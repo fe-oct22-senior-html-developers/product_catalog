@@ -3,7 +3,6 @@
 
 .breadcrumbs {
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 13px;
 
@@ -17,9 +16,13 @@
     font-size: 12px;
     line-height: 15px;
 
-    color: $color__secondary;
+    color: $color__primary;
 
     transition: color 0.2s ease;
+
+    &:last-child {
+      color: $color__secondary;
+    }
 
     &:hover {
       color: $color__primary;

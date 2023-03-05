@@ -30,7 +30,7 @@ export const Breadcrumbs: React.FC = memo(() => {
     });
 
   return (
-    <div className="container breadcrumbs page__breadcrumbs">
+    <div className="breadcrumbs page__breadcrumbs">
       <Link
         aria-label="click to go to the home page"
         title="Home page"
