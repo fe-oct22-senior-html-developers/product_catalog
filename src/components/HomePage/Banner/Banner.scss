@@ -1,0 +1,53 @@
+@import '../../../sassStyles/mixins';
+@import '../../../sassStyles/blocks//grid';
+
+.banner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 88px;
+
+  @include onTablet {
+    padding: 0 24px;
+    display: grid;
+    margin-bottom: 96px;
+  }
+
+  &__title {
+    margin: 16px auto 16px auto;
+
+    font-size: 32px;
+    line-height: 41px;
+    font-weight: 800;
+    color: #0f0f11;
+    width: 288px;
+
+    @include onTablet {
+      margin: 56px 0 56px 0;
+      font-size: 48px;
+      line-height: 56px;
+      width: auto;
+    }
+  }
+
+  &__image {
+    display: block;
+    object-fit: cover;
+
+    content: url('../../../static/banner.jpeg');
+
+    @include onTablet {
+      border-radius: 8px;
+
+      & {
+        content: url('../../../static/banner-tablet.jpeg');
+      }
+    }
+
+    @include onDesktop {
+      & {
+        content: url('../../../static/banner-desktop.jpeg');
+      }
+    }
+  }
+}

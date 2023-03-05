@@ -1,0 +1,122 @@
+@import '../../../../sassStyles/colors';
+@import '../../../../sassStyles/mixins';
+@import '../../../../sassStyles/blocks/grid';
+
+// .arrow__preview {
+// //   display: none;
+//   height: 400px;
+//   width: 32px;
+//   position: absolute;
+//   top: 0;
+//   z-index: 1;
+//   border: 1px solid $color__icons;
+//   cursor: pointer;
+
+// //   @include onTablet {
+// //     display: block;
+// //     position: absolute;
+// //   }
+
+
+//   &--left {
+//     background-image: url('../../../../static/arrow-left.svg');
+//     background-repeat: no-repeat;
+//     background-position: center;
+//   }
+
+//   &--right {
+//     background-image: url('../../../../static/arrow-right.svg');
+//     background-repeat: no-repeat;
+//     background-position: center;
+//   }
+// }
+// // .slider-preview {
+// //   // max-width: 1040px;
+// //   width: 100%;
+// //   margin: 0 auto;
+// // }
+
+// .slick-slider {
+// //   grid-column: 2/12;
+
+  
+// }
+
+.slick-dots.slick-thumb {
+  li {
+    margin: 0 6px;
+    width: 14px;
+    height: 4px;
+    background-color: #d1d1d1;
+    &.slick-active {
+      background-color: $color__primary;
+    }
+  }
+}
+
+.slick {
+    @include onTablet {
+      &-prev,
+      &-next {
+        font-size: 0;
+        line-height: 0;
+  
+        position: absolute;
+        top: 49%;
+  
+        display: block;
+        height: 99%;
+        width: 32px;
+        border: 1px solid #b4bdc4;
+        padding: 14px;
+  
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+  
+        cursor: pointer;
+  
+        transition: border 0.3s;
+  
+        color: transparent;
+        outline: none;
+        background: transparent;
+  
+        &:hover {
+          border: 1px solid #0f0f11;
+        }
+      }
+  
+      &-prev {
+        left: -45px;
+        top: 49%;
+        position: absolute;
+        z-index: 1;
+  
+        &::before {
+          content: '';
+          display: block;
+          width: 6px;
+          height: 10px;
+          background-image: url('../../../../static/arrow-left.svg');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+        }
+      }
+  
+      &-next {
+        right: -45px;
+  
+        &::before {
+          content: '';
+          display: block;
+          width: 6px;
+          height: 10px;
+          background-image: url('../../../../static/arrow-right.svg');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+        }
+      }
+    }
+  }

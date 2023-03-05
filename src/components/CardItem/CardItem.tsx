@@ -21,11 +21,7 @@ export const CardItem: React.FC<Props> = ({
 }) => {
   return (
     <div className="card">
-      <img
-        className="card__img"
-        src={image}
-        alt={name}
-      />
+      <img className="card__img" src={image} alt={name} />
 
       <h2 className="card__title">{name}</h2>
       <p className="card__price">{`$${price}`}</p>
