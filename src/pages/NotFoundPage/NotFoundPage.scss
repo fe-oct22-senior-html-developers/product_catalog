@@ -4,7 +4,7 @@
 .not-found-page {
   display: flex;
   flex-direction: column;
-  
+
   &__content {
     margin-bottom: 50px;
 
@@ -20,14 +20,14 @@
   &__text {
     margin-bottom: 35px;
 
-    @include onDesktop{
+    @include onDesktop {
       margin-bottom: 0;
     }
   }
-  
+
   &__title {
     margin-bottom: 24px;
-    
+
     font-family: 'Mont';
     font-style: normal;
     font-weight: 800;
@@ -68,9 +68,9 @@
     color: $color__secondary;
     text-decoration: underline;
     transition: color 0.3s ease;
-    
+
     &:hover {
-      color: $color__primary
+      color: $color__primary;
     }
   }
 
@@ -78,7 +78,7 @@
     display: block;
     margin: 0 auto;
     width: 200px;
-    
+
     @include onTablet {
       width: 380px;
     }
