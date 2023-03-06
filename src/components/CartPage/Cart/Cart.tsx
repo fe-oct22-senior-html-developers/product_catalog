@@ -1,26 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Cart.scss';
-import phonesFromServer from './tempData/phones.json';
-import { Phone } from './tempData/phone';
 import { CartItem } from '../CartItem';
 import { CartTotal } from '../CartTotal';
 import { CartList } from '../CartList';
-
-const phones: Phone[] = phonesFromServer;
-const itemNum = phonesFromServer.length;
+import { GlobalContext } from '../../../contexts/GlobalProvider/GlobalProvider';
 
 export const Cart: React.FC = () => {
+  const { cart } = useContext(GlobalContext);
+
   return (
     <section className="cart page__cart container grid">
       <CartList>
-        {phones.map((phone) => (
-          <li className="cart__list-item" key={phone.id}>
-            <CartItem phone={phone} />
+        {cart.map((cartItem) => (
+          <li className="cart__list-item" key={cartItem.product.itemId}>
+            <CartItem cartItem={cartItem} />
           </li>
         ))}
       </CartList>
 
-      <CartTotal total={1234} itemsNum={itemNum} />
+      <CartTotal total={1234} itemsNum={cart.length} />
     </section>
   );
 };

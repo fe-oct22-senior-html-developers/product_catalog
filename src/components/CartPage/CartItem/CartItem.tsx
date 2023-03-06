@@ -6,21 +6,31 @@ import Img from '../../../static/cart/phone.jpg';
 import Close from '../../../static/cart/close.svg';
 import Minus from '../../../static/cart/minus.svg';
 import Plus from '../../../static/cart/plus.svg';
-
-import { Phone } from '../Cart/tempData/phone';
+import { CartItem as CartItemType } from '../../../types/CartItem';
 
 type Props = {
-  phone: Phone;
+  cartItem: CartItemType;
 };
 
-export const CartItem: React.FC<Props> = ({ phone }) => {
-  const { name, price } = phone;
+export const CartItem: React.FC<Props> = ({ cartItem }) => {
+  const { quantity, product } = cartItem;
+  const { name, price } = product;
+
+  // Тут напиши функції для видалення, зменшення/збільшення кількості
 
   return (
     <article className="cart-item">
       <div className="cart-item__container">
-        <button type="button" className="cart-item__close-button">
-          <img src={Close} alt={`click to remove ${name} from cart`} />
+        <button
+          type="button"
+          className="cart-item__close-button"
+          aria-label={`click to remove ${name} from cart`}
+        >
+          <img
+            src={Close}
+            alt={`click to remove ${name} from cart`}
+            aria-hidden="true"
+          />
         </button>
 
         <img src={Img} alt={name} className="cart-item__img" />
@@ -32,14 +42,22 @@ export const CartItem: React.FC<Props> = ({ phone }) => {
 
       <div className="cart-item__container cart-item__container__bottom ">
         <div className="cart-item__counter">
-          <button type="button" className="cart-item__counter-button-minus">
-            <img src={Minus} alt="decrease quantity by 1" />
+          <button
+            type="button"
+            className="cart-item__counter-button-minus"
+            aria-label="decrease quantity by 1"
+          >
+            <img src={Minus} alt="decrease quantity by 1" aria-hidden="true" />
           </button>
 
-          <p className="cart-item__counter-number">{1}</p>
+          <p className="cart-item__counter-number">{quantity}</p>
 
-          <button type="button" className="cart-item__counter-button-plus">
-            <img src={Plus} alt="increase quantity by 1" />
+          <button
+            type="button"
+            className="cart-item__counter-button-plus"
+            aria-label="increase quantity by 1"
+          >
+            <img src={Plus} alt="increase quantity by 1" aria-hidden="true" />
           </button>
         </div>
 
