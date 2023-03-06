@@ -13,12 +13,6 @@
 
   border: 1px solid $color__elemets;
 
-  margin-bottom: 16px;
-
-  &:last-child {
-    margin-bottom: 28px;
-  }
-
   @include onTablet {
     height: 128px;
     padding: 24px;
