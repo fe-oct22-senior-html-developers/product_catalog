@@ -24,6 +24,18 @@
     }
   }
 
+  &__cart {
+    margin-bottom: 56px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 80px;
+    }
+  }
+
   &__main {
     flex-grow: 1;
   }
