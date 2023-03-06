@@ -1,18 +1,20 @@
 @import '../../../sassStyles/colors';
 @import '../../../sassStyles/mixins';
+@import '../../../sassStyles/sizes';
 
 .header {
   display: flex;
-  position: sticky;
   justify-content: space-between;
   align-items: center;
 
-  height: 48px;
+  height: $header-height-mobile;
 
-  box-shadow: 0px 1px 0px $color__elemets;
+  background-color: $color__main;
+  border-top: 1px solid $color__elemets;
+  border-bottom: 1px solid $color__elemets;
 
   @include onDesktop {
-    height: 64px;
+    height: $header-height-desktop;
   }
 
   &__logo {

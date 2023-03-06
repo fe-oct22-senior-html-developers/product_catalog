@@ -1,5 +1,6 @@
 @import '../../sassStyles/colors';
 @import '../../sassStyles/mixins';
+@import '../../sassStyles/sizes';
 
 .footer {
   background-color: $color__main;
@@ -10,14 +11,14 @@
     box-sizing: border-box;
     flex-direction: column;
     justify-content: center;
-    height: 260px;
+    height: $footer-height-mobile;
     gap: 32px;
 
     @include onTablet {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      height: 100px;
+      height: $footer-height-tablet;
     }
   }
 
@@ -71,47 +72,51 @@
     }
   }
 
-  &__back-to-top {
+  &__btn {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-
-    // margin: 0 auto;
-    padding: 0px;
     gap: 16px;
 
+    width: max-content;
+    margin: 0 auto;
+
     @include onTablet {
-      justify-content: flex-end;
-      align-items: center;
+      margin: 0;
+    }
+
+    &:hover,
+    &:active {
+      .footer__arrow-up {
+        border-color: $color__primary;
+      }
+
+      .footer__back-to-top {
+        color: $color__primary;
+      }
     }
   }
 
-  &__back-btn {
-    width: 32px;
+  &__back-to-top {
+    font-family: 'Mont', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+
+    color: $color__secondary;
+
+    transition-duration: 0.5s;
+  }
+
+  &__arrow-up {
     height: 32px;
-    padding: 0px 0px 3px;
+    width: 32px;
 
     border: 1px solid $color__icons;
-    background-color: $color__main;
-    color: $color__primary;
-    cursor: pointer;
 
-    transition: all 0.3s ease-in-out;
+    background-image: url('../../static/footer/stroke.svg');
+    background-repeat: no-repeat;
+    background-position: center;
 
-    &:hover {
-      transform: scale(1.1);
-      box-shadow: 1px 4px 16px 0 #e8e8f066;
-    }
-
-    &:active {
-      box-shadow: 1px 4px 16px 0 $color__elemets;
-    }
-
-    &::before {
-      content: url('../../static/footer/stroke.svg');
-      width: 32px;
-      height: 32px;
-    }
+    transition-duration: 0.5s;
   }
 }

@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-  border: none;
 }
 
 body,
@@ -10,7 +9,8 @@ h3,
 h4,
 ul,
 li,
-p {
+p,
+button {
   margin: 0;
   padding: 0;
 }
@@ -25,5 +25,6 @@ li {
 
 button {
   cursor: pointer;
+  border: none;
+  background: none;
 }
-
