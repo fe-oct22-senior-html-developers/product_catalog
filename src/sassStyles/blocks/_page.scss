@@ -39,4 +39,18 @@
   &__main {
     flex-grow: 1;
   }
+
+  &__back-button {
+    margin-bottom: 16px;
+  }
+
+  &__alone-back-button {
+    margin-bottom: 24px;
+    padding-top: 0px;
+
+    @include onTablet {
+      margin-bottom: 16px;
+      padding-top: 15px;
+    }
+  }
 }
