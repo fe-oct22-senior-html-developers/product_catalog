@@ -5,10 +5,15 @@
 .iconBlock {
   display: flex;
 
-  width: 48px;
-  height: 100%;
+  width: 100%;
+  height: 64px;
 
-  box-shadow: -1px 0px 0px $color__elemets;
+  box-shadow: -1px 0 0 $color__elemets;
+
+  @include onTablet {
+    width: 48px;
+    height: 100%;
+  }
 
   @include onDesktop {
     width: 64px;
@@ -22,6 +27,7 @@
     position: relative;
 
     width: 100%;
+    height: 100%;
 
     &::after {
       content: '';
