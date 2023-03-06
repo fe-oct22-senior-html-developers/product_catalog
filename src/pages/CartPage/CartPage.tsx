@@ -12,7 +12,6 @@ type Props = {
 export const CartPage: React.FC<Props> = ({ pageTitle }) => {
   return (
     <div className="cart-page">
-      <div>Breadcrumbs</div>
       <div className="container">
         <BackButton isAlone />
         <PageTitle mixClass="cart-page__title">{pageTitle}</PageTitle>
