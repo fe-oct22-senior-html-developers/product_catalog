@@ -1,0 +1,52 @@
+@import '../../sassStyles/sizes';
+@import '../../sassStyles/colors';
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  &__route {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__link {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: $color__primary;
+
+    transition: color 0.2s ease;
+
+    &:last-child {
+      color: $color__secondary;
+    }
+
+    &:hover {
+      color: $color__primary;
+    }
+  }
+
+  &__icon {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &--home {
+      width: $icon-size;
+      height: $icon-size;
+
+      background-image: url('../../static/Breadcrumbs/Home-icon.svg');
+    }
+
+    &--arrow {
+      color: $color__icons;
+      width: 5px;
+      height: 9px;
+
+      background-image: url('../../static/Breadcrumbs/Arrow-icon.svg');
+    }
+  }
+}
