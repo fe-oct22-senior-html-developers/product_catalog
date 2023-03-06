@@ -20,7 +20,7 @@ export const CartItem: React.FC<Props> = ({ phone }) => {
     <article className="cart-item">
       <div className="cart-item__container">
         <button type="button" className="cart-item__close-button">
-          <img src={Close} alt="BUTTON TO REMOVE ITEM FROM CART" />
+          <img src={Close} alt={`click to remove ${name} from cart`} />
         </button>
 
         <img src={Img} alt={name} className="cart-item__img" />
@@ -33,13 +33,13 @@ export const CartItem: React.FC<Props> = ({ phone }) => {
       <div className="cart-item__container cart-item__container__bottom ">
         <div className="cart-item__counter">
           <button type="button" className="cart-item__counter-button-minus">
-            <img src={Minus} alt="BUTTON TO DELETE 1 MORE ITEM" />
+            <img src={Minus} alt="decrease quantity by 1" />
           </button>
 
           <p className="cart-item__counter-number">{1}</p>
 
           <button type="button" className="cart-item__counter-button-plus">
-            <img src={Plus} alt="BUTTON TO ADD 1 MORE ITEM" />
+            <img src={Plus} alt="increase quantity by 1" />
           </button>
         </div>
 

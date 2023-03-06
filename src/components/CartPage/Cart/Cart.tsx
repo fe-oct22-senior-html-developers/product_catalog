@@ -4,6 +4,7 @@ import phonesFromServer from './tempData/phones.json';
 import { Phone } from './tempData/phone';
 import { CartItem } from '../CartItem';
 import { CartTotal } from '../CartTotal';
+import { CartList } from '../CartList';
 
 const phones: Phone[] = phonesFromServer;
 const itemNum = phonesFromServer.length;
@@ -11,16 +12,13 @@ const itemNum = phonesFromServer.length;
 export const Cart: React.FC = () => {
   return (
     <section className="cart page__cart container grid">
-      <div
-        className="
-        cart__list
-        grid__item--tablet_1-12
-        grid__item--desktop_1-16"
-      >
+      <CartList>
         {phones.map((phone) => (
-          <CartItem phone={phone} key={phone.id} />
+          <li className="cart__list-item" key={phone.id}>
+            <CartItem phone={phone} />
+          </li>
         ))}
-      </div>
+      </CartList>
 
       <CartTotal total={1234} itemsNum={itemNum} />
     </section>
