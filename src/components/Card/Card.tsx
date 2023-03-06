@@ -1,23 +1,21 @@
 import React from 'react';
+import { Phone } from '../../types/Phone';
 import './Card.scss';
 
 type Props = {
-  name: string;
-  price: number;
-  screen: string;
-  capacity: string;
-  ram: string;
-  image: string;
+  phone: Phone;
 };
 
-export const Card: React.FC<Props> = ({
-  name,
-  price,
-  screen,
-  capacity,
-  ram,
-  image,
-}) => {
+export const Card: React.FC<Props> = ({ phone }) => {
+  const {
+    image,
+    name,
+    price,
+    screen,
+    capacity,
+    ram,
+  } = phone;
+
   return (
     <article className="card">
       <img className="card__img" src={image} alt={name} />
