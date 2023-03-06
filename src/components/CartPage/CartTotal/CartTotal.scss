@@ -2,6 +2,7 @@
 @import '../../../sassStyles/colors';
 
 .cart-total {
+  height: min-content;
   padding: 24px;
 
   text-align: center;
@@ -22,6 +23,7 @@
     border-bottom: 1px solid $color__elemets;
 
     @include onTablet {
+      padding-bottom: 24px;
       margin-bottom: 25px;
     }
   }

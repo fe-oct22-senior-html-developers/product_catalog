@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import './CartTotal.scss';
 
 interface Props {
@@ -6,9 +6,10 @@ interface Props {
   itemsNum: number;
 }
 
-export const CartTotal: FC<Props> = ({ total = 0, itemsNum = 0 }) => {
+export const CartTotal: React.FC<Props> = ({ total = 0, itemsNum = 0 }) => {
   return (
-    <div className="
+    <div
+      className="
       cart-total
       grid__item--tablet_1-12
       grid__item--desktop_17-24"
