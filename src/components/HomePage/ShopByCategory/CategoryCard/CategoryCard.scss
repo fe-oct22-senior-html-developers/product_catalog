@@ -1,8 +1,11 @@
 @import '../../../../sassStyles/colors';
+@import '../../../../sassStyles/mixins';
 
 .category-card {
-  &:hover &__image {
-    transform: scale(1.05);
+  @include onDesktop {
+    &:hover &__image {
+      transform: scale(1.05);
+    }
   }
 
   &__image {

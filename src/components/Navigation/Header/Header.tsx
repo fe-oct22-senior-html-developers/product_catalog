@@ -4,7 +4,7 @@ import './Header.scss';
 import { Nav } from '../Nav/Nav';
 import { IconBlock } from '../IconBlock';
 import { Logo } from '../../Logo';
-// import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 
 export const Header: React.FC = React.memo(() => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
@@ -38,6 +38,8 @@ export const Header: React.FC = React.memo(() => {
 
         <div className="header__menu">
           <button
+            title="Menu"
+            aria-label="menu button"
             type="button"
             className="header__menu-opener"
             onClick={(event) => handleMenuOpening(event)}
@@ -53,11 +55,11 @@ export const Header: React.FC = React.memo(() => {
         </div>
 
         <div className="header__icons">
-          <IconBlock iconName="favourites" to="/favourites" />
-          <IconBlock iconName="cart" to="/cart" />
+          <IconBlock iconName="Favourites" to="/favourites" />
+          <IconBlock iconName="Cart" to="/cart" />
         </div>
       </header>
-      {/* <BurgerMenu isMenuOpen={isMenuOpened} setIsMenuOpened={setIsMenuOpened} /> */}
+      <BurgerMenu isMenuOpen={isMenuOpened} setIsMenuOpened={setIsMenuOpened} />
     </>
   );
 });

@@ -1,0 +1,122 @@
+@import '../../sassStyles/colors';
+@import '../../sassStyles/mixins';
+@import '../../sassStyles/sizes';
+
+.footer {
+  background-color: $color__main;
+  box-shadow: 0px -1px $color__elemets;
+
+  &__content {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    height: $footer-height-mobile;
+    gap: 32px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: $footer-height-tablet;
+    }
+  }
+
+  &__nav {
+    display: flex;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    padding: 0px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 0px;
+      gap: 14px;
+    }
+
+    @include onDesktop {
+      gap: 107px;
+    }
+  }
+
+  &__nav-link {
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    color: $color__secondary;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 11px;
+    text-transform: uppercase;
+
+    border-bottom: 1px solid transparent;
+
+    &_back_to_top {
+      font-weight: 600;
+    }
+
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+      border-bottom: 1px solid $color__primary;
+    }
+
+    &:active {
+      color: $color__elemets;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    width: max-content;
+    margin: 0 auto;
+
+    @include onTablet {
+      margin: 0;
+    }
+
+    &:hover,
+    &:active {
+      .footer__arrow-up {
+        border-color: $color__primary;
+      }
+
+      .footer__back-to-top {
+        color: $color__primary;
+      }
+    }
+  }
+
+  &__back-to-top {
+    font-family: 'Mont', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+
+    color: $color__secondary;
+
+    transition-duration: 0.5s;
+  }
+
+  &__arrow-up {
+    height: 32px;
+    width: 32px;
+
+    border: 1px solid $color__icons;
+
+    background-image: url('../../static/footer/stroke.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition-duration: 0.5s;
+  }
+}

@@ -1,0 +1,132 @@
+@import '../../../sassStyles/colors';
+@import '../../../sassStyles/mixins';
+
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 160px;
+
+  padding: 16px;
+
+  border: 1px solid $color__elemets;
+
+  @include onTablet {
+    height: 128px;
+    padding: 24px;
+    flex-direction: row;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 100%;
+    gap: 23px;
+
+    @include onTablet {
+      justify-content: space-between;
+      min-width: 220px;
+      gap: 24px;
+    }
+
+    &__bottom {
+      justify-content: space-between;
+    }
+  }
+
+  &__img {
+    display: block;
+    object-fit: scale-down;
+    height: 66px;
+    width: 66px;
+
+    @include onTablet {
+      height: 100%;
+    }
+  }
+
+  &__close-button {
+    border: 0;
+    height: 16px;
+    width: 16px;
+    background-color: $color__main;
+
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__title {
+    display: inline;
+    color: $color__primary;
+    text-decoration: none;
+    text-align: left;
+    word-break: break-all;
+    margin-bottom: 8px;
+    max-height: 80px;
+
+    transition: text-decoration 0.3s ease-in-out;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__price {
+    color: $color__primary;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 140%;
+  }
+
+  &__counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 32px;
+    width: 96px;
+    margin: 8px;
+  }
+
+  &__counter-button-plus {
+    display: flex;
+    height: 32px;
+    width: 32px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $color__icons;
+    background-color: $color__main;
+
+    transition: border-color 0.3s ease-in-out;
+
+    &:hover {
+      border-color: $color__primary;
+    }
+  }
+
+  &__counter-number {
+    text-align: center;
+    color: $color__primary;
+  }
+
+  &__counter-button-minus {
+    display: flex;
+    height: 32px;
+    width: 32px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $color__elemets;
+    background-color: $color__main;
+
+    transition: border-color 0.3s ease-in-out;
+
+    &:hover {
+      border-color: $color__primary;
+    }
+  }
+}
