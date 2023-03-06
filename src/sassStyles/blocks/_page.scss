@@ -24,8 +24,19 @@
     }
   }
 
+   &__cart {
+    margin-bottom: 56px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 80px;
+    }
+  }
+  
   &__main {
-    display: flex;
     flex-grow: 1;
   }
 
@@ -34,20 +45,6 @@
 
     @include onTablet {
       margin-bottom: 40px;
-    }
-  }
-
-  &__back-button {
-    margin-bottom: 16px;
-  }
-
-  &__alone-back-button {
-    margin-bottom: 24px;
-    padding-top: 0px;
-
-    @include onTablet {
-      margin-bottom: 16px;
-      padding-top: 15px;
     }
   }
 }
