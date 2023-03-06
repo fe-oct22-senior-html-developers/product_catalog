@@ -24,7 +24,7 @@
     }
   }
 
-  &__cart {
+   &__cart {
     margin-bottom: 56px;
 
     @include onTablet {
@@ -35,11 +35,19 @@
       margin-bottom: 80px;
     }
   }
-
+  
   &__main {
     flex-grow: 1;
   }
 
+
+  &__breadcrumbs {
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+  }
+  
   &__back-button {
     margin-bottom: 16px;
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import './FavouritesPage.scss';
 import { PageTitle } from '../../components/PageTitle';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
 
 type Props = {
   pageTitle: string;
@@ -9,8 +10,8 @@ type Props = {
 export const FavouritesPage: React.FC<Props> = ({ pageTitle }) => {
   return (
     <div className="favourites-page">
-      <div>Breadcrumbs</div>
       <div className="container">
+        <Breadcrumbs />
         <PageTitle mixClass="favourites-page__title">{pageTitle}</PageTitle>
       </div>
       <div>Amount</div>
