@@ -2,7 +2,8 @@ import React, { ReactNode, useState } from 'react';
 import classNames from 'classnames';
 
 import Slider from 'react-slick';
-import './NewModelsSlider.scss';
+import './SmartphoneSlider.scss';
+import useMediaQuery from './useMediaQuery';
 
 interface ArrowProps {
   onClick?: () => void;
@@ -33,9 +34,25 @@ function SampleNextArrow(props: ArrowProps) {
   );
 }
 
-export const NewModelsSlider: React.FC<SliderCustomProps> = ({ children }) => {
+export const SmartphoneSlider: React.FC<SliderCustomProps> = ({ children }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = React.Children.count(children);
+
+  const matches1 = useMediaQuery('(max-width: 1024px)'); // 3
+  const matches2 = useMediaQuery('(max-width: 740px)'); // 2
+  const matches3 = useMediaQuery('(max-width: 480px)'); // 1
+
+  let cardsCountOnScreen = 0;
+
+  if (matches3) {
+    cardsCountOnScreen = 1.5;
+  } else if (matches2) {
+    cardsCountOnScreen = 2;
+  } else if (matches1) {
+    cardsCountOnScreen = 2.5;
+  } else {
+    cardsCountOnScreen = 4;
+  }
 
   const settings = {
     dots: false,
@@ -46,7 +63,7 @@ export const NewModelsSlider: React.FC<SliderCustomProps> = ({ children }) => {
     initialSlide: 0,
     nextArrow: (
       <SampleNextArrow
-        isDisabled={currentSlide === totalSlides - 4}
+        isDisabled={currentSlide === totalSlides - cardsCountOnScreen}
         onClick={() => setCurrentSlide(currentSlide + 1)}
       />
     ),
@@ -60,12 +77,12 @@ export const NewModelsSlider: React.FC<SliderCustomProps> = ({ children }) => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2.5,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 740,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -74,7 +91,7 @@ export const NewModelsSlider: React.FC<SliderCustomProps> = ({ children }) => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.5,
           slidesToScroll: 1,
         },
       },
@@ -85,7 +102,7 @@ export const NewModelsSlider: React.FC<SliderCustomProps> = ({ children }) => {
   };
 
   return (
-    <Slider {...settings} className="new-models-slider">
+    <Slider {...settings} className="smartphone-slider">
       {children}
     </Slider>
   );

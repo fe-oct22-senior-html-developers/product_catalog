@@ -1,0 +1,25 @@
+@import '../../../sassStyles/mixins';
+
+.hot-prices {
+  margin-bottom: 57px;
+
+  @include onTablet {
+    margin-bottom: 64px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 80px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-size: 22px;
+    line-height: 140%;
+    width: 136px;
+
+    @include onTablet {
+      font-size: 32px;
+      width: auto;
+    }
+  }
+}

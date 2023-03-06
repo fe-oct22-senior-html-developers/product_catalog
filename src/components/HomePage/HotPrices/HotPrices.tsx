@@ -1,17 +1,16 @@
 import React from 'react';
-import { CardItem } from '../../CardItem/CardItem';
-import { PageTitle } from '../../PageTitle';
-// import { NewModelsSlider } from './NewModelsSlider';
 import { SmartphoneSlider } from '../../SmartphoneSlider';
-import './BrandNewModels.scss';
 
 // this import is temporary for testing img
 import PhonesImg from '../../../static/phones/apple-iphone-11-pro-max/gold/00.jpg';
+import { CardItem } from '../../CardItem/CardItem';
+import { PageTitle } from '../../PageTitle';
+import './HotPrices.scss';
 
-export const BrandNewModels = () => {
+export const HotPrices = () => {
   return (
-    <section className="brand-new-models container">
-      <PageTitle mixClass="brand-new-models__title">Brand new models</PageTitle>
+    <section className="hot-prices container">
+      <PageTitle mixClass="hot-prices__title">Hot prices</PageTitle>
       <SmartphoneSlider>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((card) => (
           <CardItem

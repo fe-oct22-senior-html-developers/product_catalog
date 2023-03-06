@@ -5,6 +5,7 @@ import { ShopByCategory } from '../../components/HomePage/ShopByCategory';
 import { WebSiteTitle } from '../../components/WebSiteTitle';
 import { BrandNewModels } from '../../components/HomePage/BrandNewModels';
 import { Banner } from '../../components/HomePage/Banner';
+import { HotPrices } from '../../components/HomePage/HotPrices';
 
 type Props = {
   pageTitle: string;
@@ -17,7 +18,7 @@ export const HomePage: React.FC<Props> = () => {
       <Banner />
       <BrandNewModels />
       <ShopByCategory />
-      <div>Carousel 3</div>
+      <HotPrices />
     </div>
   );
 };

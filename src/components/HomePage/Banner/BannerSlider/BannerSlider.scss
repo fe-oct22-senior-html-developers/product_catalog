@@ -17,7 +17,6 @@
 // //     position: absolute;
 // //   }
 
-
 //   &--left {
 //     background-image: url('../../../../static/arrow-left.svg');
 //     background-repeat: no-repeat;
@@ -39,7 +38,6 @@
 // .slick-slider {
 // //   grid-column: 2/12;
 
-  
 // }
 
 .slick-dots.slick-thumb {
@@ -55,68 +53,68 @@
 }
 
 .slick {
-    @include onTablet {
-      &-prev,
-      &-next {
-        font-size: 0;
-        line-height: 0;
-  
-        position: absolute;
-        top: 49%;
-  
+  @include onTablet {
+    &-prev,
+    &-next {
+      font-size: 0;
+      line-height: 0;
+
+      position: absolute;
+      top: 49%;
+
+      display: block;
+      height: 99%;
+      width: 32px;
+      border: 1px solid #b4bdc4;
+      padding: 14px;
+
+      -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+
+      cursor: pointer;
+
+      transition: border 0.3s;
+
+      color: transparent;
+      outline: none;
+      background: transparent;
+
+      &:hover {
+        border: 1px solid #0f0f11;
+      }
+    }
+
+    &-prev {
+      left: -45px;
+      top: 49%;
+      position: absolute;
+      z-index: 1;
+
+      &::before {
+        content: '';
         display: block;
-        height: 99%;
-        width: 32px;
-        border: 1px solid #b4bdc4;
-        padding: 14px;
-  
-        -ms-transform: translate(0, -50%);
-        transform: translate(0, -50%);
-  
-        cursor: pointer;
-  
-        transition: border 0.3s;
-  
-        color: transparent;
-        outline: none;
-        background: transparent;
-  
-        &:hover {
-          border: 1px solid #0f0f11;
-        }
+        width: 6px;
+        height: 10px;
+        background-image: url('../../../../static/arrow-left.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
       }
-  
-      &-prev {
-        left: -45px;
-        top: 49%;
-        position: absolute;
-        z-index: 1;
-  
-        &::before {
-          content: '';
-          display: block;
-          width: 6px;
-          height: 10px;
-          background-image: url('../../../../static/arrow-left.svg');
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: contain;
-        }
-      }
-  
-      &-next {
-        right: -45px;
-  
-        &::before {
-          content: '';
-          display: block;
-          width: 6px;
-          height: 10px;
-          background-image: url('../../../../static/arrow-right.svg');
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: contain;
-        }
+    }
+
+    &-next {
+      right: -45px;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 6px;
+        height: 10px;
+        background-image: url('../../../../static/arrow-right.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
       }
     }
   }
+}

@@ -9,7 +9,7 @@
     height: 33px;
     right: 60px;
     border: 1px solid grey;
-    background-image: url('../../../../static/arrow-left.svg');
+    background-image: url('../../static/arrow-left.svg');
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -17,13 +17,13 @@
     width: 33px;
     height: 33px;
     border: 1px solid grey;
-    background-image: url('../../../../static/arrow-right.svg');
+    background-image: url('../../static/arrow-right.svg');
     background-repeat: no-repeat;
     background-position: center;
   }
 }
 
-.new-models-slider {
+.smartphone-slider {
   .slick-list {
     margin: 0 -7.7px;
   }
