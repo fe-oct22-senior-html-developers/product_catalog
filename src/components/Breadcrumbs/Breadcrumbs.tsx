@@ -9,7 +9,7 @@ export const Breadcrumbs: React.FC = memo(() => {
 
   const crumbs = location.pathname
     .split('/')
-    .filter(crumb => crumb !== '')
+    .filter((crumb) => crumb !== '')
     .map((crumb) => {
       const preparedCrumb = crumb[0].toUpperCase() + crumb.slice(1);
 
