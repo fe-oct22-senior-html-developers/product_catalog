@@ -7,6 +7,10 @@
 @import './sassStyles/blocks/grid';
 @import './sassStyles/blocks/page';
 
+// Slider
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
 :root {
   font-family: 'Mont', sans-serif;
   scroll-behavior: smooth;
