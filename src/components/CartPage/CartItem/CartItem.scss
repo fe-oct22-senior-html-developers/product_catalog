@@ -53,6 +53,9 @@
     height: 16px;
     width: 16px;
     background-color: $color__main;
+    background-image: url(../../../static/cart/close.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
 
     transition: transform 0.3s ease-in-out;
 
@@ -101,11 +104,20 @@
     align-items: center;
     border: 1px solid $color__icons;
     background-color: $color__main;
+    background-image: url(../../../static/cart/plus.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
 
     transition: border-color 0.3s ease-in-out;
 
     &:hover {
       border-color: $color__primary;
+    }
+
+    &:disabled {
+      border-color: $color__elemets;
+      background-image: url(../../../static/cart/plusdisabled.svg);
+      background-repeat: no-repeat;
     }
   }
 
@@ -122,11 +134,20 @@
     align-items: center;
     border: 1px solid $color__elemets;
     background-color: $color__main;
+    background-image: url(../../../static/cart/minus.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
 
     transition: border-color 0.3s ease-in-out;
 
     &:hover {
       border-color: $color__primary;
+    }
+
+    &:disabled {
+      border-color: $color__elemets;
+      background-image: url(../../../static/cart/minusdisabled.svg);
+      background-repeat: no-repeat;
     }
   }
 }
