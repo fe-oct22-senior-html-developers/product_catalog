@@ -1,8 +1,5 @@
 import React, {
-  useCallback,
-  useEffect,
-  useState,
-  useContext,
+  useCallback, useEffect, useState, useContext,
 } from 'react';
 import cn from 'classnames';
 import './Header.scss';

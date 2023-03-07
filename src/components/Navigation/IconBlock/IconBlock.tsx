@@ -8,15 +8,12 @@ interface Props {
   to: To;
   setIsMenuOpened: React.Dispatch<React.SetStateAction<boolean>>;
   isMenuOpened?: boolean;
-  counter: number,
+  counter: number;
 }
 
 export const IconBlock: React.FC<Props> = React.memo(
   ({
-    iconName,
-    to,
-    setIsMenuOpened,
-    counter,
+    iconName, to, setIsMenuOpened, counter,
   }) => {
     return (
       <div className="icon-block">

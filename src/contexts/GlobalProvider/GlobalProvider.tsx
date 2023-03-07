@@ -111,11 +111,11 @@ type GlobalContextType = {
   cart: CartItem[];
   setCart: React.Dispatch<React.SetStateAction<CartItem[]>>;
   updateCart: (newCart: CartItem[]) => void;
-  cartLength: number,
+  cartLength: number;
   favourites: Phone[];
   setFavourites: React.Dispatch<React.SetStateAction<Phone[]>>;
   updateFavourites: (newFavourites: Phone[]) => void;
-  favouritesLength: number,
+  favouritesLength: number;
 };
 
 export const GlobalContext = React.createContext<GlobalContextType>({
