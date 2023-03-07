@@ -1,0 +1,83 @@
+@import '../../sassStyles/colors';
+@import '../../sassStyles/mixins';
+
+.not-found-page {
+  &__content {
+    margin-bottom: 50px;
+
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0;
+      height: 100%;
+      gap: 60px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 35px;
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    margin-bottom: 24px;
+
+    font-family: 'Mont';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    text-align: center;
+
+    color: $color__primary;
+
+    @include onTablet {
+      margin-bottom: 32px;
+      font-size: 40px;
+    }
+
+    @include onDesktop {
+      max-width: 400px;
+      text-align: start;
+    }
+  }
+
+  &__description {
+    text-align: center;
+    color: $color__primary;
+
+    @include onDesktop {
+      text-align: start;
+    }
+  }
+
+  &__break {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__link {
+    color: $color__secondary;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color__primary;
+    }
+  }
+
+  &__image {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+
+    @include onTablet {
+      width: 380px;
+    }
+  }
+}

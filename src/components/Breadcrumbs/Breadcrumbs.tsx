@@ -17,7 +17,7 @@ export const Breadcrumbs: React.FC = memo(() => {
 
       return (
         <Fragment key={crumb}>
-          <div className="breadcrumbs__arrow-icon"></div>
+          <div className="breadcrumbs__icon breadcrumbs__icon--arrow"></div>
           <Link
             aria-label={`click to go to the ${crumb} page`}
             className="breadcrumbs__link"
@@ -30,14 +30,14 @@ export const Breadcrumbs: React.FC = memo(() => {
     });
 
   return (
-    <div className="container breadcrumbs page__breadcrumbs">
+    <div className="breadcrumbs page__breadcrumbs">
       <Link
         aria-label="click to go to the home page"
         title="Home page"
         to="/"
         className="breadcrumbs__link"
       >
-        <div className="breadcrumbs__home-icon"></div>
+        <div className="breadcrumbs__icon--home breadcrumbs__icon"></div>
       </Link>
       <>{crumbs}</>
     </div>

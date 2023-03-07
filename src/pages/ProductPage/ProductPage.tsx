@@ -10,8 +10,8 @@ type Props = {
 export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
   return (
     <div className="product-page">
-      <Breadcrumbs />
       <div className="container">
+        <Breadcrumbs />
         <PageTitle mixClass="product-page__title">{pageTitle}</PageTitle>
       </div>
       <div>Data amount</div>

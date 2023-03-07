@@ -10,8 +10,8 @@ type Props = {
 export const FavouritesPage: React.FC<Props> = ({ pageTitle }) => {
   return (
     <div className="favourites-page">
-      <Breadcrumbs />
       <div className="container">
+        <Breadcrumbs />
         <PageTitle mixClass="favourites-page__title">{pageTitle}</PageTitle>
       </div>
       <div>Amount</div>

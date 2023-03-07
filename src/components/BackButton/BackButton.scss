@@ -1,0 +1,33 @@
+@import '../../sassStyles/colors';
+@import '../../sassStyles/sizes';
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  width: 66px;
+
+  font-family: 'Mont';
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+  color: $color__secondary;
+
+  transition: gap 0.3s ease;
+
+  &:hover {
+    gap: 5px;
+    color: $color__primary;
+  }
+
+  &__icon {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 5px;
+    height: 9px;
+
+    background-image: url('../../static/BackButton/Arrow-left-icon.svg');
+  }
+}
