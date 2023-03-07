@@ -1,8 +1,9 @@
+/* eslint-disable react/jsx-closing-tag-location */
 import React, { useContext, useEffect, useState } from 'react';
 import './CartItem.scss';
 import { Link } from 'react-router-dom';
 
-import Img from '../../../static/cart/phone.jpg';
+// import Img from '../../../static/cart/phone.jpg';
 import { CartItem as CartItemType } from '../../../types/CartItem';
 import { GlobalContext } from '../../../contexts/GlobalProvider/GlobalProvider';
 
@@ -12,7 +13,8 @@ type Props = {
 
 export const CartItem: React.FC<Props> = ({ cartItem }) => {
   const { quantity, product } = cartItem;
-  const { id, name, price } = product;
+  // eslint-disable-next-line object-curly-newline
+  const { id, name, price, image } = product;
   const { cart, updateCart } = useContext(GlobalContext);
 
   const [isDisabled, setIsDisabled] = useState(false);
@@ -82,10 +84,9 @@ export const CartItem: React.FC<Props> = ({ cartItem }) => {
           className="cart-item__close-button"
           aria-label={`click to remove ${name} from cart`}
           onClick={() => removeCompletelyItemFromLocalStorage()}
-        >
-        </button>
+        ></button>
 
-        <img src={Img} alt={name} className="cart-item__img" />
+        <img src={image} alt={name} className="cart-item__img" />
 
         <Link to="/product/:productId" className="cart-item__title">
           {`${name}`}
@@ -100,8 +101,7 @@ export const CartItem: React.FC<Props> = ({ cartItem }) => {
             aria-label="decrease quantity by 1"
             onClick={() => removeOneItemFromLocalStorage()}
             disabled={isDisabled}
-          >
-          </button>
+          ></button>
 
           <p className="cart-item__counter-number">{quantity}</p>
 
@@ -111,8 +111,7 @@ export const CartItem: React.FC<Props> = ({ cartItem }) => {
             aria-label="increase quantity by 1"
             onClick={() => addOneItemToLocalStorage()}
             disabled={isLimit}
-          >
-          </button>
+          ></button>
         </div>
 
         <p className="cart-item__price">{`$${quantity * price}`}</p>
