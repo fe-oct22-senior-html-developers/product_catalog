@@ -72,12 +72,20 @@ export const Card: React.FC<Props> = ({ phone }) => {
           Add to cart
         </button>
         {!isFavourite ? (
-          <button type="button" onClick={() => addToFavourites()}>
-            <div className="card__footer--favorites">123</div>
+          <button
+            type="button"
+            onClick={() => addToFavourites()}
+            className="card__fav-button"
+          >
+            <div className="card__fav-icon card__fav-icon--pasive"></div>
           </button>
         ) : (
-          <button type="button" onClick={() => removeFromFavourites()}>
-            <div className="card__footer--favorites"></div>
+          <button
+            type="button"
+            onClick={() => removeFromFavourites()}
+            className="card__fav-button"
+          >
+            <div className="card__fav-icon card__fav-icon--active"></div>
           </button>
         )}
       </div>
