@@ -114,7 +114,7 @@ type GlobalContextType = {
   favourites: Phone[];
   setFavourites: React.Dispatch<React.SetStateAction<Phone[]>>;
   updateFavourites: (newFavourites: Phone[]) => void;
-  favouritesLength: number,
+  favouritesLength: number;
 };
 
 export const GlobalContext = React.createContext<GlobalContextType>({

@@ -9,9 +9,7 @@ export const Favourites: React.FC = () => {
 
   return (
     <section className="favourites">
-      <div className="favourites__amount">
-        {`${favouritesLength} items`}
-      </div>
+      <div className="favourites__amount">{`${favouritesLength} items`}</div>
       <FavouritesList>
         {favourites.map((favouritesItem) => (
           <li className="favourites__list-item" key={favouritesItem.itemId}>

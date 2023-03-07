@@ -97,11 +97,9 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
       <div>Sorting</div>
       <div>Datalist</div>
       <div>Pagination</div>
-      {
-        phones.map(phone => (
-          <Card phone={phone} key={phone.id} />
-        ))
-      }
+      {phones.map((phone) => (
+        <Card phone={phone} key={phone.id} />
+      ))}
     </div>
   );
 };
