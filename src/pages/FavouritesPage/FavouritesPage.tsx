@@ -2,6 +2,7 @@ import React from 'react';
 import './FavouritesPage.scss';
 import { PageTitle } from '../../components/PageTitle';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
+import { Favourites } from '../../components/FavouritesPage/Favourites/Fvourites';
 
 type Props = {
   pageTitle: string;
@@ -16,6 +17,7 @@ export const FavouritesPage: React.FC<Props> = ({ pageTitle }) => {
       </div>
       <div>Amount</div>
       <div>Favourites cards</div>
+      <Favourites />
     </div>
   );
 };

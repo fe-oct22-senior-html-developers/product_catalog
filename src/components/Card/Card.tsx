@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { GlobalContext } from '../../contexts/GlobalProvider/GlobalProvider';
 import { Phone } from '../../types/Phone';
 import './Card.scss';
 
@@ -15,6 +16,8 @@ export const Card: React.FC<Props> = ({ phone }) => {
     capacity,
     ram,
   } = phone;
+
+  const { updateFavourites } = useContext(GlobalContext);
 
   return (
     <article className="card">
@@ -40,10 +43,18 @@ export const Card: React.FC<Props> = ({ phone }) => {
       </div>
 
       <div className="card__footer">
-        <button type="button" className="card__button">
+        <button
+          type="button"
+          className="card__button"
+        >
           Add to cart
         </button>
-        <div className="card__footer--favorites"></div>
+        <button
+          type="button"
+          onClick={() => updateFavourites([phone])}
+        >
+          <div className="card__footer--favorites"></div>
+        </button>
       </div>
     </article>
   );
