@@ -7,7 +7,7 @@
   display: inline-block;
   min-width: 180px;
   // max-width: 212px;
-  width: 100%;
+  min-width: 100%;
 
   border: 1px solid $color__elemets;
   padding: 32px;
