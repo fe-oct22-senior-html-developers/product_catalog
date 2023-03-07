@@ -4,26 +4,28 @@ import './Card.scss';
 
 type Props = {
   phone: Phone;
+  mixClass: string;
 };
 
-export const Card: React.FC<Props> = ({ phone }) => {
+export const Card: React.FC<Props> = ({ phone, mixClass }) => {
   const {
     image,
     name,
     price,
+    fullPrice,
     screen,
     capacity,
     ram,
   } = phone;
 
   return (
-    <article className="card">
+    <article className={`card ${mixClass}`}>
       <img className="card__img" src={image} alt={name} />
 
       <h4 className="card__title">{name}</h4>
       <div className="card__prices">
         <span className="card__prices--price">{`$${price}`}</span>
-        <span className="card__prices--old-price">{`$${price}`}</span>
+        <span className="card__prices--old-price">{`$${fullPrice}`}</span>
       </div>
 
       <div className="card__specifications">
