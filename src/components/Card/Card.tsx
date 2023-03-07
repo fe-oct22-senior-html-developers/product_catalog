@@ -30,7 +30,7 @@ export const Card: React.FC<Props> = ({ phone }) => {
 
   function generateCartId(elements: CartItem[]) {
     return elements.length > 0
-      ? Math.max(...elements.map(element => element.id)) + 1
+      ? Math.max(...elements.map((element) => element.id)) + 1
       : 0;
   }
 
@@ -78,16 +78,19 @@ export const Card: React.FC<Props> = ({ phone }) => {
       </div>
 
       <div className="card__footer">
-        {!isAddedToCart
-          ? (
-            <button type="button" className="card__button" onClick={addToCart}>
-              Add to cart
-            </button>
-          ) : (
-            <button type="button" className="card__button card__button--active" onClick={removeFromCart}>
-              Added to cart
-            </button>
-          )}
+        {!isAddedToCart ? (
+          <button type="button" className="card__button" onClick={addToCart}>
+            Add to cart
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="card__button card__button--active"
+            onClick={removeFromCart}
+          >
+            Added to cart
+          </button>
+        )}
         <div className="card__footer--favorites"></div>
       </div>
     </article>
