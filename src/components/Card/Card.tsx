@@ -9,14 +9,23 @@ type Props = {
 
 export const Card: React.FC<Props> = ({ phone, mixClass }) => {
   const {
-    image, name, price, fullPrice, screen, capacity, ram,
+    image,
+    name,
+    price,
+    fullPrice,
+    screen,
+    capacity,
+    ram,
   } = phone;
 
   return (
     <article className={`card ${mixClass}`}>
-      <img className="card__img" src={image} alt={name} />
+      <div>
+        <img className="card__img" src={image} alt={name} />
 
-      <h4 className="card__title">{name}</h4>
+        <h4 className="card__title">{name}</h4>
+      </div>
+
       <div className="card__prices">
         <span className="card__prices--price">{`$${price}`}</span>
         <span className="card__prices--old-price">{`$${fullPrice}`}</span>
