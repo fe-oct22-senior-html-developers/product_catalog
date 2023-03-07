@@ -18,16 +18,15 @@ export const Card: React.FC<Props> = ({ phone }) => {
 
   const newFavourites = favourites;
 
-  const isFavouritesIncludes = favourites.find(fav => fav.itemId === phone.itemId);
-
-  useEffect(
-    () => {
-      if (isFavouritesIncludes) {
-        setIsFavourite(true);
-      }
-    },
-    [isFavourite],
+  const isFavouritesIncludes = favourites.find(
+    (fav) => fav.itemId === phone.itemId,
   );
+
+  useEffect(() => {
+    if (isFavouritesIncludes) {
+      setIsFavourite(true);
+    }
+  }, [isFavourite]);
 
   const addToFavourites = () => {
     newFavourites.push(phone);
@@ -37,7 +36,9 @@ export const Card: React.FC<Props> = ({ phone }) => {
   };
 
   const removeFromFavourites = () => {
-    const filteredFavourites = newFavourites.filter(fav => fav.itemId !== phone.itemId);
+    const filteredFavourites = newFavourites.filter(
+      (fav) => fav.itemId !== phone.itemId,
+    );
 
     updateFavourites(filteredFavourites);
     setIsFavourite(false);
@@ -70,16 +71,15 @@ export const Card: React.FC<Props> = ({ phone }) => {
         <button type="button" className="card__button">
           Add to cart
         </button>
-        {!isFavourite
-          ? (
-            <button type="button" onClick={() => addToFavourites()}>
-              <div className="card__footer--favorites">123</div>
-            </button>
-          ) : (
-            <button type="button" onClick={() => removeFromFavourites()}>
-              <div className="card__footer--favorites"></div>
-            </button>
-          )}
+        {!isFavourite ? (
+          <button type="button" onClick={() => addToFavourites()}>
+            <div className="card__footer--favorites">123</div>
+          </button>
+        ) : (
+          <button type="button" onClick={() => removeFromFavourites()}>
+            <div className="card__footer--favorites"></div>
+          </button>
+        )}
       </div>
     </article>
   );
