@@ -14,11 +14,9 @@ export const Card: React.FC<Props> = ({ phone, mixClass }) => {
   const { image, name, price, fullPrice, screen, capacity, ram } = phone;
 
   const {
-    cart,
-    updateCart,
-    favourites,
-    updateFavourites,
-  } = useContext(GlobalContext);
+    cart, updateCart, favourites, updateFavourites,
+  }
+    = useContext(GlobalContext);
 
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const [isFavourite, setIsFavourite] = useState(false);
@@ -120,11 +118,7 @@ export const Card: React.FC<Props> = ({ phone, mixClass }) => {
 
       <div className="card__footer">
         {!isAddedToCart ? (
-          <button
-            type="button"
-            className="card__button"
-            onClick={addToCart}
-          >
+          <button type="button" className="card__button" onClick={addToCart}>
             Add to cart
           </button>
         ) : (

@@ -9,5 +9,5 @@ type Props = {
 
 export const FavouritesItem: React.FC<Props> = ({ favouritesItem }) => {
   // Тут напиши функції для видалення, зменшення/збільшення кількості
-  return <Card phone={favouritesItem} />;
+  return <Card phone={favouritesItem} mixClass="" />;
 };
