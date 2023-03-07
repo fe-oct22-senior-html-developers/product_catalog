@@ -2,7 +2,7 @@
 @import '../../../sassStyles/mixins';
 @import '../../../sassStyles/sizes';
 
-.iconBlock {
+.icon-block {
   display: flex;
 
   width: 100%;
@@ -49,6 +49,7 @@
   }
 
   &__icon {
+    position: relative;
     display: flex;
     background-size: contain;
     background-position: center;
@@ -63,5 +64,32 @@
     &--Cart {
       background-image: url('../../../static/Header/cart-icon.svg');
     }
+  }
+
+  &__counter {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+
+    width: 14px;
+    height: 14px;
+
+    background-color: $color__accent--bg;
+
+    border: 1px solid $color__main;
+    border-radius: 50%;
+  }
+
+  &__number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    color: $color__main;
+    font-weight: 600;
+    font-size: 9px;
   }
 }
