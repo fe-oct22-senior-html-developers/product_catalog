@@ -10,15 +10,8 @@ type Props = {
 };
 
 export const Card: React.FC<Props> = ({ phone, mixClass }) => {
-  const {
-    image,
-    name,
-    price,
-    fullPrice,
-    screen,
-    capacity,
-    ram,
-  } = phone;
+  // eslint-disable-next-line object-curly-newline
+  const { image, name, price, fullPrice, screen, capacity, ram } = phone;
 
   const { cart, updateCart } = useContext(GlobalContext);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
