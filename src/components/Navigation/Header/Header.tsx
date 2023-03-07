@@ -1,12 +1,16 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {
+  useCallback, useEffect, useState,
+} from 'react';
 import cn from 'classnames';
 import './Header.scss';
 import { Nav } from '../Nav/Nav';
 import { IconBlock } from '../IconBlock';
 import { Logo } from '../../Logo';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+// import { GlobalContext } from '../../../contexts/GlobalProvider/GlobalProvider';
 
 export const Header: React.FC = React.memo(() => {
+  // const { cart } = useContext(GlobalContext);
   const [isMenuOpened, setIsMenuOpened] = useState(false);
 
   const handleMenuOpening = useCallback(
