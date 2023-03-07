@@ -1,6 +1,4 @@
-import React, {
-  useCallback, useEffect, useState,
-} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import cn from 'classnames';
 import './Header.scss';
 import { Nav } from '../Nav/Nav';
