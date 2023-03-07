@@ -101,9 +101,15 @@
 
     background-color: $color__primary;
     color: $color__main;
-    border: none;
+    border: 1px solid transparent;
     font-size: 14px;
     font-weight: 700;
+
+    &--active {
+      background-color: $color__main;
+      color: $color__accent--text;
+      border: 1px solid #e2e6e9;
+    }
   }
 
   &__footer {
@@ -133,6 +139,21 @@
 
     &--active {
       background-image: url('../../static/Card/favourite-active.svg');
+    }
+  }
+
+  &--slider {
+    min-width: 212px;
+    max-width: none;
+
+    @include onTablet {
+      min-width: 237px;
+      max-width: none;
+    }
+
+    @include onDesktop {
+      min-width: 272px;
+      max-width: none;
     }
   }
 }

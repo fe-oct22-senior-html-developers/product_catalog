@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './CartItem.scss';
 import { Link } from 'react-router-dom';
 
 import Img from '../../../static/cart/phone.jpg';
-import Close from '../../../static/cart/close.svg';
-import Minus from '../../../static/cart/minus.svg';
-import Plus from '../../../static/cart/plus.svg';
 import { CartItem as CartItemType } from '../../../types/CartItem';
+import { GlobalContext } from '../../../contexts/GlobalProvider/GlobalProvider';
 
 type Props = {
   cartItem: CartItemType;
@@ -14,9 +12,67 @@ type Props = {
 
 export const CartItem: React.FC<Props> = ({ cartItem }) => {
   const { quantity, product } = cartItem;
-  const { name, price } = product;
+  const { id, name, price } = product;
+  const { cart, updateCart } = useContext(GlobalContext);
 
-  // Тут напиши функції для видалення, зменшення/збільшення кількості
+  const [isDisabled, setIsDisabled] = useState(false);
+  const [isLimit, setIsLimit] = useState(false);
+
+  useEffect(() => {
+    if (quantity === 1) {
+      setIsDisabled(true);
+    }
+
+    if (quantity > 1) {
+      setIsDisabled(false);
+    }
+  }, [quantity]);
+
+  useEffect(() => {
+    if (quantity === 10) {
+      setIsLimit(true);
+    }
+
+    if (quantity < 10) {
+      setIsLimit(false);
+    }
+  }, [quantity]);
+
+  const addOneItemToLocalStorage = () => {
+    const updatedCart = cart.map((item) => {
+      if (item.product.id === id) {
+        return {
+          ...item,
+          quantity: item.quantity + 1,
+        };
+      }
+
+      return item;
+    });
+
+    updateCart(updatedCart);
+  };
+
+  const removeOneItemFromLocalStorage = () => {
+    const updatedCart = cart.map((item) => {
+      if (item.product.id === id) {
+        return {
+          ...item,
+          quantity: item.quantity - 1,
+        };
+      }
+
+      return item;
+    });
+
+    updateCart(updatedCart);
+  };
+
+  const removeCompletelyItemFromLocalStorage = () => {
+    const updatedCart = cart.filter((item) => item.product.id !== id);
+
+    updateCart(updatedCart);
+  };
 
   return (
     <article className="cart-item">
@@ -25,12 +81,8 @@ export const CartItem: React.FC<Props> = ({ cartItem }) => {
           type="button"
           className="cart-item__close-button"
           aria-label={`click to remove ${name} from cart`}
+          onClick={() => removeCompletelyItemFromLocalStorage()}
         >
-          <img
-            src={Close}
-            alt={`click to remove ${name} from cart`}
-            aria-hidden="true"
-          />
         </button>
 
         <img src={Img} alt={name} className="cart-item__img" />
@@ -46,8 +98,9 @@ export const CartItem: React.FC<Props> = ({ cartItem }) => {
             type="button"
             className="cart-item__counter-button-minus"
             aria-label="decrease quantity by 1"
+            onClick={() => removeOneItemFromLocalStorage()}
+            disabled={isDisabled}
           >
-            <img src={Minus} alt="decrease quantity by 1" aria-hidden="true" />
           </button>
 
           <p className="cart-item__counter-number">{quantity}</p>
@@ -56,12 +109,13 @@ export const CartItem: React.FC<Props> = ({ cartItem }) => {
             type="button"
             className="cart-item__counter-button-plus"
             aria-label="increase quantity by 1"
+            onClick={() => addOneItemToLocalStorage()}
+            disabled={isLimit}
           >
-            <img src={Plus} alt="increase quantity by 1" aria-hidden="true" />
           </button>
         </div>
 
-        <p className="cart-item__price">{`$${price}`}</p>
+        <p className="cart-item__price">{`$${quantity * price}`}</p>
       </div>
     </article>
   );
