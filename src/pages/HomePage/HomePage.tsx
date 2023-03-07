@@ -4,6 +4,8 @@ import { ShopByCategory } from '../../components/HomePage/ShopByCategory';
 import { PageTitle } from '../../components/PageTitle';
 import { WebSiteTitle } from '../../components/WebSiteTitle';
 import { Banner } from '../../components/Banner';
+import { BrandNewModels } from '../../components/HomePage/BrandNewModels';
+import { HotPrices } from '../../components/HomePage/HotPrices';
 
 type Props = {
   pageTitle: string;
@@ -17,9 +19,9 @@ export const HomePage: React.FC<Props> = ({ pageTitle }) => {
         <PageTitle mixClass="home-page__title">{pageTitle}</PageTitle>
       </div>
       <Banner />
-      <div>Carousel 2</div>
+      <BrandNewModels />
       <ShopByCategory />
-      <div>Carousel 3</div>
+      <HotPrices />
     </div>
   );
 };

@@ -6,11 +6,18 @@ import './Card.scss';
 
 type Props = {
   phone: Phone;
+  mixClass: string;
 };
 
-export const Card: React.FC<Props> = ({ phone }) => {
+export const Card: React.FC<Props> = ({ phone, mixClass }) => {
   const {
-    image, name, price, screen, capacity, ram,
+    image,
+    name,
+    price,
+    fullPrice,
+    screen,
+    capacity,
+    ram,
   } = phone;
 
   const { cart, updateCart } = useContext(GlobalContext);
@@ -55,13 +62,16 @@ export const Card: React.FC<Props> = ({ phone }) => {
   };
 
   return (
-    <article className="card">
-      <img className="card__img" src={image} alt={name} />
+    <article className={`card ${mixClass}`}>
+      <div>
+        <img className="card__img" src={image} alt={name} />
 
-      <h4 className="card__title">{name}</h4>
+        <h4 className="card__title">{name}</h4>
+      </div>
+
       <div className="card__prices">
         <span className="card__prices--price">{`$${price}`}</span>
-        <span className="card__prices--old-price">{`$${price}`}</span>
+        <span className="card__prices--old-price">{`$${fullPrice}`}</span>
       </div>
 
       <div className="card__specifications">

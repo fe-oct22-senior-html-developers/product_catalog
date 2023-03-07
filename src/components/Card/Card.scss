@@ -128,4 +128,19 @@
       }
     }
   }
+
+  &--slider {
+    min-width: 212px;
+    max-width: none;
+
+    @include onTablet {
+      min-width: 237px;
+      max-width: none;
+    }
+
+    @include onDesktop {
+      min-width: 272px;
+      max-width: none;
+    }
+  }
 }
