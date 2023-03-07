@@ -5,14 +5,16 @@
 
 .card {
   display: inline-block;
-  max-width: 212px;
-  width: 100%;
+  min-width: 180px;
+  // max-width: 212px;
+  min-width: 100%;
 
   border: 1px solid $color__elemets;
   padding: 32px;
 
   @include onTablet {
-    max-width: 237px;
+    // max-width: 237px;
+
     width: 100%;
   }
 
