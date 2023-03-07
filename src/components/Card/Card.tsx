@@ -15,8 +15,7 @@ export const Card: React.FC<Props> = ({ phone, mixClass }) => {
 
   const {
     cart, updateCart, favourites, updateFavourites,
-  }
-    = useContext(GlobalContext);
+  } = useContext(GlobalContext);
 
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const [isFavourite, setIsFavourite] = useState(false);
@@ -41,12 +40,6 @@ export const Card: React.FC<Props> = ({ phone, mixClass }) => {
       setIsFavourite(true);
     }
   }, [isAddedToCart, isFavourite]);
-
-  // useEffect(() => {
-  //   if (isFavouritesIncludes) {
-  //     setIsFavourite(true);
-  //   }
-  // }, [isFavourite]);
 
   function generateCartId(elements: CartItem[]) {
     return elements.length > 0

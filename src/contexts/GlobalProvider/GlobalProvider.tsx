@@ -11,18 +11,22 @@ type GlobalContextType = {
   cart: CartItem[];
   setCart: React.Dispatch<React.SetStateAction<CartItem[]>>;
   updateCart: (newCart: CartItem[]) => void;
+  cartLength: number;
   favourites: Phone[];
   setFavourites: React.Dispatch<React.SetStateAction<Phone[]>>;
   updateFavourites: (newFavourites: Phone[]) => void;
+  favouritesLength: number;
 };
 
 export const GlobalContext = React.createContext<GlobalContextType>({
   cart: [],
   setCart: () => {},
   updateCart: () => {},
+  cartLength: 0,
   favourites: [],
   setFavourites: () => {},
   updateFavourites: () => {},
+  favouritesLength: 0,
 });
 
 export const GlobalProvider: React.FC<Props> = ({ children }) => {
@@ -44,14 +48,19 @@ export const GlobalProvider: React.FC<Props> = ({ children }) => {
     localStorage.setItem('favourites', JSON.stringify(newFavourites));
   }, []);
 
+  const cartLength = cart.length;
+  const favouritesLength = favourites.length;
+
   const contextValue = useMemo(
     () => ({
       cart,
       setCart,
       updateCart,
+      cartLength,
       favourites,
       setFavourites,
       updateFavourites,
+      favouritesLength,
     }),
     [cart, favourites],
   );
