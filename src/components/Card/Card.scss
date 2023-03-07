@@ -6,7 +6,7 @@
 .card {
   display: inline-block;
   min-width: 180px;
-  max-width: 212px;
+  // max-width: 212px;
   width: 100%;
 
   border: 1px solid $color__elemets;
@@ -19,7 +19,7 @@
   }
 
   @include onDesktop {
-    // max-width: 272px;
+    max-width: 272px;
     width: 100%;
   }
 
