@@ -114,6 +114,7 @@ type GlobalContextType = {
   favourites: Phone[];
   setFavourites: React.Dispatch<React.SetStateAction<Phone[]>>;
   updateFavourites: (newFavourites: Phone[]) => void;
+  favouritesLength: number,
 };
 
 export const GlobalContext = React.createContext<GlobalContextType>({
@@ -123,6 +124,7 @@ export const GlobalContext = React.createContext<GlobalContextType>({
   favourites: [],
   setFavourites: () => {},
   updateFavourites: () => {},
+  favouritesLength: 0,
 });
 
 export const GlobalProvider: React.FC<Props> = ({ children }) => {
@@ -144,6 +146,8 @@ export const GlobalProvider: React.FC<Props> = ({ children }) => {
     localStorage.setItem('favourites', JSON.stringify(newFavourites));
   }, []);
 
+  const favouritesLength = favourites.length;
+
   const contextValue = useMemo(
     () => ({
       cart,
@@ -152,6 +156,7 @@ export const GlobalProvider: React.FC<Props> = ({ children }) => {
       favourites,
       setFavourites,
       updateFavourites,
+      favouritesLength,
     }),
     [cart, favourites],
   );

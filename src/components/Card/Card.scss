@@ -5,6 +5,7 @@
 
 .card {
   display: inline-block;
+  min-width: 180px;
   max-width: 212px;
   width: 100%;
 
@@ -12,12 +13,13 @@
   padding: 32px;
 
   @include onTablet {
-    max-width: 237px;
+    // max-width: 237px;
+
     width: 100%;
   }
 
   @include onDesktop {
-    max-width: 272px;
+    // max-width: 272px;
     width: 100%;
   }
 
