@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.e93a3a24.chunk.css",
-    "main.js": "/product_catalog/static/js/main.5314a088.chunk.js",
-    "main.js.map": "/product_catalog/static/js/main.5314a088.chunk.js.map",
+    "main.css": "/product_catalog/static/css/main.0979a668.chunk.css",
+    "main.js": "/product_catalog/static/js/main.460444b1.chunk.js",
+    "main.js.map": "/product_catalog/static/js/main.460444b1.chunk.js.map",
     "runtime-main.js": "/product_catalog/static/js/runtime-main.076c123b.js",
     "runtime-main.js.map": "/product_catalog/static/js/runtime-main.076c123b.js.map",
     "static/css/2.cf06dab4.chunk.css": "/product_catalog/static/css/2.cf06dab4.chunk.css",
-    "static/js/2.c43d5b5a.chunk.js": "/product_catalog/static/js/2.c43d5b5a.chunk.js",
-    "static/js/2.c43d5b5a.chunk.js.map": "/product_catalog/static/js/2.c43d5b5a.chunk.js.map",
+    "static/js/2.b28a3bdd.chunk.js": "/product_catalog/static/js/2.b28a3bdd.chunk.js",
+    "static/js/2.b28a3bdd.chunk.js.map": "/product_catalog/static/js/2.b28a3bdd.chunk.js.map",
     "index.html": "/product_catalog/index.html",
     "static/css/2.cf06dab4.chunk.css.map": "/product_catalog/static/css/2.cf06dab4.chunk.css.map",
-    "static/css/main.e93a3a24.chunk.css.map": "/product_catalog/static/css/main.e93a3a24.chunk.css.map",
-    "static/js/2.c43d5b5a.chunk.js.LICENSE.txt": "/product_catalog/static/js/2.c43d5b5a.chunk.js.LICENSE.txt",
+    "static/css/main.0979a668.chunk.css.map": "/product_catalog/static/css/main.0979a668.chunk.css.map",
+    "static/js/2.b28a3bdd.chunk.js.LICENSE.txt": "/product_catalog/static/js/2.b28a3bdd.chunk.js.LICENSE.txt",
     "static/media/404.748a45b2.svg": "/product_catalog/static/media/404.748a45b2.svg",
     "static/media/Breadcrumbs.scss": "/product_catalog/static/media/Home-icon.d4c29e4f.svg",
     "static/media/BackButton.scss": "/product_catalog/static/media/Arrow-left-icon.e7e86408.svg",
@@ -23,18 +23,16 @@
     "static/media/category__accessories.3b9d45fd.jpg": "/product_catalog/static/media/category__accessories.3b9d45fd.jpg",
     "static/media/category__phones.5745f0cd.jpg": "/product_catalog/static/media/category__phones.5745f0cd.jpg",
     "static/media/category__tablets.05b3d251.jpg": "/product_catalog/static/media/category__tablets.05b3d251.jpg",
-    "static/media/close.6e7f15f7.svg": "/product_catalog/static/media/close.6e7f15f7.svg",
+    "static/media/CartItem.scss": "/product_catalog/static/media/plusdisabled.03cd06bb.svg",
     "static/media/Card.scss": "/product_catalog/static/media/favorite.f5bcd0bb.svg",
     "static/media/Header.scss": "/product_catalog/static/media/menu-opened.f9e13926.svg",
-    "static/media/minus.aae69019.svg": "/product_catalog/static/media/minus.aae69019.svg",
-    "static/media/plus.1360842d.svg": "/product_catalog/static/media/plus.1360842d.svg",
     "static/media/Footer.scss": "/product_catalog/static/media/stroke.eadd4b1b.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.076c123b.js",
     "static/css/2.cf06dab4.chunk.css",
-    "static/js/2.c43d5b5a.chunk.js",
-    "static/css/main.e93a3a24.chunk.css",
-    "static/js/main.5314a088.chunk.js"
+    "static/js/2.b28a3bdd.chunk.js",
+    "static/css/main.0979a668.chunk.css",
+    "static/js/main.460444b1.chunk.js"
   ]
 }
