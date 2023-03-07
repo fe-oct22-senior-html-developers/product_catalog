@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from '../../../contexts/GlobalProvider/GlobalProvider';
-import { FavouritesItem } from '../FavouritesItem/FavouritesItem';
+import { FavouritesItem } from '../FavouritesItem';
 import { FavouritesList } from '../FavouritesList';
 import './Favourites.scss';
 
