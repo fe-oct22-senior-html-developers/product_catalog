@@ -9,13 +9,7 @@ type Props = {
 
 export const Card: React.FC<Props> = ({ phone, mixClass }) => {
   const {
-    image,
-    name,
-    price,
-    fullPrice,
-    screen,
-    capacity,
-    ram,
+    image, name, price, fullPrice, screen, capacity, ram,
   } = phone;
 
   return (
