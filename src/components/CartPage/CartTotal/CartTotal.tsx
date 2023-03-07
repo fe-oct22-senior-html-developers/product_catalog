@@ -11,6 +11,7 @@ export const CartTotal: React.FC<Props> = ({ total = 0, itemsNum = 0 }) => {
   const { updateCart } = useContext(GlobalContext);
 
   const handleCheckout = () => {
+    // eslint-disable-next-line no-alert
     const confirmed = window.confirm(
       'Checkout is not implemented yet. Do you want to clear the Cart?',
     );

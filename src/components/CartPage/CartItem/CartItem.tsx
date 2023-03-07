@@ -39,7 +39,7 @@ export const CartItem: React.FC<Props> = ({ cartItem }) => {
   }, [quantity]);
 
   const addOneItemToLocalStorage = () => {
-    const updatedCart = cart.map(item => {
+    const updatedCart = cart.map((item) => {
       if (item.product.id === id) {
         return {
           ...item,
@@ -54,7 +54,7 @@ export const CartItem: React.FC<Props> = ({ cartItem }) => {
   };
 
   const removeOneItemFromLocalStorage = () => {
-    const updatedCart = cart.map(item => {
+    const updatedCart = cart.map((item) => {
       if (item.product.id === id) {
         return {
           ...item,
@@ -69,7 +69,7 @@ export const CartItem: React.FC<Props> = ({ cartItem }) => {
   };
 
   const removeCompletelyItemFromLocalStorage = () => {
-    const updatedCart = cart.filter(item => item.product.id !== id);
+    const updatedCart = cart.filter((item) => item.product.id !== id);
 
     updateCart(updatedCart);
   };
