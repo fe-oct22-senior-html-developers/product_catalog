@@ -7,7 +7,7 @@ export const Favourites: React.FC = () => {
   const { favourites } = useContext(GlobalContext);
 
   return (
-    <section className="fvourites page__favourites container grid">
+    <section className="fvourites page__favourites container">
       <FavouritesList>
         {favourites.map((favouritesItem) => (
           <li className="favourites__list-item" key={favouritesItem.itemId}>

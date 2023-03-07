@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+// import { async } from 'q';
+import React, { useContext, useState, useEffect } from 'react';
 import { GlobalContext } from '../../contexts/GlobalProvider/GlobalProvider';
 import { Phone } from '../../types/Phone';
 import './Card.scss';
@@ -9,15 +10,38 @@ type Props = {
 
 export const Card: React.FC<Props> = ({ phone }) => {
   const {
-    image,
-    name,
-    price,
-    screen,
-    capacity,
-    ram,
+    image, name, price, screen, capacity, ram,
   } = phone;
 
-  const { updateFavourites } = useContext(GlobalContext);
+  const { favourites, updateFavourites } = useContext(GlobalContext);
+  const [isFavourite, setIsFavourite] = useState(false);
+
+  const newFavourites = favourites;
+
+  const isFavouritesIncludes = favourites.find(fav => fav.itemId === phone.itemId);
+
+  useEffect(
+    () => {
+      if (isFavouritesIncludes) {
+        setIsFavourite(true);
+      }
+    },
+    [isFavourite],
+  );
+
+  const addToFavourites = () => {
+    newFavourites.push(phone);
+
+    updateFavourites(newFavourites);
+    setIsFavourite(true);
+  };
+
+  const removeFromFavourites = () => {
+    const filteredFavourites = newFavourites.filter(fav => fav.itemId !== phone.itemId);
+
+    updateFavourites(filteredFavourites);
+    setIsFavourite(false);
+  };
 
   return (
     <article className="card">
@@ -43,18 +67,19 @@ export const Card: React.FC<Props> = ({ phone }) => {
       </div>
 
       <div className="card__footer">
-        <button
-          type="button"
-          className="card__button"
-        >
+        <button type="button" className="card__button">
           Add to cart
         </button>
-        <button
-          type="button"
-          onClick={() => updateFavourites([phone])}
-        >
-          <div className="card__footer--favorites"></div>
-        </button>
+        {!isFavourite
+          ? (
+            <button type="button" onClick={() => addToFavourites()}>
+              <div className="card__footer--favorites">123</div>
+            </button>
+          ) : (
+            <button type="button" onClick={() => removeFromFavourites()}>
+              <div className="card__footer--favorites"></div>
+            </button>
+          )}
       </div>
     </article>
   );
