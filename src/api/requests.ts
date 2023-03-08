@@ -8,3 +8,11 @@ const requests = {
 
 export const getNewestPhones = () => requests.get('/phones/new');
 export const getBiggestDiscounts = () => requests.get('/phones/discount');
+export const getPhonesAmount = () => requests.get('/phones/amount');
+export const getPhoneDetails = (phoneId: string) => {
+  return requests.get(`/phones/${phoneId}`);
+};
+
+export const getRecommended = (phoneId: string) => {
+  return requests.get(`/phones/${phoneId}/recommended`);
+};
