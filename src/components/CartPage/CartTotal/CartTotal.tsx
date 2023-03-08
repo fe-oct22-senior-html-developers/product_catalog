@@ -19,7 +19,9 @@ export const CartTotal: React.FC<Props> = ({ total = 0, itemsNum = 0 }) => {
     setTimeout(() => {
       setIsModalOpened(false);
       updateCart([]);
-      window.location.replace('https://fe-oct22-senior-html-developers.github.io/product_catalog/');
+      window.location.replace(
+        'https://fe-oct22-senior-html-developers.github.io/product_catalog/',
+      );
     }, 2000);
   };
 
@@ -43,9 +45,7 @@ export const CartTotal: React.FC<Props> = ({ total = 0, itemsNum = 0 }) => {
         Checkout
       </button>
 
-      {isModalOpened && (
-        <ModalWindow />
-      )}
+      {isModalOpened && <ModalWindow />}
     </div>
   );
 };
