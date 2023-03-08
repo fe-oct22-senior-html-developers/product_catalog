@@ -20,7 +20,8 @@ export const ProductDetailsPage: React.FC = () => {
     color: 'black',
     ram: '2GB',
     year: 2016,
-    image: 'https://raw.githubusercontent.com/fe-oct22-senior-html-developers/product_catalog_static/main/img/phones/apple-iphone-7/black/00.jpg',
+    image:
+      'https://raw.githubusercontent.com/fe-oct22-senior-html-developers/product_catalog_static/main/img/phones/apple-iphone-7/black/00.jpg',
   };
 
   return (

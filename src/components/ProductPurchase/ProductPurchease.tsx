@@ -92,7 +92,11 @@ export const ProductPurchase: React.FC<Props> = ({ phone }) => {
 
       <div className="product-purchase__footer">
         {!isAddedToCart ? (
-          <button type="button" className="product-purchase__button" onClick={addToCart}>
+          <button
+            type="button"
+            className="product-purchase__button"
+            onClick={addToCart}
+          >
             Add to cart
           </button>
         ) : (
