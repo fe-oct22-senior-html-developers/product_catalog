@@ -84,7 +84,7 @@ export const ProductPurchase: React.FC<Props> = ({ phone }) => {
   };
 
   return (
-    <article className="product-purchase">
+    <article className="product-purchase product-sidebar__product-purchase">
       <div className="product-purchase__prices">
         <p className="product-purchase__prices--price">{`$${price}`}</p>
         <p className="product-purchase__prices--old-price">{`$${fullPrice}`}</p>

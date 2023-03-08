@@ -1,0 +1,37 @@
+@import '../../sassStyles/colors';
+
+.product-sidebar {
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__characteristic {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  &__property {
+    color: $color__secondary;
+  }
+
+  &__value {
+    color: $color__primary;
+  }
+
+  &__product-colors {
+    margin-bottom: 24px;
+  }
+
+  &__product-capacity {
+    margin-bottom: 32px;
+  }
+
+  &__product-purchase {
+    margin-bottom: 32px;
+  }
+}

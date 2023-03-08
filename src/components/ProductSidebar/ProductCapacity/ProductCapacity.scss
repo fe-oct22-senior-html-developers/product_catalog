@@ -1,0 +1,58 @@
+@import '../../../sassStyles/reset';
+@import '../../../sassStyles/colors';
+@import '../../../sassStyles/mixins';
+
+.product-capacity {
+  height: 103px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid $color__elemets;
+  border-bottom: 1px solid $color__elemets;
+  // width: min-content;
+
+  &__title {
+    margin-bottom: 8px;
+
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: $color__secondary;
+  }
+
+  &__selector {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 8px;
+    height: 32px;
+
+    color: $color__primary;
+    font-family: 'Mont';
+    background-color: $color__main;
+    border: 1px solid $color__primary;
+
+    transition: background-color 0.2s ease, color 0.1s ease;
+
+    &--active {
+      color: $color__main;
+      background-color: $color__primary;
+    }
+
+    &:hover {
+      color: $color__main;
+      background-color: $color__primary;
+    }
+
+    &:active {
+      background-color: #000;
+      border: 1px solid #000;
+    }
+  }
+}

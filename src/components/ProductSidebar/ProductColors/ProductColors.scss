@@ -1,6 +1,7 @@
 @import '../../../sassStyles/reset';
 @import '../../../sassStyles/mixins';
 @import '../../../sassStyles/colors';
+@import '../../../sassStyles/collections';
 
 .product-colors {
   &__text {
@@ -35,15 +36,28 @@
     border: 1px solid $color__elemets;
     border-radius: 50%;
 
+    transition: border 0.3s ease;
+
     &--active {
       border: 1px solid $color__primary;
     }
-  }
 
+    &:hover {
+      border: 1px solid $color__secondary;
+    }
+
+  }
+  
   &__color {
     height: 30px;
     width: 30px;
     border: 2px solid white;
     border-radius: 50%;
+
+    @each $color, $product-color in $product-colors {
+      &--#{$color} {
+        background-color: $product-color;
+      }
+    }
   }
 }
