@@ -6,7 +6,6 @@ import { Favourites } from '../../components/FavouritesPage/Favourites';
 import { EmptyMessage } from '../../components/EmptyMessage';
 import Img from '../../static/favourites/empty-box.png';
 
-
 type Props = {
   pageTitle: string;
 };
