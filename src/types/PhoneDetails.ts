@@ -1,4 +1,4 @@
-type PhoneDetailsDescription = {
+export type PhoneDetailsDescription = {
   title: string;
   text: string[];
 };

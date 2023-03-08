@@ -1,0 +1,48 @@
+@import '../../../sassStyles/mixins';
+@import '../../../sassStyles/colors';
+
+.product {
+  &__order {
+    border: 1px solid red;
+  }
+
+  padding: 24px 16px;
+  max-width: 1200px;
+  margin: auto;
+
+  @include onTablet {
+    padding: 41px 24px;
+  }
+
+  &__about {
+    margin-bottom: 56px;
+
+    @include onDesktop {
+      max-width: 631px;
+    }
+
+    &--header {
+      font-size: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid $color__icons;
+      margin-bottom: 32px;
+    }
+
+    &--title {
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 16px;
+    }
+
+    &--content {
+      font-size: 14px;
+      line-height: 21px;
+      color: $color__secondary;
+    }
+
+    &--text {
+      display: inline-block;
+      margin-bottom: 32px;
+    }
+  }
+}
