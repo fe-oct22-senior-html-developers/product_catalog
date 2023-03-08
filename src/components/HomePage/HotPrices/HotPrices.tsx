@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { SectionTitle } from '../../SectionTitle';
 import { Card } from '../../Card';
 import { SmartphoneSlider } from '../../SmartphoneSlider';
 import './HotPrices.scss';
-import phones from '../../API.json';
+import { getBiggestDiscounts } from '../../../api/requests';
+import { Phone } from '../../../types/Phone';
 
 export const HotPrices: React.FC = () => {
+  const [phones, setPhones] = useState<Phone[]>([]);
+
+  useEffect(() => {
+    getBiggestDiscounts()
+      .then((res) => res.data)
+      .then(setPhones)
+      .catch((error) => window.console.log(error));
+  }, []);
+
   return (
     <section className="hot-prices container">
       <SectionTitle>Hot prices</SectionTitle>

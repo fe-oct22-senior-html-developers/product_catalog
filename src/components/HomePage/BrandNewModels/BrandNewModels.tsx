@@ -1,11 +1,21 @@
-import React from 'react';
-import phones from '../../API.json';
+import React, { useState, useEffect } from 'react';
+import { getNewestPhones } from '../../../api/requests';
+import { Phone } from '../../../types/Phone';
 import { Card } from '../../Card';
 import { SectionTitle } from '../../SectionTitle';
 import { SmartphoneSlider } from '../../SmartphoneSlider';
 import './BrandNewModels.scss';
 
 export const BrandNewModels: React.FC = () => {
+  const [phones, setPhones] = useState<Phone[]>([]);
+
+  useEffect(() => {
+    getNewestPhones()
+      .then((res) => res.data)
+      .then(setPhones)
+      .catch((error) => window.console.log(error));
+  }, []);
+
   return (
     <section className="brand-new-models container">
       <SectionTitle>Brand new models</SectionTitle>
