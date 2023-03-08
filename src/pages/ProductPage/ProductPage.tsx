@@ -35,6 +35,7 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
       <div>Sorting</div>
       <div>Datalist</div>
       <div>Pagination</div>
+
       <Card phone={phone} mixClass="" />
     </div>
   );

@@ -1,17 +1,20 @@
 @import '../../sassStyles/reset';
 @import '../../sassStyles/mixins';
 @import '../../sassStyles/colors';
+@import '../../sassStyles/sizes';
 
 .card {
   display: inline-block;
-  max-width: 212px;
-  width: 100%;
+  min-width: 180px;
+  // max-width: 212px;
+  min-width: 100%;
 
   border: 1px solid $color__elemets;
   padding: 32px;
 
   @include onTablet {
-    max-width: 237px;
+    // max-width: 237px;
+
     width: 100%;
   }
 
@@ -113,19 +116,31 @@
 
   &__footer {
     display: flex;
-    &--favorites {
-      min-width: 40px;
-      min-height: 40px;
-      margin-left: 8px;
-      border: 1px solid $color__icons;
-      background-image: url('../../static/Card/favorite.svg');
-      background-repeat: no-repeat;
-      background-position: center;
-      cursor: pointer;
+  }
 
-      &:hover {
-        fill: #5046e5;
-      }
+  &__fav-button {
+    min-width: 40px;
+    min-height: 40px;
+    margin-left: 8px;
+
+    border: 1px solid $color__icons;
+
+    cursor: pointer;
+  }
+
+  &__fav-icon {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: $icon-size;
+    min-width: $icon-size;
+
+    &--pasive {
+      background-image: url('../../static/Card/favorite.svg');
+    }
+
+    &--active {
+      background-image: url('../../static/Card/favourite-active.svg');
     }
   }
 
