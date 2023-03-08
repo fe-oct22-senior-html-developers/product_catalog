@@ -1,4 +1,6 @@
-import React, { memo, useContext, useState, useEffect } from 'react';
+import React, {
+  memo, useContext, useState, useEffect,
+} from 'react';
 import { GlobalContext } from '../../contexts/GlobalProvider/GlobalProvider';
 import { CartItem } from '../../types/CartItem';
 import { Phone } from '../../types/Phone';
