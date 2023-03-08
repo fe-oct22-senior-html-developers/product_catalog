@@ -1,4 +1,6 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, {
+  memo, useContext, useState, useEffect,
+} from 'react';
 import { GlobalContext } from '../../contexts/GlobalProvider/GlobalProvider';
 import { CartItem } from '../../types/CartItem';
 import { Phone } from '../../types/Phone';
@@ -9,7 +11,7 @@ type Props = {
   mixClass: string;
 };
 
-export const Card: React.FC<Props> = ({ phone, mixClass }) => {
+export const Card: React.FC<Props> = memo(({ phone, mixClass }) => {
   // eslint-disable-next-line object-curly-newline
   const { image, name, price, fullPrice, screen, capacity, ram } = phone;
 
@@ -145,4 +147,4 @@ export const Card: React.FC<Props> = ({ phone, mixClass }) => {
       </div>
     </article>
   );
-};
+});

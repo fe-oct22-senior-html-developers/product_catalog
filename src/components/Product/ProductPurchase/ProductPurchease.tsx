@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { GlobalContext } from '../../contexts/GlobalProvider/GlobalProvider';
-import { CartItem } from '../../types/CartItem';
-import { Phone } from '../../types/Phone';
+import { GlobalContext } from '../../../contexts/GlobalProvider/GlobalProvider';
+import { CartItem } from '../../../types/CartItem';
+import { Phone } from '../../../types/Phone';
 import './ProductPurchase.scss';
 
 type Props = {

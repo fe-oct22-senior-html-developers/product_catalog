@@ -1,7 +1,7 @@
-@import '../../sassStyles/colors';
-@import '../../sassStyles/reset';
-@import '../../sassStyles/sizes';
-@import '../../sassStyles/mixins';
+@import '../../../sassStyles/colors';
+@import '../../../sassStyles/reset';
+@import '../../../sassStyles/sizes';
+@import '../../../sassStyles/mixins';
 
 .product-purchase {
   &__prices {
@@ -61,11 +61,11 @@
     min-width: 12px;
 
     &--pasive {
-      background-image: url('../../static/Card/favorite.svg');
+      background-image: url('../../../static/Card/favorite.svg');
     }
 
     &--active {
-      background-image: url('../../static/Card/favourite-active.svg');
+      background-image: url('../../../static/Card/favourite-active.svg');
     }
   }
 }

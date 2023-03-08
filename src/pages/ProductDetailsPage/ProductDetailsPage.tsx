@@ -2,7 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { BackButton } from '../../components/BackButton';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
-import { ProductPurchase } from '../../components/ProductPurchase';
+import { ProductColors } from '../../components/Product/ProductColors';
+import { ProductPurchase } from '../../components/Product/ProductPurchase';
 
 export const ProductDetailsPage: React.FC = () => {
   const { productId } = useParams();
@@ -30,6 +31,7 @@ export const ProductDetailsPage: React.FC = () => {
       <BackButton />
       <div>{`Section title component ${productId}`}</div>
       <ProductPurchase phone={phone} />
+      <ProductColors />
     </div>
   );
 };
