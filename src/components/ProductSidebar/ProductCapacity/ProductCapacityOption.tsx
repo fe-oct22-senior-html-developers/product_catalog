@@ -4,8 +4,8 @@ import cn from 'classnames';
 import { Link } from 'react-router-dom';
 
 interface Props {
-  capacity: string,
-  productCapacity: string,
+  capacity: string;
+  productCapacity: string;
 }
 
 const changeCapacityToNumber = (capacity: string) => capacity.split('GB').join('');

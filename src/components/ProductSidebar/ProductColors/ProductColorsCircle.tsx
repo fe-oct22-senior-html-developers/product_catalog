@@ -13,8 +13,8 @@ import { Link } from 'react-router-dom';
 // type Color = 'black' | 'gold' | 'midnightgreen' | 'silver';
 
 interface Props {
-  color: string,
-  productColor: string,
+  color: string;
+  productColor: string;
 }
 
 export const ProductColorsCircle: React.FC<Props> = memo(
