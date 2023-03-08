@@ -1,12 +1,16 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {
+  useCallback, useEffect, useState, useContext,
+} from 'react';
 import cn from 'classnames';
 import './Header.scss';
 import { Nav } from '../Nav/Nav';
 import { IconBlock } from '../IconBlock';
 import { Logo } from '../../Logo';
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
+import { GlobalContext } from '../../../contexts/GlobalProvider/GlobalProvider';
 
 export const Header: React.FC = React.memo(() => {
+  const { cartLength, favouritesLength } = useContext(GlobalContext);
   const [isMenuOpened, setIsMenuOpened] = useState(false);
 
   const handleMenuOpening = useCallback(
@@ -55,8 +59,18 @@ export const Header: React.FC = React.memo(() => {
         </div>
 
         <div className="header__icons">
-          <IconBlock iconName="Favourites" to="/favourites" />
-          <IconBlock iconName="Cart" to="/cart" />
+          <IconBlock
+            iconName="Favourites"
+            to="/favourites"
+            setIsMenuOpened={setIsMenuOpened}
+            counter={favouritesLength}
+          />
+          <IconBlock
+            iconName="Cart"
+            to="/cart"
+            setIsMenuOpened={setIsMenuOpened}
+            counter={cartLength}
+          />
         </div>
       </header>
       <BurgerMenu isMenuOpen={isMenuOpened} setIsMenuOpened={setIsMenuOpened} />

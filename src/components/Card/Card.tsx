@@ -13,20 +13,34 @@ export const Card: React.FC<Props> = ({ phone, mixClass }) => {
   // eslint-disable-next-line object-curly-newline
   const { image, name, price, fullPrice, screen, capacity, ram } = phone;
 
-  const { cart, updateCart } = useContext(GlobalContext);
-  const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const {
+    cart, updateCart, favourites, updateFavourites,
+  }
+    = useContext(GlobalContext);
 
-  const newCart = cart;
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const [isFavourite, setIsFavourite] = useState(false);
+
+  const newCart = [...cart];
+  const newFavourites = [...favourites];
 
   const isCartIncludes = cart.some(
     (item) => item.product.itemId === phone.itemId,
+  );
+
+  const isFavouritesIncludes = favourites.find(
+    (fav) => fav.itemId === phone.itemId,
   );
 
   useEffect(() => {
     if (isCartIncludes) {
       setIsAddedToCart(true);
     }
-  }, [isAddedToCart]);
+
+    if (isFavouritesIncludes) {
+      setIsFavourite(true);
+    }
+  }, [isAddedToCart, isFavourite]);
 
   function generateCartId(elements: CartItem[]) {
     return elements.length > 0
@@ -52,6 +66,22 @@ export const Card: React.FC<Props> = ({ phone, mixClass }) => {
 
     updateCart(filteredCart);
     setIsAddedToCart(false);
+  };
+
+  const addToFavourites = () => {
+    newFavourites.push(phone);
+
+    updateFavourites(newFavourites);
+    setIsFavourite(true);
+  };
+
+  const removeFromFavourites = () => {
+    const filteredFavourites = newFavourites.filter(
+      (fav) => fav.itemId !== phone.itemId,
+    );
+
+    updateFavourites(filteredFavourites);
+    setIsFavourite(false);
   };
 
   return (
@@ -94,7 +124,24 @@ export const Card: React.FC<Props> = ({ phone, mixClass }) => {
             Added to cart
           </button>
         )}
-        <div className="card__footer--favorites"></div>
+
+        {!isFavourite ? (
+          <button
+            type="button"
+            onClick={() => addToFavourites()}
+            className="card__fav-button"
+          >
+            <div className="card__fav-icon card__fav-icon--pasive"></div>
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={() => removeFromFavourites()}
+            className="card__fav-button"
+          >
+            <div className="card__fav-icon card__fav-icon--active"></div>
+          </button>
+        )}
       </div>
     </article>
   );
