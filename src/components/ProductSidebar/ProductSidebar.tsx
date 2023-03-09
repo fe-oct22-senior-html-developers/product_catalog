@@ -7,13 +7,13 @@ import { ProductPurchase } from './ProductPurchase';
 import './ProductSidebar.scss';
 
 interface Props {
-  productExtended: PhoneDetails;
+  productDetails: PhoneDetails;
   product: Phone;
   handleProductChange: (newProductId: string) => void;
 }
 
 export const ProductSidebar: React.FC<Props> = memo(
-  ({ productExtended, product, handleProductChange }) => {
+  ({ productDetails, product, handleProductChange }) => {
     const {
       screen,
       resolution,
@@ -23,7 +23,7 @@ export const ProductSidebar: React.FC<Props> = memo(
       colorsAvailable,
       capacity,
       capacityAvailable,
-    } = productExtended;
+    } = productDetails;
 
     return (
       <div
@@ -45,7 +45,7 @@ export const ProductSidebar: React.FC<Props> = memo(
             currentCapacity={capacity}
             handleProductChange={handleProductChange}
           />
-          <ProductPurchase phone={product} />
+          <ProductPurchase phone={product} phoneDetails={productDetails} />
 
           <div className="product-sidebar__info">
             <div className="product-sidebar__characteristic">

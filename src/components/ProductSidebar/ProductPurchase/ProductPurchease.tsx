@@ -2,15 +2,17 @@ import React, { useContext, useState, useEffect } from 'react';
 import { GlobalContext } from '../../../contexts/GlobalProvider/GlobalProvider';
 import { CartItem } from '../../../types/CartItem';
 import { Phone } from '../../../types/Phone';
+import { PhoneDetails } from '../../../types/PhoneDetails';
 import './ProductPurchase.scss';
 
 type Props = {
   phone: Phone;
+  phoneDetails: PhoneDetails;
 };
 
-export const ProductPurchase: React.FC<Props> = ({ phone }) => {
+export const ProductPurchase: React.FC<Props> = ({ phone, phoneDetails }) => {
   // eslint-disable-next-line object-curly-newline
-  const { price, fullPrice } = phone;
+  const { fullPrice } = phone;
 
   const {
     cart, updateCart, favourites, updateFavourites,
@@ -39,7 +41,7 @@ export const ProductPurchase: React.FC<Props> = ({ phone }) => {
     if (isFavouritesIncludes) {
       setIsFavourite(true);
     }
-  }, [isAddedToCart, isFavourite]);
+  }, [isAddedToCart, isFavourite, phone]);
 
   function generateCartId(elements: CartItem[]) {
     return elements.length > 0
@@ -86,7 +88,7 @@ export const ProductPurchase: React.FC<Props> = ({ phone }) => {
   return (
     <article className="product-purchase product-sidebar__product-purchase">
       <div className="product-purchase__prices">
-        <p className="product-purchase__prices--price">{`$${price}`}</p>
+        <p className="product-purchase__prices--price">{`$${phoneDetails?.priceDiscount}`}</p>
         <p className="product-purchase__prices--old-price">{`$${fullPrice}`}</p>
       </div>
 
