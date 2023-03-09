@@ -6,16 +6,13 @@ import { ProductColorsCircle } from './ProductColorsCircle';
 interface Props {
   colorsAvailable: string[];
   currentColor: string;
-  setProduct: React.Dispatch<React.SetStateAction<PhoneDetails | undefined>>,
-  handleProductChange: (newProductId: string) => void,
+  setProduct: React.Dispatch<React.SetStateAction<PhoneDetails | undefined>>;
+  handleProductChange: (newProductId: string) => void;
 }
 
 export const ProductColors: React.FC<Props> = memo(
   ({
-    colorsAvailable,
-    currentColor,
-    setProduct,
-    handleProductChange,
+    colorsAvailable, currentColor, setProduct, handleProductChange,
   }) => {
     return (
       <div className="product-colors product-sidebar__product-colors">

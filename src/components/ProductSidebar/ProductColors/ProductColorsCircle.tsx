@@ -7,8 +7,8 @@ import { PhoneDetails } from '../../../types/PhoneDetails';
 interface Props {
   color: string;
   productColor: string;
-  setProduct: React.Dispatch<React.SetStateAction<PhoneDetails | undefined>>
-  handleProductChange: (newProductId: string) => void,
+  setProduct: React.Dispatch<React.SetStateAction<PhoneDetails | undefined>>;
+  handleProductChange: (newProductId: string) => void;
 }
 
 export const ProductColorsCircle: React.FC<Props> = memo(

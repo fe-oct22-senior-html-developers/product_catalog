@@ -28,16 +28,13 @@ type PhoneExtended = {
 interface Props {
   productExtended: PhoneExtended;
   product: Phone;
-  setProduct: React.Dispatch<React.SetStateAction<PhoneDetails | undefined>>
-  handleProductChange: (newProductId: string) => void,
+  setProduct: React.Dispatch<React.SetStateAction<PhoneDetails | undefined>>;
+  handleProductChange: (newProductId: string) => void;
 }
 
 export const ProductSidebar: React.FC<Props> = memo(
   ({
-    productExtended,
-    product,
-    setProduct,
-    handleProductChange,
+    productExtended, product, setProduct, handleProductChange,
   }) => {
     const {
       screen,

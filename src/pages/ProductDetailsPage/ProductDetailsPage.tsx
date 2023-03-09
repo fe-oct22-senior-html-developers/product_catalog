@@ -46,16 +46,14 @@ export const ProductDetailsPage: React.FC = () => {
       <BackButton />
       <div>{`Section title component ${productId}`}</div>
       <div className="grid">
-        {
-          product && (
-            <ProductSidebar
-              productExtended={product}
-              product={phoneMinimal}
-              setProduct={setProduct}
-              handleProductChange={handleProductChange}
-            />
-          )
-        }
+        {product && (
+          <ProductSidebar
+            productExtended={product}
+            product={phoneMinimal}
+            setProduct={setProduct}
+            handleProductChange={handleProductChange}
+          />
+        )}
       </div>
     </div>
   );
