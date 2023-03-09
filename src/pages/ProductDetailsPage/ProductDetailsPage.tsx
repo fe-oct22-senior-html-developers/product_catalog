@@ -49,7 +49,7 @@ export const ProductDetailsPage: React.FC = memo(() => {
       <BackButton />
       <div>{`Section title component ${productId}`}</div>
       <div className="product-details__demo grid">
-        {(product && productDetails) && (
+        {product && productDetails && (
           <ProductSlider
             images={productDetails.images}
             name={productDetails.name}
@@ -65,7 +65,7 @@ export const ProductDetailsPage: React.FC = memo(() => {
         )}
       </div>
       <div className="grid">
-        {(product && productDetails) && (
+        {product && productDetails && (
           <ProductAbout description={productDetails.description} />
         )}
       </div>
