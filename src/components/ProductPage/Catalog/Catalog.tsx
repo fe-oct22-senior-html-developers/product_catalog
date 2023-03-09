@@ -5,7 +5,7 @@ import { CatalogList } from './CatalogList';
 import './Catalog.scss';
 
 interface Props {
-  phones: Phone[],
+  phones: Phone[];
 }
 
 export const Catalog: React.FC<Props> = memo(({ phones }) => {
