@@ -9,12 +9,12 @@ import { ProductSlider } from '../../components/ProductDetails/ProductSlider';
 import { PhoneDetails } from '../../types/PhoneDetails';
 
 export const ProductDetailsPage: React.FC = () => {
-  const [phone, setPhone] = useState<PhoneDetails>();
+  const [product, setProduct] = useState<PhoneDetails>();
   const { productId } = useParams();
 
   useEffect(() => {
     getPhoneDetails(productId || '')
-      .then((res) => setPhone(res.data))
+      .then((res) => setProduct(res.data))
       .catch((error) => window.console.log(error));
 
     // getRecommended(productId || '')
@@ -28,9 +28,9 @@ export const ProductDetailsPage: React.FC = () => {
       <BackButton />
       <div>{`Section title component ${productId}`}</div>
       <div className="product-details__demo">
-        {phone && <ProductSlider images={phone.images} name={phone.name} />}
+        {product && <ProductSlider images={product.images} name={product.name} />}
       </div>
-      {phone && <ProductAbout description={phone?.description} />}
+      {product && <ProductAbout description={product?.description} />}
     </div>
   );
 };
