@@ -4,6 +4,8 @@ import { PageTitle } from '../../components/PageTitle';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { CustomSelect } from '../../components/ProductPage/CustomSelect';
 import { SortBy, ItemsNum } from '../../types/CustomSelect';
+import { Phone } from '../../types/Phone';
+import { getPhonesWithPagination } from '../../api/requests';
 
 type Props = {
   pageTitle: string;
@@ -22,9 +24,14 @@ const itemsNumOptions: ItemsNum[] = ['8', '16', '32', '64'];
 export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
   const [sortBy, setSortBy] = useState<SortBy>('Name: A - Z');
   const [itemsNum, setItemsNum] = useState<ItemsNum>('16');
+  const [page] = useState('1');
+
+  const [phones, setPhones] = useState<Phone[]>([]);
 
   useEffect(() => {
-    window.console.log(sortBy, itemsNum);
+    getPhonesWithPagination(sortBy, itemsNum, page)
+      .then((res) => res.data)
+      .then(setPhones);
   }, [sortBy, itemsNum]);
 
   return (
@@ -50,8 +57,8 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
           />
         </div>
       </div>
-      <div>Sortingdfjbvdfvbdoufvbdfiuvbdifbvvbdfbvdifbvidfbvidfbuivdf</div>
-      <div>Datalist</div>
+      {/* Настя, заміни 61 строку на свій код (ну і цю) */}
+      <div>{JSON.stringify(phones)}</div>
       <div>Pagination</div>
     </div>
   );
