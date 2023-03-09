@@ -16,3 +16,13 @@ export const getPhoneDetails = (phoneId: string) => {
 export const getRecommended = (phoneId: string) => {
   return requests.get(`/phones/${phoneId}/recommended`);
 };
+
+export const getPhonesWithPagination = (
+  sortBy: string,
+  itemsNum: string,
+  page: string,
+) => {
+  return requests.get(
+    `/phones?sortBy=${sortBy}&itemsNum=${itemsNum}&page=${page}`,
+  );
+};
