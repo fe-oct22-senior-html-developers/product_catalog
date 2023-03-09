@@ -3,7 +3,7 @@ import './Breadcrumbs.scss';
 import { Link } from 'react-router-dom';
 
 interface Props {
-  path: (string | undefined)[],
+  path: (string | undefined)[];
 }
 
 export const Breadcrumbs: React.FC<Props> = memo(({ path }) => {
@@ -11,7 +11,9 @@ export const Breadcrumbs: React.FC<Props> = memo(({ path }) => {
 
   const crumbs = path.map((crumb) => {
     if (crumb) {
-      const preparedCrumb = (crumb[0].toUpperCase() + crumb.slice(1)).split('-').join(' ');
+      const preparedCrumb = (crumb[0].toUpperCase() + crumb.slice(1))
+        .split('-')
+        .join(' ');
 
       currentLink += `/${crumb}`;
 
