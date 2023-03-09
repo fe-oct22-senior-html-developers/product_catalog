@@ -1,42 +1,58 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ProductPage.scss';
 import { PageTitle } from '../../components/PageTitle';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
-import { Card } from '../../components/Card';
+import { CustomSelect } from '../../components/ProductPage/CustomSelect';
+import { SortBy, ItemsNum } from '../../types/CustomSelect';
 
 type Props = {
   pageTitle: string;
 };
 
+const sortByOptions: SortBy[] = [
+  'Name: A - Z',
+  'Newest',
+  'Oldest',
+  'Price: Lowest first',
+  'Price: Highest first',
+];
+
+const itemsNumOptions: ItemsNum[] = ['8', '16', '32', '64'];
+
 export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
-  const phone = {
-    id: '1',
-    category: 'phones',
-    phoneId: 'apple-iphone-7-32gb-black',
-    itemId: 'apple-iphone-7-32gb-black',
-    name: 'Apple iPhone 7 32GB Black',
-    fullPrice: 400,
-    price: 375,
-    screen: "4.7' IPS",
-    capacity: '32GB',
-    color: 'black',
-    ram: '2GB',
-    year: 2016,
-    image: 'img/phones/apple-iphone-7/black/00.jpg',
-  };
+  const [sortBy, setSortBy] = useState<SortBy>('Name: A - Z');
+  const [itemsNum, setItemsNum] = useState<ItemsNum>('16');
+
+  useEffect(() => {
+    window.console.log(sortBy, itemsNum);
+  }, [sortBy, itemsNum]);
 
   return (
     <div className="product-page">
       <div className="container">
         <Breadcrumbs />
         <PageTitle mixClass="product-page__title">{pageTitle}</PageTitle>
+        <p className="product-page__amount">{`${95} models`}</p>
+        <div className="product-page__filters">
+          <CustomSelect
+            title="Sort by"
+            list={sortByOptions}
+            current={sortBy}
+            mixClass="custom-select--sort-by"
+            updater={setSortBy}
+          />
+          <CustomSelect
+            title="Items on page"
+            list={itemsNumOptions}
+            current={itemsNum}
+            mixClass="custom-select--items-num"
+            updater={setItemsNum}
+          />
+        </div>
       </div>
-      <div>Data amount</div>
-      <div>Sorting</div>
+      <div>Sortingdfjbvdfvbdoufvbdfiuvbdifbvvbdfbvdifbvidfbvidfbuivdf</div>
       <div>Datalist</div>
       <div>Pagination</div>
-
-      <Card phone={phone} mixClass="" />
     </div>
   );
 };
