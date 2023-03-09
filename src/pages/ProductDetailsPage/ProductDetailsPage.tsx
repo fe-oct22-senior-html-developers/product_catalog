@@ -1,25 +1,44 @@
-import React, { useEffect, useState } from 'react';
+import React, {
+  useState, useEffect, useCallback, memo,
+} from 'react';
 import { useParams } from 'react-router-dom';
+
 import { getPhoneDetails } from '../../api/requests';
-// import { getPhoneDetails, getRecommended } from '../../api/requests';
+
 import { BackButton } from '../../components/BackButton';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { ProductAbout } from '../../components/ProductDetails/ProductAbout';
+import { ProductSidebar } from '../../components/ProductSidebar';
 import { ProductSlider } from '../../components/ProductDetails/ProductSlider';
+import { Phone } from '../../types/Phone';
 import { PhoneDetails } from '../../types/PhoneDetails';
 
-export const ProductDetailsPage: React.FC = () => {
-  const [product, setProduct] = useState<PhoneDetails>();
+export const ProductDetailsPage: React.FC = memo(() => {
+  const [productDetails, setProductDetails] = useState<PhoneDetails>();
+  const [product, setProduct] = useState<Phone>();
+  
   const { productId } = useParams();
 
   useEffect(() => {
     getPhoneDetails(productId || '')
-      .then((res) => setProduct(res.data))
-      .catch((error) => window.console.log(error));
+      .then((res) => {
+        const { phone, phoneDetails } = res.data;
 
-    // getRecommended(productId || '')
-    //   .then((res) => window.console.log(res.data))
-    //   .catch((error) => window.console.log(error));
+        setProduct(JSON.parse(phone));
+        setProductDetails(JSON.parse(phoneDetails));
+      })
+      .catch((error) => window.console.log(error));
+  }, []);
+
+  const handleProductChange = useCallback((newProductId: string) => {
+    getPhoneDetails(newProductId || '')
+      .then((res) => {
+        const { phone, phoneDetails } = res.data;
+
+        setProduct(() => JSON.parse(phone));
+        setProductDetails(() => JSON.parse(phoneDetails));
+      })
+      .catch((error) => window.console.log(error));
   }, []);
 
   return (
@@ -27,10 +46,17 @@ export const ProductDetailsPage: React.FC = () => {
       <Breadcrumbs />
       <BackButton />
       <div>{`Section title component ${productId}`}</div>
-      <div className="product-details__demo">
-        {product && <ProductSlider images={product.images} name={product.name} />}
+      <div className="product-details__demo grid">
+        {product && productDetails && <ProductSlider images={productDetails.images} name={productDetails.name} />}
+        {product && productDetails && (
+          <ProductSidebar
+            productDetails={productDetails}
+            product={product}
+            handleProductChange={handleProductChange}
+          />
+        )}
       </div>
       {product && <ProductAbout description={product?.description} />}
     </div>
   );
-};
+});

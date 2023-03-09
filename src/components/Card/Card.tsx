@@ -1,4 +1,6 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, {
+  memo, useContext, useState, useEffect,
+} from 'react';
 import { GlobalContext } from '../../contexts/GlobalProvider/GlobalProvider';
 import { CartItem } from '../../types/CartItem';
 import { Phone } from '../../types/Phone';
@@ -9,7 +11,7 @@ type Props = {
   mixClass: string;
 };
 
-export const Card: React.FC<Props> = ({ phone, mixClass }) => {
+export const Card: React.FC<Props> = memo(({ phone, mixClass }) => {
   // eslint-disable-next-line object-curly-newline
   const { image, name, price, fullPrice, screen, capacity, ram } = phone;
 
@@ -92,57 +94,59 @@ export const Card: React.FC<Props> = ({ phone, mixClass }) => {
         <h4 className="card__title">{name}</h4>
       </div>
 
-      <div className="card__prices">
-        <span className="card__prices--price">{`$${price}`}</span>
-        <span className="card__prices--old-price">{`$${fullPrice}`}</span>
-      </div>
-
-      <div className="card__specifications">
-        <div className="card__specifications--feature">
-          <span>Screen</span>
-          <span>Capacity</span>
-          <span>RAM</span>
+      <div className="block">
+        <div className="card__prices">
+          <span className="card__prices--price">{`$${price}`}</span>
+          <span className="card__prices--old-price">{`$${fullPrice}`}</span>
         </div>
-        <div className="card__specifications--feature">
-          <span>{screen}</span>
-          <span>{capacity}</span>
-          <span>{ram}</span>
+
+        <div className="card__specifications">
+          <div className="card__specifications--feature">
+            <span>Screen</span>
+            <span>Capacity</span>
+            <span>RAM</span>
+          </div>
+          <div className="card__specifications--feature">
+            <span>{screen}</span>
+            <span>{capacity}</span>
+            <span>{ram}</span>
+          </div>
         </div>
-      </div>
 
-      <div className="card__footer">
-        {!isAddedToCart ? (
-          <button type="button" className="card__button" onClick={addToCart}>
-            Add to cart
-          </button>
-        ) : (
-          <button
-            type="button"
-            className="card__button card__button--active"
-            onClick={removeFromCart}
-          >
-            Added to cart
-          </button>
-        )}
+        <div className="card__footer">
+          {!isAddedToCart ? (
+            <button type="button" className="card__button" onClick={addToCart}>
+              Add to cart
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="card__button card__button--active"
+              onClick={removeFromCart}
+            >
+              Added to cart
+            </button>
+          )}
 
-        {!isFavourite ? (
-          <button
-            type="button"
-            onClick={() => addToFavourites()}
-            className="card__fav-button"
-          >
-            <div className="card__fav-icon card__fav-icon--pasive"></div>
-          </button>
-        ) : (
-          <button
-            type="button"
-            onClick={() => removeFromFavourites()}
-            className="card__fav-button"
-          >
-            <div className="card__fav-icon card__fav-icon--active"></div>
-          </button>
-        )}
+          {!isFavourite ? (
+            <button
+              type="button"
+              onClick={() => addToFavourites()}
+              className="card__fav-button"
+            >
+              <div className="card__fav-icon card__fav-icon--pasive"></div>
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => removeFromFavourites()}
+              className="card__fav-button"
+            >
+              <div className="card__fav-icon card__fav-icon--active"></div>
+            </button>
+          )}
+        </div>
       </div>
     </article>
   );
-};
+});
