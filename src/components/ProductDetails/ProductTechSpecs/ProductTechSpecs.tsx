@@ -87,7 +87,7 @@ export const ProductTechSpecs: React.FC<Props> = ({
             Cell
           </p>
           <p className="product__tech-specs--detail product__tech-specs--value">
-            {cell}
+            {cell.join(', ')}
           </p>
         </div>
       </div>
