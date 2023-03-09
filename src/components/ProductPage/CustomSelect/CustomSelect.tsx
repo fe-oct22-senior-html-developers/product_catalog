@@ -9,7 +9,7 @@ type Props = {
   list: SortBy[] | ItemsNum[];
   current: string;
   mixClass: string;
-  // eslint-disable-next-line max-len
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   updater: React.Dispatch<React.SetStateAction<any>>;
 };
 
