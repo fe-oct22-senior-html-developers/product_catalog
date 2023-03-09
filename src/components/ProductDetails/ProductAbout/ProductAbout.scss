@@ -15,10 +15,14 @@
   }
 
   &__about {
-    margin-bottom: 56px;
+    margin-bottom: 24px;
 
+    @include onTablet {
+      margin-bottom: 32px;
+    }
+  
     @include onDesktop {
-      max-width: 631px;
+      max-width: 560px;
     }
 
     &--header {

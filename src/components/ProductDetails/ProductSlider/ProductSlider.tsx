@@ -39,7 +39,6 @@ export const ProductSlider: React.FC<Props> = ({ images, name }) => {
 
   return (
     <div className="product-slider">
-      <h2>Custom Paging</h2>
       <Slider {...settings} className="product-slider__item">
         {images.map((image: string) => (
           <div key={image} className="product-slider__wrapper">

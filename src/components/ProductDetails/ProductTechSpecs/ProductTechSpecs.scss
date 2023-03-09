@@ -1,0 +1,39 @@
+@import '../../../sassStyles/mixins';
+@import '../../../sassStyles/colors';
+
+.product__tech-specs {
+  margin-bottom: 56px;
+
+  @include onDesktop {
+    max-width: 512px;
+    width: 100%;
+  }
+
+  &--title {
+    font-size: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid $color__icons;
+    margin-bottom: 32px;
+  }
+
+  &--details {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &--detail {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    margin-bottom: 8px;
+  }
+
+  &--key {
+    color: $color__secondary;
+    margin-bottom: 8px;
+  }
+
+  &--value {
+    color: $color__primary;
+  }
+}
