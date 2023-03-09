@@ -2,9 +2,7 @@ import React, {
   useState, useEffect, useCallback, memo,
 } from 'react';
 import { useParams } from 'react-router-dom';
-
-import { getPhoneDetails } from '../../api/requests';
-
+import { getPhoneDetails, getRecommended } from '../../api/requests';
 import { BackButton } from '../../components/BackButton';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { ProductAbout } from '../../components/ProductDetails/ProductAbout';
@@ -14,8 +12,15 @@ import { ProductTechSpecs } from '../../components/ProductDetails/ProductTechSpe
 import { Phone } from '../../types/Phone';
 import { PhoneDetails } from '../../types/PhoneDetails';
 import { SectionTitle } from '../../components/SectionTitle';
+import { Phone } from '../../types/Phone';
+import { ProductRecommendedSlider } from '../../components/ProductDetails/ProductRecommendedSlider';
 
 import './ProductDetailsPage.scss';
+
+export const ProductDetailsPage: React.FC = memo(() => {
+  const [product, setProduct] = useState<Phone>();
+  const [productDetails, setProductDetails] = useState<PhoneDetails>();
+  const [recommendedProducts, setRecommendedProducts] = useState<Phone[]>();
 
 export const ProductDetailsPage: React.FC = memo(() => {
   const [productDetails, setProductDetails] = useState<PhoneDetails>();
@@ -32,6 +37,10 @@ export const ProductDetailsPage: React.FC = memo(() => {
         setProductDetails(JSON.parse(phoneDetails));
       })
       .catch((error) => window.console.log(error));
+      
+      getRecommended(productId || '')
+        .then((res) => setRecommendedProducts(res.data))
+        .catch((error) => window.console.log(error));
   }, []);
 
   const handleProductChange = useCallback((newProductId: string) => {
@@ -44,31 +53,34 @@ export const ProductDetailsPage: React.FC = memo(() => {
       })
       .catch((error) => window.console.log(error));
   }, []);
+ 
 
   return (
     <div className="container">
       <Breadcrumbs />
       <BackButton />
       <SectionTitle>{`Section title component ${productId}`}</SectionTitle>
+
       <div className="product-details__demo grid">
         {product && productDetails && (
-          <ProductSlider
-            images={productDetails.images}
-            name={productDetails.name}
-          />
-        )}
+          <>
+            <ProductSlider
+              images={productDetails.images}
+              name={productDetails.name}
+            />
 
-        {product && productDetails && (
-          <ProductSidebar
-            productDetails={productDetails}
-            product={product}
-            handleProductChange={handleProductChange}
-          />
+            <ProductSidebar
+              productDetails={productDetails}
+              product={product}
+              handleProductChange={handleProductChange}
+            />
+          </>
         )}
       </div>
+
       <div className="grid">
         {product && productDetails && (
-          <>
+          <div className="product-details__wrapper">
             <ProductAbout description={productDetails.description} />
             <ProductTechSpecs
               screen={productDetails.screen}
@@ -79,10 +91,13 @@ export const ProductDetailsPage: React.FC = memo(() => {
               camera={productDetails.camera}
               zoom={productDetails.zoom}
               cell={productDetails.cell}
-            />
-          </>
-        )}
-      </div>
+          </div>
+
+          {recommendedProducts && (
+            <ProductRecommendedSlider products={recommendedProducts} />
+          )}
+        </>
+      )}
     </div>
   );
 });

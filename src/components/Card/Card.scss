@@ -4,7 +4,8 @@
 @import '../../sassStyles/sizes';
 
 .card {
-  // display: inline-block;
+  //display: inline-block;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -16,8 +17,7 @@
   padding: 16px;
 
   @include onTablet {
-    // max-width: 237px;
-
+    max-width: 288px;
     width: 100%;
   }
 
@@ -149,16 +149,7 @@
   }
 
   &--slider {
-    min-width: 212px;
-    max-width: none;
-
     @include onTablet {
-      min-width: 237px;
-      max-width: none;
-    }
-
-    @include onDesktop {
-      min-width: 272px;
       max-width: none;
     }
   }
