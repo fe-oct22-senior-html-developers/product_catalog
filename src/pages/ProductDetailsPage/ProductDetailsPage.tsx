@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './ProductDetailsPage.scss';
 import { useParams } from 'react-router-dom';
-import { getPhoneDetails } from '../../api/requests';
-// import { getPhoneDetails, getRecommended } from '../../api/requests';
+import { getPhoneDetails, getRecommended } from '../../api/requests';
 import { BackButton } from '../../components/BackButton';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { ProductAbout } from '../../components/ProductDetails/ProductAbout';
@@ -10,9 +9,12 @@ import { ProductSlider } from '../../components/ProductDetails/ProductSlider';
 import { ProductTechSpecs } from '../../components/ProductDetails/ProductTechSpecs';
 import { PhoneDetails } from '../../types/PhoneDetails';
 import { SectionTitle } from '../../components/SectionTitle';
+import { Phone } from '../../types/Phone';
+import { ProductRecommendedSlider } from '../../components/ProductDetails/ProductRecommendedSlider';
 
 export const ProductDetailsPage: React.FC = () => {
-  const [product, setProduct] = useState<PhoneDetails>();
+  const [productDetails, setProductDetails] = useState<PhoneDetails>();
+  const [recommendedProducts, setRecommendedProducts] = useState<Phone[]>();
   const { productId } = useParams();
 
   useEffect(() => {
@@ -20,13 +22,13 @@ export const ProductDetailsPage: React.FC = () => {
       .then((res) => {
         const { phoneDetails } = res.data;
 
-        setProduct(JSON.parse(phoneDetails));
+        setProductDetails(JSON.parse(phoneDetails));
       })
       .catch((error) => window.console.log(error));
 
-    // getRecommended(productId || '')
-    //   .then((res) => window.console.log(res.data))
-    //   .catch((error) => window.console.log(error));
+    getRecommended(productId || '')
+      .then((res) => setRecommendedProducts(res.data))
+      .catch((error) => window.console.log(error));
   }, []);
 
   return (
@@ -34,26 +36,33 @@ export const ProductDetailsPage: React.FC = () => {
       <Breadcrumbs />
       <BackButton />
       <SectionTitle>{`Section title component ${productId}`}</SectionTitle>
-      {product && (
+      {productDetails && (
         <>
           <div className="product-details__demo">
-            <ProductSlider images={product.images} name={product.name} />
+            <ProductSlider
+              images={productDetails.images}
+              name={productDetails.name}
+            />
           </div>
 
           <div className="product-details__wrapper">
-            <ProductAbout description={product?.description} />
+            <ProductAbout description={productDetails?.description} />
 
             <ProductTechSpecs
-              screen={product.screen}
-              resolution={product.resolution}
-              processor={product.processor}
-              ram={product.ram}
-              capacity={product.capacity}
-              camera={product.camera}
-              zoom={product.zoom}
-              cell={product.cell}
+              screen={productDetails.screen}
+              resolution={productDetails.resolution}
+              processor={productDetails.processor}
+              ram={productDetails.ram}
+              capacity={productDetails.capacity}
+              camera={productDetails.camera}
+              zoom={productDetails.zoom}
+              cell={productDetails.cell}
             />
           </div>
+
+          {recommendedProducts && (
+            <ProductRecommendedSlider products={recommendedProducts} />
+          )}
         </>
       )}
     </div>

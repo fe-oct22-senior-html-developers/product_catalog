@@ -5,16 +5,13 @@
 
 .card {
   display: inline-block;
-  min-width: 180px;
-  // max-width: 212px;
-  min-width: 100%;
+  width: 100%;
 
   border: 1px solid $color__elemets;
   padding: 16px;
 
   @include onTablet {
-    // max-width: 237px;
-
+    max-width: 288px;
     width: 100%;
   }
 
@@ -145,16 +142,7 @@
   }
 
   &--slider {
-    min-width: 212px;
-    max-width: none;
-
     @include onTablet {
-      min-width: 237px;
-      max-width: none;
-    }
-
-    @include onDesktop {
-      min-width: 272px;
       max-width: none;
     }
   }
