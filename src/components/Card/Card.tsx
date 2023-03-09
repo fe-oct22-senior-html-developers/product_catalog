@@ -1,6 +1,7 @@
 import React, {
   memo, useContext, useState, useEffect,
 } from 'react';
+import { Link } from 'react-router-dom';
 import { GlobalContext } from '../../contexts/GlobalProvider/GlobalProvider';
 import { CartItem } from '../../types/CartItem';
 import { Phone } from '../../types/Phone';
@@ -13,7 +14,7 @@ type Props = {
 
 export const Card: React.FC<Props> = memo(({ phone, mixClass }) => {
   // eslint-disable-next-line object-curly-newline
-  const { image, name, price, fullPrice, screen, capacity, ram } = phone;
+  const { image, name, price, fullPrice, screen, capacity, ram, phoneId } = phone;
 
   const {
     cart, updateCart, favourites, updateFavourites,
@@ -89,9 +90,10 @@ export const Card: React.FC<Props> = memo(({ phone, mixClass }) => {
   return (
     <article className={`card ${mixClass}`}>
       <div>
-        <img className="card__img" src={image} alt={name} />
-
-        <h4 className="card__title">{name}</h4>
+        <Link to={`/product/${phoneId}`}>
+          <img className="card__img" src={image} alt={name} />
+          <h4 className="card__title">{name}</h4>
+        </Link>
       </div>
 
       <div className="block">

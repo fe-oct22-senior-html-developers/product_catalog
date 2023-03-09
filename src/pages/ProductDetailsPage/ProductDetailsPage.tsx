@@ -43,8 +43,8 @@ export const ProductDetailsPage: React.FC = memo(() => {
       .then((res) => {
         const { phone, phoneDetails } = res.data;
 
-        setProduct(() => JSON.parse(phone));
-        setProductDetails(() => JSON.parse(phoneDetails));
+        setProduct(JSON.parse(phone));
+        setProductDetails(JSON.parse(phoneDetails));
       })
       .catch((error) => window.console.log(error));
 
