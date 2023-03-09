@@ -6,35 +6,15 @@ import { ProductColors } from './ProductColors';
 import { ProductPurchase } from './ProductPurchase';
 import './ProductSidebar.scss';
 
-type PhoneExtended = {
-  id: string;
-  namespaceId: string;
-  name: string;
-  capacityAvailable: string[];
-  capacity: string;
-  priceRegular: number;
-  priceDiscount: number;
-  colorsAvailable: string[];
-  color: string;
-  screen: string;
-  resolution: string;
-  processor: string;
-  ram: string;
-  camera: string;
-  zoom: string;
-  cell: string[];
-};
-
 interface Props {
-  productExtended: PhoneExtended;
+  productExtended: PhoneDetails;
   product: Phone;
-  setProduct: React.Dispatch<React.SetStateAction<PhoneDetails | undefined>>;
   handleProductChange: (newProductId: string) => void;
 }
 
 export const ProductSidebar: React.FC<Props> = memo(
   ({
-    productExtended, product, setProduct, handleProductChange,
+    productExtended, product, handleProductChange,
   }) => {
     const {
       screen,
@@ -59,13 +39,13 @@ export const ProductSidebar: React.FC<Props> = memo(
         <ProductColors
           colorsAvailable={colorsAvailable}
           currentColor={color}
-          setProduct={setProduct}
           handleProductChange={handleProductChange}
         />
         <div className="product-sidebar__tech-info">
           <ProductCapacity
             capacityAvailable={capacityAvailable}
             currentCapacity={capacity}
+            handleProductChange={handleProductChange}
           />
           <ProductPurchase phone={product} />
 

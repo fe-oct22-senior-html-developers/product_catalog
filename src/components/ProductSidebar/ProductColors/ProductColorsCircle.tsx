@@ -2,12 +2,10 @@ import React, { memo } from 'react';
 import './ProductColors.scss';
 import cn from 'classnames';
 import { Link, useParams } from 'react-router-dom';
-import { PhoneDetails } from '../../../types/PhoneDetails';
 
 interface Props {
   color: string;
   productColor: string;
-  setProduct: React.Dispatch<React.SetStateAction<PhoneDetails | undefined>>;
   handleProductChange: (newProductId: string) => void;
 }
 
@@ -27,7 +25,7 @@ export const ProductColorsCircle: React.FC<Props> = memo(
     return (
       <Link
         to={`/product/${difColorProduct}`}
-        aria-label={`click to choose ${color}`}
+        aria-label={`click to choose ${color} color`}
         title={color}
         onClick={() => handleProductChange(difColorProduct)}
         className={cn('product-colors__circle', {

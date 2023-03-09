@@ -40,16 +40,11 @@
     border: 1px solid $color__elemets;
     border-radius: 50%;
 
-    transition: border 0.3s ease;
+    transition: border 0.2s ease;
 
     &--active {
       border: 1px solid $color__primary;
       pointer-events: none;
-      pointer-events: none;
-
-      &:hover {
-        border: 1px solid $color__primary;
-      }
     }
 
     &:hover {

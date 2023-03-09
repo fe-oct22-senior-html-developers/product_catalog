@@ -4,39 +4,35 @@ import { getPhoneDetails } from '../../api/requests';
 import { BackButton } from '../../components/BackButton';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { ProductSidebar } from '../../components/ProductSidebar';
+// import { FullPhone } from '../../types/FullPhone';
+import { Phone } from '../../types/Phone';
 import { PhoneDetails } from '../../types/PhoneDetails';
 
 export const ProductDetailsPage: React.FC = () => {
-  const [product, setProduct] = useState<PhoneDetails>();
+  const [productDetails, setProductDetails] = useState<PhoneDetails>();
+  const [product, setProduct] = useState<Phone>();
 
   const { productId } = useParams();
 
-  const phoneMinimal = {
-    id: '1',
-    category: 'phones',
-    phoneId: 'apple-iphone-7-32gb-black',
-    itemId: 'apple-iphone-7-32gb-black',
-    name: 'Apple iPhone 7 32GB Black',
-    fullPrice: 400,
-    price: 375,
-    screen: '4.7` IPS',
-    capacity: '32GB',
-    color: 'black',
-    ram: '2GB',
-    year: 2016,
-    image:
-      'https://raw.githubusercontent.com/fe-oct22-senior-html-developers/product_catalog_static/main/img/phones/apple-iphone-7/black/00.jpg',
-  };
-
   useEffect(() => {
     getPhoneDetails(productId || '')
-      .then((res) => setProduct(res.data))
+      .then((res) => {
+        const { phone, phoneDetails } = res.data;
+
+        setProduct(JSON.parse(phone));
+        setProductDetails(JSON.parse(phoneDetails));
+      })
       .catch((error) => window.console.log(error));
-  }, [product]);
+  }, []);
 
   const handleProductChange = useCallback((newProductId: string) => {
     getPhoneDetails(newProductId || '')
-      .then((res) => setProduct(res.data))
+      .then((res) => {
+        const { phone, phoneDetails } = res.data;
+
+        setProduct(JSON.parse(phone));
+        setProductDetails(JSON.parse(phoneDetails));
+      })
       .catch((error) => window.console.log(error));
   }, []);
 
@@ -46,11 +42,10 @@ export const ProductDetailsPage: React.FC = () => {
       <BackButton />
       <div>{`Section title component ${productId}`}</div>
       <div className="grid">
-        {product && (
+        {product && productDetails && (
           <ProductSidebar
-            productExtended={product}
-            product={phoneMinimal}
-            setProduct={setProduct}
+            productExtended={productDetails}
+            product={product}
             handleProductChange={handleProductChange}
           />
         )}

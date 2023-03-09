@@ -43,6 +43,7 @@
     &--active {
       color: $color__main;
       background-color: $color__primary;
+      pointer-events: none;
     }
 
     &:hover {
