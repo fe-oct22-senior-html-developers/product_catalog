@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { GlobalContext } from '../../../contexts/GlobalProvider/GlobalProvider';
 import { ModalWindow } from '../../ModalWindow';
 import './CartTotal.scss';
@@ -12,6 +13,7 @@ export const CartTotal: React.FC<Props> = ({ total = 0, itemsNum = 0 }) => {
   const { updateCart } = useContext(GlobalContext);
 
   const [isModalOpened, setIsModalOpened] = useState(false);
+  const navigate = useNavigate();
 
   const handleCheckoutClick = () => {
     setIsModalOpened(true);
@@ -19,9 +21,7 @@ export const CartTotal: React.FC<Props> = ({ total = 0, itemsNum = 0 }) => {
     setTimeout(() => {
       setIsModalOpened(false);
       updateCart([]);
-      window.location.replace(
-        'https://fe-oct22-senior-html-developers.github.io/product_catalog/',
-      );
+      navigate('/');
     }, 2000);
   };
 
