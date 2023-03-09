@@ -9,14 +9,12 @@ type Props = {
   pageTitle: string;
 };
 
-export const CartPage: React.FC<Props> = ({ pageTitle }) => {
-  return (
-    <div className="cart-page">
-      <div className="container">
-        <BackButton isAlone />
-        <PageTitle mixClass="cart-page__title">{pageTitle}</PageTitle>
-      </div>
-      <Cart />
+export const CartPage: React.FC<Props> = ({ pageTitle }) => (
+  <div className="cart-page">
+    <div className="container">
+      <BackButton isAlone />
+      <PageTitle mixClass="cart-page__title">{pageTitle}</PageTitle>
     </div>
-  );
-};
+    <Cart />
+  </div>
+);

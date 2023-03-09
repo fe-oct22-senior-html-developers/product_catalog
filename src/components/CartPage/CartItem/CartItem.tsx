@@ -14,7 +14,7 @@ type Props = {
 export const CartItem: React.FC<Props> = ({ cartItem }) => {
   const { quantity, product } = cartItem;
   // eslint-disable-next-line object-curly-newline
-  const { id, name, price, image } = product;
+  const { id, name, price, image, phoneId } = product;
   const { cart, updateCart } = useContext(GlobalContext);
 
   const [isDisabled, setIsDisabled] = useState(false);
@@ -88,7 +88,7 @@ export const CartItem: React.FC<Props> = ({ cartItem }) => {
 
         <img src={image} alt={name} className="cart-item__img" />
 
-        <Link to="/product/:productId" className="cart-item__title">
+        <Link to={`/product/${phoneId}`} className="cart-item__title">
           {`${name}`}
         </Link>
       </div>
