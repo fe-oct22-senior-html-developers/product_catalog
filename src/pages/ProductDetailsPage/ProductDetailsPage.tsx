@@ -1,8 +1,5 @@
 import React, {
-  useState,
-  useEffect,
-  useCallback,
-  memo,
+  useState, useEffect, useCallback, memo,
 } from 'react';
 
 import { useParams } from 'react-router-dom';
