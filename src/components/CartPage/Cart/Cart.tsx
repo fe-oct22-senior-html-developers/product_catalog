@@ -4,6 +4,8 @@ import { CartTotal } from '../CartTotal';
 import { CartList } from '../CartList';
 import { GlobalContext } from '../../../contexts/GlobalProvider/GlobalProvider';
 import { CartItem } from '../CartItem';
+import { EmptyMessage } from '../../EmptyMessage';
+import Img from '../../../static/cart/emptyCart.jpg';
 
 export const Cart: React.FC = () => {
   const { cart } = useContext(GlobalContext);
@@ -32,9 +34,7 @@ export const Cart: React.FC = () => {
           <CartTotal total={productsTotal} itemsNum={itemsNum} />
         </section>
       ) : (
-        <section className="cart page__cart cart__empty container">
-          <p>Your cart is empty</p>
-        </section>
+        <EmptyMessage image={Img} btnText="Buy" />
       )}
     </>
   );

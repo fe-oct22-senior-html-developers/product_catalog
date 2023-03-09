@@ -1,36 +1,42 @@
 import React, { memo } from 'react';
 import './ProductColors.scss';
 import cn from 'classnames';
-import { Link } from 'react-router-dom';
-
-// const colors = {
-//   black: '#4C4C4C',
-//   gold: '#FCDBC1',
-//   midnightgreen: '#5F7170',
-//   silver: '#F0F0F0',
-// };
-
-// type Color = 'black' | 'gold' | 'midnightgreen' | 'silver';
+import { Link, useParams } from 'react-router-dom';
+import { PhoneDetails } from '../../../types/PhoneDetails';
 
 interface Props {
   color: string;
   productColor: string;
+  setProduct: React.Dispatch<React.SetStateAction<PhoneDetails | undefined>>
+  handleProductChange: (newProductId: string) => void,
 }
 
 export const ProductColorsCircle: React.FC<Props> = memo(
-  ({ color, productColor }) => {
+  ({ color, productColor, handleProductChange }) => {
+    const { productId } = useParams();
+    let difColorProduct = '';
+
+    if (productId) {
+      difColorProduct = productId
+        .split('-')
+        .slice(0, -1)
+        .concat(`${color}`)
+        .join('-');
+    }
+
     return (
-      <Link to="/" aria-label={`click to choose ${color}`} title={color}>
+      <Link
+        to={`/product/${difColorProduct}`}
+        aria-label={`click to choose ${color}`}
+        title={color}
+        onClick={() => handleProductChange(difColorProduct)}
+        className={cn('product-colors__circle', {
+          'product-colors__circle--active': color === productColor,
+        })}
+      >
         <div
-          className={cn('product-colors__circle', {
-            'product-colors__circle--active': color === productColor,
-          })}
+          className={`product-colors__color product-colors__color--${color}`}
         >
-          <div
-            className={`product-colors__color product-colors__color--${color}`}
-            // style={{ backgroundColor: colorAvailable }}
-          >
-          </div>
         </div>
       </Link>
     );

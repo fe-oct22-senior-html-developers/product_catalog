@@ -44,6 +44,12 @@
 
     &--active {
       border: 1px solid $color__primary;
+      pointer-events: none;
+      pointer-events: none;
+
+      &:hover {
+        border: 1px solid $color__primary;
+      }
     }
 
     &:hover {

@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { Phone } from '../../types/Phone';
+import { PhoneDetails } from '../../types/PhoneDetails';
 import { ProductCapacity } from './ProductCapacity';
 import { ProductColors } from './ProductColors';
 import { ProductPurchase } from './ProductPurchase';
@@ -25,12 +26,19 @@ type PhoneExtended = {
 };
 
 interface Props {
-  phoneExtended: PhoneExtended;
-  phone: Phone;
+  productExtended: PhoneExtended;
+  product: Phone;
+  setProduct: React.Dispatch<React.SetStateAction<PhoneDetails | undefined>>
+  handleProductChange: (newProductId: string) => void,
 }
 
 export const ProductSidebar: React.FC<Props> = memo(
-  ({ phoneExtended, phone }) => {
+  ({
+    productExtended,
+    product,
+    setProduct,
+    handleProductChange,
+  }) => {
     const {
       screen,
       resolution,
@@ -40,7 +48,7 @@ export const ProductSidebar: React.FC<Props> = memo(
       colorsAvailable,
       capacity,
       capacityAvailable,
-    } = phoneExtended;
+    } = productExtended;
 
     return (
       <div
@@ -51,13 +59,18 @@ export const ProductSidebar: React.FC<Props> = memo(
           grid__item--desktop_14-24
         "
       >
-        <ProductColors colorsAvailable={colorsAvailable} currentColor={color} />
+        <ProductColors
+          colorsAvailable={colorsAvailable}
+          currentColor={color}
+          setProduct={setProduct}
+          handleProductChange={handleProductChange}
+        />
         <div className="product-sidebar__tech-info">
           <ProductCapacity
             capacityAvailable={capacityAvailable}
             currentCapacity={capacity}
           />
-          <ProductPurchase phone={phone} />
+          <ProductPurchase phone={product} />
 
           <div className="product-sidebar__info">
             <div className="product-sidebar__characteristic">
