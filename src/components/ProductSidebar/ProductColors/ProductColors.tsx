@@ -9,9 +9,7 @@ interface Props {
 }
 
 export const ProductColors: React.FC<Props> = memo(
-  ({
-    colorsAvailable, currentColor, handleProductChange,
-  }) => {
+  ({ colorsAvailable, currentColor, handleProductChange }) => {
     return (
       <div className="product-colors product-sidebar__product-colors">
         <div className="product-colors__text">

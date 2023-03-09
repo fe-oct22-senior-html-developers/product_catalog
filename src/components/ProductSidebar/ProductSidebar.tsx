@@ -13,9 +13,7 @@ interface Props {
 }
 
 export const ProductSidebar: React.FC<Props> = memo(
-  ({
-    productExtended, product, handleProductChange,
-  }) => {
+  ({ productExtended, product, handleProductChange }) => {
     const {
       screen,
       resolution,
