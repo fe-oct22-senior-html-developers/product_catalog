@@ -1,5 +1,24 @@
+@import '../../sassStyles/colors';
+@import '../../sassStyles/mixins';
+
 .product-page {
   &__title {
     margin-bottom: 8px;
+  }
+
+  &__amount {
+    margin-bottom: 32px;
+
+    font-size: 14px;
+    color: $color__secondary;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__filters {
+    display: flex;
+    gap: 16px;
   }
 }
