@@ -4,7 +4,10 @@
 @import '../../sassStyles/sizes';
 
 .card {
-  display: inline-block;
+  // display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   min-width: 180px;
   // max-width: 212px;
   min-width: 100%;
@@ -49,6 +52,7 @@
     font-weight: 600;
     line-height: 21px;
     color: $color__primary;
+    height: 42px;
   }
 
   &__prices {

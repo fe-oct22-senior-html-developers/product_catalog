@@ -1,4 +1,9 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, {
+  useContext,
+  useState,
+  useEffect,
+  memo
+} from 'react';
 import { GlobalContext } from '../../../contexts/GlobalProvider/GlobalProvider';
 import { CartItem } from '../../../types/CartItem';
 import { Phone } from '../../../types/Phone';
@@ -10,7 +15,7 @@ type Props = {
   phoneDetails: PhoneDetails;
 };
 
-export const ProductPurchase: React.FC<Props> = ({ phone, phoneDetails }) => {
+export const ProductPurchase: React.FC<Props> = memo(({ phone, phoneDetails }) => {
   // eslint-disable-next-line object-curly-newline
   const { fullPrice } = phone;
 
@@ -25,11 +30,11 @@ export const ProductPurchase: React.FC<Props> = ({ phone, phoneDetails }) => {
   const newCart = [...cart];
   const newFavourites = [...favourites];
 
-  const isCartIncludes = cart.some(
+  const isCartIncludes = newCart.some(
     (item) => item.product.itemId === phone.itemId,
   );
 
-  const isFavouritesIncludes = favourites.find(
+  const isFavouritesIncludes = newFavourites.find(
     (fav) => fav.itemId === phone.itemId,
   );
 
@@ -131,4 +136,4 @@ export const ProductPurchase: React.FC<Props> = ({ phone, phoneDetails }) => {
       </div>
     </article>
   );
-};
+});
