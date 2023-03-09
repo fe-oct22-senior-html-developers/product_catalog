@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.9dbf7545.chunk.css",
+    "main.css": "/product_catalog/static/css/main.e4ad6212.chunk.css",
     "main.js": "/product_catalog/static/js/main.d5767402.chunk.js",
     "main.js.map": "/product_catalog/static/js/main.d5767402.chunk.js.map",
     "runtime-main.js": "/product_catalog/static/js/runtime-main.076c123b.js",
@@ -10,7 +10,7 @@
     "static/js/2.9276430a.chunk.js.map": "/product_catalog/static/js/2.9276430a.chunk.js.map",
     "index.html": "/product_catalog/index.html",
     "static/css/2.cf06dab4.chunk.css.map": "/product_catalog/static/css/2.cf06dab4.chunk.css.map",
-    "static/css/main.9dbf7545.chunk.css.map": "/product_catalog/static/css/main.9dbf7545.chunk.css.map",
+    "static/css/main.e4ad6212.chunk.css.map": "/product_catalog/static/css/main.e4ad6212.chunk.css.map",
     "static/js/2.9276430a.chunk.js.LICENSE.txt": "/product_catalog/static/js/2.9276430a.chunk.js.LICENSE.txt",
     "static/media/404.748a45b2.svg": "/product_catalog/static/media/404.748a45b2.svg",
     "static/media/Breadcrumbs.scss": "/product_catalog/static/media/Home-icon.d4c29e4f.svg",
@@ -34,7 +34,7 @@
     "static/js/runtime-main.076c123b.js",
     "static/css/2.cf06dab4.chunk.css",
     "static/js/2.9276430a.chunk.js",
-    "static/css/main.9dbf7545.chunk.css",
+    "static/css/main.e4ad6212.chunk.css",
     "static/js/main.d5767402.chunk.js"
   ]
 }
