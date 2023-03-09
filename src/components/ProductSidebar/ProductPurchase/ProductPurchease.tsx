@@ -4,18 +4,16 @@ import React, {
 import { GlobalContext } from '../../../contexts/GlobalProvider/GlobalProvider';
 import { CartItem } from '../../../types/CartItem';
 import { Phone } from '../../../types/Phone';
-import { PhoneDetails } from '../../../types/PhoneDetails';
 import './ProductPurchase.scss';
 
 type Props = {
   phone: Phone;
-  phoneDetails: PhoneDetails;
 };
 
 export const ProductPurchase: React.FC<Props> = memo(
-  ({ phone, phoneDetails }) => {
+  ({ phone }) => {
     // eslint-disable-next-line object-curly-newline
-    const { fullPrice } = phone;
+    const { fullPrice, price } = phone;
 
     const {
       cart, updateCart, favourites, updateFavourites,
@@ -93,9 +91,16 @@ export const ProductPurchase: React.FC<Props> = memo(
 
     return (
       <article className="product-purchase product-sidebar__product-purchase">
-        <div className="product-purchase__prices">
-          <p className="product-purchase__prices--price">{`$${phoneDetails?.priceDiscount}`}</p>
-          <p className="product-purchase__prices--old-price">{`$${fullPrice}`}</p>
+        <div className="card__prices">
+          {price === fullPrice
+            ? (
+              <span className="card__prices--price">{`$${fullPrice}`}</span>
+            ) : (
+              <>
+                <span className="card__prices--price">{`$${price}`}</span>
+                <span className="card__prices--old-price">{`$${fullPrice}`}</span>
+              </>
+            )}
         </div>
 
         <div className="product-purchase__footer">

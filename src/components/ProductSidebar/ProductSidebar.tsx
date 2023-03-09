@@ -45,7 +45,7 @@ export const ProductSidebar: React.FC<Props> = memo(
               currentCapacity={capacity}
               handleProductChange={handleProductChange}
             />
-            <ProductPurchase phone={product} phoneDetails={productDetails} />
+            <ProductPurchase phone={product} />
 
             <div className="product-sidebar__info">
               <div className="product-sidebar__characteristic">

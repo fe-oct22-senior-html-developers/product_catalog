@@ -96,8 +96,15 @@ export const Card: React.FC<Props> = memo(({ phone, mixClass }) => {
 
       <div className="block">
         <div className="card__prices">
-          <span className="card__prices--price">{`$${price}`}</span>
-          <span className="card__prices--old-price">{`$${fullPrice}`}</span>
+          {price === fullPrice
+            ? (
+              <span className="card__prices--price">{`$${fullPrice}`}</span>
+            ) : (
+              <>
+                <span className="card__prices--price">{`$${price}`}</span>
+                <span className="card__prices--old-price">{`$${fullPrice}`}</span>
+              </>
+            )}
         </div>
 
         <div className="card__specifications">

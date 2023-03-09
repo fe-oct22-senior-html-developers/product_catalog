@@ -6,6 +6,7 @@ import { CustomSelect } from '../../components/ProductPage/CustomSelect';
 import { SortBy, ItemsNum } from '../../types/CustomSelect';
 import { Phone } from '../../types/Phone';
 import { getPhonesWithPagination } from '../../api/requests';
+import { Catalog } from '../../components/ProductPage/Catalog';
 
 type Props = {
   pageTitle: string;
@@ -56,9 +57,9 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
             updater={setItemsNum}
           />
         </div>
+
+        <Catalog phones={phones} />
       </div>
-      {/* Настя, заміни 61 строку на свій код (ну і цю) */}
-      <div>{JSON.stringify(phones)}</div>
       <div>Pagination</div>
     </div>
   );
