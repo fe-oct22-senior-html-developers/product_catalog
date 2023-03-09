@@ -4,7 +4,10 @@
 @import '../../sassStyles/sizes';
 
 .card {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   min-width: 180px;
   // max-width: 212px;
   min-width: 100%;
@@ -44,6 +47,7 @@
 
   &__title {
     padding-bottom: 8px;
+    height: 45px;
 
     font-size: 14px;
     font-weight: 600;
