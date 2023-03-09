@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import './ProductPage.scss';
 import { PageTitle } from '../../components/PageTitle';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
@@ -9,6 +10,8 @@ type Props = {
 };
 
 export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
+  const location = useLocation().pathname.split('/');
+
   const phone = {
     id: '1',
     category: 'phones',
@@ -28,7 +31,7 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
   return (
     <div className="product-page">
       <div className="container">
-        <Breadcrumbs />
+        <Breadcrumbs path={[location[location.length - 1]]} />
         <PageTitle mixClass="product-page__title">{pageTitle}</PageTitle>
       </div>
       <div>Data amount</div>

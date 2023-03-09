@@ -1,17 +1,19 @@
 import React, { Fragment, memo } from 'react';
 import './Breadcrumbs.scss';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export const Breadcrumbs: React.FC = memo(() => {
-  const location = useLocation();
+interface Props {
+  path: (string | undefined)[];
+}
 
+export const Breadcrumbs: React.FC<Props> = memo(({ path }) => {
   let currentLink = '';
 
-  const crumbs = location.pathname
-    .split('/')
-    .filter((crumb) => crumb !== '')
-    .map((crumb) => {
-      const preparedCrumb = crumb[0].toUpperCase() + crumb.slice(1);
+  const crumbs = path.map((crumb) => {
+    if (crumb) {
+      const preparedCrumb = (crumb[0].toUpperCase() + crumb.slice(1))
+        .split('-')
+        .join(' ');
 
       currentLink += `/${crumb}`;
 
@@ -27,7 +29,10 @@ export const Breadcrumbs: React.FC = memo(() => {
           </Link>
         </Fragment>
       );
-    });
+    }
+
+    return true;
+  });
 
   return (
     <div className="breadcrumbs page__breadcrumbs">
