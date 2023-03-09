@@ -42,4 +42,13 @@
       max-width: 100%;
     }
   }
+
+  &__list-item {
+    display: flex;
+    height: 100%;
+  }
+
+  &__empty-message {
+    margin-top: 50px;
+  }
 }

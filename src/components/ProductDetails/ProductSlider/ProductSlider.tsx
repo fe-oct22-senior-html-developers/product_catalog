@@ -38,14 +38,23 @@ export const ProductSlider: React.FC<Props> = ({ images, name }) => {
   };
 
   return (
-    <div className="product-slider">
-      <Slider {...settings} className="product-slider__item">
-        {images.map((image: string) => (
-          <div key={image} className="product-slider__wrapper">
-            <img className="product-slider__img" src={image} alt={name} />
-          </div>
-        ))}
-      </Slider>
+    <div
+      className="
+        page__product-slider
+        grid__item--tablet_1-7
+        grid__item--desktop_1-12
+      "
+    >
+      <div
+        className="product-slider">
+        <Slider {...settings} className="product-slider__item">
+          {images.map((image: string) => (
+            <div key={image} className="product-slider__wrapper">
+              <img className="product-slider__img" src={image} alt={name} />
+            </div>
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 };
