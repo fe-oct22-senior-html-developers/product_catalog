@@ -6,11 +6,12 @@ import './EmptyMessage.scss';
 interface Props {
   image: string;
   btnText: string;
+  mixClass?: string;
 }
 
-export const EmptyMessage: React.FC<Props> = memo(({ image, btnText }) => {
-  return (
-    <section className="container empty-message">
+export const EmptyMessage: React.FC<Props> = memo(
+  ({ mixClass, image, btnText }) => (
+    <section className={`container empty-message ${mixClass}`}>
       <div className="empty-message__inner">
         <img src={image} alt="EmptySpace" className="empty-message__img" />
         <p className="text">Oopps... It is empty in here.</p>
@@ -19,5 +20,5 @@ export const EmptyMessage: React.FC<Props> = memo(({ image, btnText }) => {
         {btnText}
       </Link>
     </section>
-  );
-});
+  ),
+);
