@@ -1,53 +1,87 @@
-import React, { useEffect, useState } from 'react';
-import './ProductDetailsPage.scss';
+import React, {
+  useState, useEffect, useCallback, memo,
+} from 'react';
 import { useParams } from 'react-router-dom';
 import { getPhoneDetails, getRecommended } from '../../api/requests';
 import { BackButton } from '../../components/BackButton';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { ProductAbout } from '../../components/ProductDetails/ProductAbout';
+import { ProductSidebar } from '../../components/ProductSidebar';
 import { ProductSlider } from '../../components/ProductDetails/ProductSlider';
 import { ProductTechSpecs } from '../../components/ProductDetails/ProductTechSpecs';
+import { Phone } from '../../types/Phone';
 import { PhoneDetails } from '../../types/PhoneDetails';
 import { SectionTitle } from '../../components/SectionTitle';
 import { Phone } from '../../types/Phone';
 import { ProductRecommendedSlider } from '../../components/ProductDetails/ProductRecommendedSlider';
 
-export const ProductDetailsPage: React.FC = () => {
+import './ProductDetailsPage.scss';
+
+export const ProductDetailsPage: React.FC = memo(() => {
+  const [product, setProduct] = useState<Phone>();
   const [productDetails, setProductDetails] = useState<PhoneDetails>();
   const [recommendedProducts, setRecommendedProducts] = useState<Phone[]>();
+
+export const ProductDetailsPage: React.FC = memo(() => {
+  const [productDetails, setProductDetails] = useState<PhoneDetails>();
+  const [product, setProduct] = useState<Phone>();
+
   const { productId } = useParams();
 
   useEffect(() => {
     getPhoneDetails(productId || '')
       .then((res) => {
-        const { phoneDetails } = res.data;
+        const { phone, phoneDetails } = res.data;
 
+        setProduct(JSON.parse(phone));
         setProductDetails(JSON.parse(phoneDetails));
       })
       .catch((error) => window.console.log(error));
+      
+      getRecommended(productId || '')
+        .then((res) => setRecommendedProducts(res.data))
+        .catch((error) => window.console.log(error));
+  }, []);
 
-    getRecommended(productId || '')
-      .then((res) => setRecommendedProducts(res.data))
+  const handleProductChange = useCallback((newProductId: string) => {
+    getPhoneDetails(newProductId || '')
+      .then((res) => {
+        const { phone, phoneDetails } = res.data;
+
+        setProduct(() => JSON.parse(phone));
+        setProductDetails(() => JSON.parse(phoneDetails));
+      })
       .catch((error) => window.console.log(error));
   }, []);
+ 
 
   return (
     <div className="container">
       <Breadcrumbs />
       <BackButton />
       <SectionTitle>{`Section title component ${productId}`}</SectionTitle>
-      {productDetails && (
-        <>
-          <div className="product-details__demo">
+
+      <div className="product-details__demo grid">
+        {product && productDetails && (
+          <>
             <ProductSlider
               images={productDetails.images}
               name={productDetails.name}
             />
-          </div>
 
+            <ProductSidebar
+              productDetails={productDetails}
+              product={product}
+              handleProductChange={handleProductChange}
+            />
+          </>
+        )}
+      </div>
+
+      <div className="grid">
+        {product && productDetails && (
           <div className="product-details__wrapper">
-            <ProductAbout description={productDetails?.description} />
-
+            <ProductAbout description={productDetails.description} />
             <ProductTechSpecs
               screen={productDetails.screen}
               resolution={productDetails.resolution}
@@ -57,7 +91,6 @@ export const ProductDetailsPage: React.FC = () => {
               camera={productDetails.camera}
               zoom={productDetails.zoom}
               cell={productDetails.cell}
-            />
           </div>
 
           {recommendedProducts && (
@@ -67,4 +100,4 @@ export const ProductDetailsPage: React.FC = () => {
       )}
     </div>
   );
-};
+});

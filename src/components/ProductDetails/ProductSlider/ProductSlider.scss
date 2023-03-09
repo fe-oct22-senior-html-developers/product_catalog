@@ -47,10 +47,15 @@
 .product-slider__item .slick-list {
   width: 273px;
   margin: auto;
+
   @include onTablet {
     width: 442px;
     margin: none;
   }
+}
+
+.product-slider__dots-block {
+  cursor: pointer;
 }
 
 .slick-dots1.slick-thumb1 {
