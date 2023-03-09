@@ -68,28 +68,18 @@ export const ProductDetailsPage: React.FC = memo(() => {
       </div>
       <div className="grid">
         {product && productDetails && (
-          <ProductAbout description={productDetails.description} />
-        )}
-        {product && (
           <>
-            <div className="product-details__demo">
-              <ProductSlider images={product.images} name={product.name} />
-            </div>
-
-            <div className="product-details__wrapper">
-              <ProductAbout description={product?.description} />
-  
-              <ProductTechSpecs
-                screen={productDetails.screen}
-                resolution={productDetails.resolution}
-                processor={productDetails.product.processor}
-                ram={productDetails.ram}
-                capacity={productDetails.capacity}
-                camera={productDetails.camera}
-                zoom={productDetails.zoom}
-                cell={productDetails.cell}
-              />
-            </div>
+            <ProductAbout description={productDetails.description} />
+            <ProductTechSpecs
+              screen={productDetails.screen}
+              resolution={productDetails.resolution}
+              processor={productDetails.processor}
+              ram={productDetails.ram}
+              capacity={productDetails.capacity}
+              camera={productDetails.camera}
+              zoom={productDetails.zoom}
+              cell={productDetails.cell}
+            />
           </>
         )}
       </div>
