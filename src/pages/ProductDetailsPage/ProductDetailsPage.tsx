@@ -40,7 +40,7 @@ export const ProductDetailsPage: React.FC = memo(() => {
 
   return (
     <div className="container">
-      <Breadcrumbs />
+      <Breadcrumbs path={[product?.category, product?.phoneId]} />
       <BackButton />
       <div>{`Section title component ${productId}`}</div>
       <div className="grid">

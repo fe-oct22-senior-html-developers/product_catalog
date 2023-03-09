@@ -12,7 +12,7 @@ export const FavouritesPage: React.FC<Props> = ({ pageTitle }) => {
   return (
     <div className="favourites-page">
       <div className="container page__favourites">
-        <Breadcrumbs />
+        <Breadcrumbs path={['favourites']} />
         <PageTitle mixClass="favourites-page__title">{pageTitle}</PageTitle>
         <Favourites />
       </div>
