@@ -37,6 +37,9 @@ export const ProductPurchase: React.FC<Props> = memo(
     );
 
     useEffect(() => {
+      setIsAddedToCart(false);
+      setIsFavourite(false);
+
       if (isCartIncludes) {
         setIsAddedToCart(true);
       }
