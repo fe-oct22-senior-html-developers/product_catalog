@@ -49,7 +49,9 @@ export const ProductDetailsPage: React.FC = () => {
       <Breadcrumbs />
       <BackButton />
       <div>{`Section title component ${productId}`}</div>
-      <ProductSidebar phone={phone} phoneExtended={phoneExtended} />
+      <div className="grid">
+        <ProductSidebar phone={phone} phoneExtended={phoneExtended} />
+      </div>
     </div>
   );
 };

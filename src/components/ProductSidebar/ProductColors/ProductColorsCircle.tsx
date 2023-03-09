@@ -20,7 +20,11 @@ interface Props {
 export const ProductColorsCircle: React.FC<Props> = memo(
   ({ color, productColor }) => {
     return (
-      <Link to="/">
+      <Link
+        to="/"
+        aria-label={`click to choose ${color}`}
+        title={color}
+      >
         <div
           className={cn('product-colors__circle', {
             'product-colors__circle--active': color === productColor,

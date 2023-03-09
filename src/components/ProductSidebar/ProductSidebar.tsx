@@ -43,33 +43,42 @@ export const ProductSidebar: React.FC<Props> = memo(
     } = phoneExtended;
 
     return (
-      <div className="product-sidebar page__product-sidebar">
+      <div
+        className="
+          product-sidebar
+          page__product-sidebar
+          grid__item--tablet_8-12
+          grid__item--desktop_14-24
+        "
+      >
         <ProductColors colorsAvailable={colorsAvailable} currentColor={color} />
-        <ProductCapacity
-          capacityAvailable={capacityAvailable}
-          currentCapacity={capacity}
-        />
-        <ProductPurchase phone={phone} />
+        <div className="product-sidebar__tech-info">
+          <ProductCapacity
+            capacityAvailable={capacityAvailable}
+            currentCapacity={capacity}
+          />
+          <ProductPurchase phone={phone} />
 
-        <div className="product-sidebar__info">
-          <div className="product-sidebar__characteristic">
-            <p className="product-sidebar__property">Screen</p>
-            <p className="product-sidebar__value">{screen}</p>
-          </div>
+          <div className="product-sidebar__info">
+            <div className="product-sidebar__characteristic">
+              <p className="product-sidebar__property">Screen</p>
+              <p className="product-sidebar__value">{screen}</p>
+            </div>
 
-          <div className="product-sidebar__characteristic">
-            <p className="product-sidebar__property">Resolution</p>
-            <p className="product-sidebar__value">{resolution}</p>
-          </div>
+            <div className="product-sidebar__characteristic">
+              <p className="product-sidebar__property">Resolution</p>
+              <p className="product-sidebar__value">{resolution}</p>
+            </div>
 
-          <div className="product-sidebar__characteristic">
-            <p className="product-sidebar__property">Processor</p>
-            <p className="product-sidebar__value">{processor}</p>
-          </div>
+            <div className="product-sidebar__characteristic">
+              <p className="product-sidebar__property">Processor</p>
+              <p className="product-sidebar__value">{processor}</p>
+            </div>
 
-          <div className="product-sidebar__characteristic">
-            <p className="product-sidebar__property">RAM</p>
-            <p className="product-sidebar__value">{ram}</p>
+            <div className="product-sidebar__characteristic">
+              <p className="product-sidebar__property">RAM</p>
+              <p className="product-sidebar__value">{ram}</p>
+            </div>
           </div>
         </div>
       </div>

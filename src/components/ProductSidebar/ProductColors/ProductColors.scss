@@ -4,6 +4,10 @@
 @import '../../../sassStyles/collections';
 
 .product-colors {
+  @include onDesktop {
+    grid-column: 1 / -1;
+  }
+
   &__text {
     display: flex;
     flex-direction: row;

@@ -1,6 +1,19 @@
 @import '../../sassStyles/colors';
+@import '../../sassStyles/mixins';
 
 .product-sidebar {
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    gap: 16px;
+  }
+
+  &__tech-info {
+    @include onDesktop {
+      grid-column: 1 / 8;
+    }
+  }
+
   &__info {
     display: flex;
     flex-direction: column;
