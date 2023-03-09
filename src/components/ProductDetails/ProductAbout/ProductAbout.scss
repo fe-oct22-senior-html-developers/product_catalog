@@ -17,9 +17,9 @@
   &__about {
     margin-bottom: 56px;
 
-    @include onDesktop {
-      max-width: 631px;
-    }
+    // @include onDesktop {
+    //   max-width: 631px;
+    // }
 
     &--header {
       font-size: 20px;

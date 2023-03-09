@@ -13,10 +13,12 @@ import { ProductSlider } from '../../components/ProductDetails/ProductSlider';
 import { Phone } from '../../types/Phone';
 import { PhoneDetails } from '../../types/PhoneDetails';
 
+import './ProductDetailsPage.scss';
+
 export const ProductDetailsPage: React.FC = memo(() => {
   const [productDetails, setProductDetails] = useState<PhoneDetails>();
   const [product, setProduct] = useState<Phone>();
-  
+
   const { productId } = useParams();
 
   useEffect(() => {
@@ -47,7 +49,13 @@ export const ProductDetailsPage: React.FC = memo(() => {
       <BackButton />
       <div>{`Section title component ${productId}`}</div>
       <div className="product-details__demo grid">
-        {product && productDetails && <ProductSlider images={productDetails.images} name={productDetails.name} />}
+        {(product && productDetails) && (
+          <ProductSlider
+            images={productDetails.images}
+            name={productDetails.name}
+          />
+        )}
+
         {product && productDetails && (
           <ProductSidebar
             productDetails={productDetails}
@@ -56,7 +64,11 @@ export const ProductDetailsPage: React.FC = memo(() => {
           />
         )}
       </div>
-      {product && <ProductAbout description={product?.description} />}
+      <div className="grid">
+        {(product && productDetails) && (
+          <ProductAbout description={productDetails.description} />
+        )}
+      </div>
     </div>
   );
 });

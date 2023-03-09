@@ -1,0 +1,11 @@
+@import '../../sassStyles/mixins';
+
+.product-details {
+  &__demo {
+    margin-bottom: 0;
+
+    @include onDesktop {
+      margin-bottom: 80px;
+    }
+  }
+}
