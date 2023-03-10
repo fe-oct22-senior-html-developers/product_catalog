@@ -1,5 +1,8 @@
 import React, {
-  memo, useContext, useState, useEffect,
+  memo,
+  useContext,
+  useState,
+  useEffect,
 } from 'react';
 import { Link } from 'react-router-dom';
 import { GlobalContext } from '../../contexts/GlobalProvider/GlobalProvider';
@@ -15,14 +18,23 @@ type Props = {
 
 export const Card: React.FC<Props> = memo(
   ({ phone, mixClass, handleProductChange }) => {
-    // eslint-disable-next-line object-curly-newline
-    const { image, name, price, fullPrice, screen, capacity, ram, phoneId }
-      = phone;
+    const {
+      image,
+      name,
+      price,
+      fullPrice,
+      screen,
+      capacity,
+      ram,
+      phoneId,
+    } = phone;
 
     const {
-      cart, updateCart, favourites, updateFavourites,
-    }
-      = useContext(GlobalContext);
+      cart,
+      updateCart,
+      favourites,
+      updateFavourites,
+    } = useContext(GlobalContext);
 
     const [isAddedToCart, setIsAddedToCart] = useState(false);
     const [isFavourite, setIsFavourite] = useState(false);
