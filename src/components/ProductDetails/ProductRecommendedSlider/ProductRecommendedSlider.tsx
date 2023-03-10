@@ -7,10 +7,13 @@ import './ProductRecommendedSlider.scss';
 
 type Props = {
   products: Phone[];
-  handleProductChange: (newProductId: string) => void,
+  handleProductChange: (newProductId: string) => void;
 };
 
-export const ProductRecommendedSlider: React.FC<Props> = ({ products, handleProductChange }) => {
+export const ProductRecommendedSlider: React.FC<Props> = ({
+  products,
+  handleProductChange,
+}) => {
   return (
     <section className="product-recommended-slider">
       <SectionTitle>You may also like</SectionTitle>
