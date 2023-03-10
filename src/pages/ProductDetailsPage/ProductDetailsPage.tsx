@@ -55,7 +55,7 @@ export const ProductDetailsPage: React.FC = memo(() => {
 
   return (
     <div className="container">
-      <Breadcrumbs />
+      <Breadcrumbs path={[product?.category, product?.phoneId]} />
       <BackButton />
       {product && productDetails && (
         <SectionTitle>{productDetails.name}</SectionTitle>
