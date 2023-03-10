@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import './ProductPage.scss';
 import { useLocation } from 'react-router-dom';
+import { Dimmer, Loader } from 'semantic-ui-react';
+import './ProductPage.scss';
 import { PageTitle } from '../../components/PageTitle';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { CustomSelect } from '../../components/ProductPage/CustomSelect';
@@ -37,26 +38,46 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
   const [itemsNum, setItemsNum] = useState<ItemsNum>('16');
   const [page, setPage] = useState('1');
   const [phonesAmount, setPhonesAmount] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [phones, setPhones] = useState<Phone[]>([]);
 
   const location = useLocation().pathname.split('/');
 
   useEffect(() => {
+    setIsLoading(true);
     getPhonesAmount()
       .then((res) => res.data)
-      .then(setPhonesAmount);
+      .then((data) => {
+        setPhonesAmount(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        window.console.log(error);
+      });
   }, []);
 
   useEffect(() => {
+    setIsLoading(true);
     getPhonesWithPagination(sortByQueries[sortBy], itemsNum, page)
       .then((res) => res.data)
-      .then(setPhones);
+      .then((data) => {
+        setPhones(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        window.console.log(error);
+      });
   }, [sortBy, itemsNum, page]);
 
   return (
     <div className="product-page">
       <div className="container">
+        <Dimmer active={isLoading} inverted>
+          <Loader size="medium">Loading</Loader>
+        </Dimmer>
         <Breadcrumbs path={[location[location.length - 1]]} />
         <PageTitle mixClass="product-page__title">{pageTitle}</PageTitle>
         {pageTitle === 'Mobile Phones' ? (

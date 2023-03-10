@@ -1,6 +1,6 @@
-import React, {
-  useState, useEffect, useCallback, memo,
-} from 'react';
+/* eslint-disable object-curly-newline */
+import React, { useState, useEffect, useCallback, memo } from 'react';
+import { Dimmer, Loader } from 'semantic-ui-react';
 import { useParams } from 'react-router-dom';
 import { getPhoneDetails, getRecommended } from '../../api/requests';
 import { BackButton } from '../../components/BackButton';
@@ -20,23 +20,25 @@ export const ProductDetailsPage: React.FC = memo(() => {
   const [product, setProduct] = useState<Phone>();
   const [productDetails, setProductDetails] = useState<PhoneDetails>();
   const [recommendedProducts, setRecommendedProducts] = useState<Phone[]>();
-
+  const [isLoading, setIsLoading] = useState(false);
   const { productId } = useParams();
 
   useEffect(() => {
-    getPhoneDetails(productId || '')
-      .then((res) => {
-        const { phone, phoneDetails } = res.data;
+    setIsLoading(true);
+    Promise.all([
+      getPhoneDetails(productId || ''),
+      getRecommended(productId || ''),
+    ])
+      .then(([phoneDetailsRes, recommendedRes]) => {
+        const { phone, phoneDetails } = phoneDetailsRes.data;
 
         setProduct(JSON.parse(phone));
         setProductDetails(JSON.parse(phoneDetails));
+        setRecommendedProducts(recommendedRes.data);
       })
-      .catch((error) => window.console.log(error));
-
-    getRecommended(productId || '')
-      .then((res) => setRecommendedProducts(res.data))
-      .catch((error) => window.console.log(error));
-  }, []);
+      .catch((error) => window.console.log(error))
+      .finally(() => setIsLoading(false));
+  }, [productId]);
 
   const handleProductChange = useCallback((newProductId: string) => {
     getPhoneDetails(newProductId || '')
@@ -57,6 +59,9 @@ export const ProductDetailsPage: React.FC = memo(() => {
     <div className="container">
       <Breadcrumbs path={[product?.category, product?.phoneId]} />
       <BackButton />
+      <Dimmer active={isLoading} inverted>
+        <Loader size="medium">Loading</Loader>
+      </Dimmer>
       {product && productDetails && (
         <SectionTitle>{productDetails.name}</SectionTitle>
       )}
