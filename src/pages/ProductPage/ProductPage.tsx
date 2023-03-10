@@ -26,7 +26,7 @@ const itemsNumOptions: ItemsNum[] = ['8', '16', '32', '64'];
 export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
   const [sortBy, setSortBy] = useState<SortBy>('Name: A - Z');
   const [itemsNum, setItemsNum] = useState<ItemsNum>('16');
-  const [page] = useState('1');
+  const [page, setPage] = useState('1');
 
   const [phones, setPhones] = useState<Phone[]>([]);
 
@@ -34,7 +34,7 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
     getPhonesWithPagination(sortBy, itemsNum, page)
       .then((res) => res.data)
       .then(setPhones);
-  }, [sortBy, itemsNum]);
+  }, [sortBy, itemsNum, page]);
 
   return (
     <div className="product-page">
@@ -61,7 +61,11 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
 
         <Catalog phones={phones} />
       </div>
-      <Pagination />
+      <Pagination
+        setPage={setPage}
+        currentPage={+page}
+        itemsNum={+itemsNum}
+      />
     </div>
   );
 };

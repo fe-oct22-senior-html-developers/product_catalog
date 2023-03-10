@@ -1,10 +1,31 @@
 import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
+import cn from 'classnames';
 import './Pagination.scss';
+// import { useSearchParams } from 'react-router-dom';
 
-export const Pagination: React.FC = memo(() => {
+interface Props {
+  currentPage: number,
+  itemsNum: number,
+  setPage: React.Dispatch<React.SetStateAction<string>>,
+}
+
+export const Pagination: React.FC<Props> = memo(({ currentPage, itemsNum, setPage }) => {
+  const pagesNumber = Math.ceil(95 / itemsNum);
+
+  const pages = [];
+
+  // eslint-disable-next-line no-plusplus
+  for (let i = 1; i < pagesNumber; i++) {
+    pages.push(i);
+  }
+
+  // const [searchParams] = useSearchParams();
+  // const newParams = new URLSearchParams(searchParams.toString());
+
+  // window.console.log(searchParams);
+
   return (
-    <div className="pagination">
+    <div className="pagination page__pagination">
       <button
         aria-label="click to go to previous page"
         type="button"
@@ -13,31 +34,23 @@ export const Pagination: React.FC = memo(() => {
         <div className="pagination__arrow pagination__arrow--left"></div>
       </button>
       <ul className="pagination__list">
-        <li>
-          <Link to="/" className="pagination__item">
-            1
-          </Link>
-        </li>
-        {/* {paginationPages.map((page) => (
-          <li key={page}>
-            <Link
-              className={cn(styles.pagination__item, {
-                [styles.pagination__item__chosen]: currentPage === page,
+        {pages.map(pageNumber => (
+          <li key={pageNumber}>
+            <button
+              aria-label={`click to go to the page ${pageNumber} of the catalog`}
+              type="button"
+              className={cn('pagination__item', {
+                'pagination__item--active': currentPage === pageNumber,
               })}
-              to={{
-                search: handleSearchParamsUpdate(page.toString()),
-              }}>
-              <p
-                className={cn(styles.pagination__link, {
-                  [styles.pagination__link__chosen]: currentPage === page,
-                })}>
-                {page}
-              </p>
-            </Link>
+              onClick={() => {
+                setPage(`${pageNumber}`);
+                setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 200);
+              }}
+            >
+              {pageNumber}
+            </button>
           </li>
         ))}
-
-        <ArrowRight handleSearchParamsUpdate={handleSearchParamsUpdate} /> */}
       </ul>
       <button
         aria-label="click to go to the next page"

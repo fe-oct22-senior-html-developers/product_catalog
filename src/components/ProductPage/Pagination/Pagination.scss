@@ -4,6 +4,8 @@
 .pagination {
   width: 100%;
   display: flex;
+  justify-content: center;
+  gap: 16px;
 
   &__button {
     display: flex;
@@ -37,6 +39,11 @@
     }
   }
 
+  &__list {
+    display: flex;
+    gap: 8px;
+  }
+
   &__item {
     display: flex;
     align-items: center;
@@ -50,6 +57,13 @@
 
     &:hover {
       border: 1px solid $color__icons;
+    }
+
+    &--active {
+      background-color: $color__primary;
+      border: 1px solid $color__primary;
+      color: $color__main;
+      pointer-events: none;
     }
   }
 }
