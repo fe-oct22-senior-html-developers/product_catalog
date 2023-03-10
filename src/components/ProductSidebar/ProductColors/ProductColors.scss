@@ -1,0 +1,67 @@
+@import '../../../sassStyles/reset';
+@import '../../../sassStyles/mixins';
+@import '../../../sassStyles/colors';
+@import '../../../sassStyles/collections';
+
+.product-colors {
+  @include onDesktop {
+    grid-column: 1 / -1;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    font-size: 12px;
+    font-weight: 600;
+    color: $color__secondary;
+
+    margin-bottom: 8px;
+  }
+
+  &__id {
+    color: $color__icons;
+  }
+
+  &__info {
+    display: flex;
+    gap: 9px;
+  }
+
+  &__circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 32px;
+    width: 32px;
+
+    border: 1px solid $color__elemets;
+    border-radius: 50%;
+
+    transition: border 0.2s ease;
+
+    &--active {
+      border: 1px solid $color__primary;
+      pointer-events: none;
+    }
+
+    &:hover {
+      border: 1px solid $color__secondary;
+    }
+  }
+
+  &__color {
+    height: 30px;
+    width: 30px;
+    border: 2px solid white;
+    border-radius: 50%;
+
+    @each $color, $product-color in $product-colors {
+      &--#{$color} {
+        background-color: $product-color;
+      }
+    }
+  }
+}
