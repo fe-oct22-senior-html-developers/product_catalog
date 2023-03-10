@@ -89,4 +89,12 @@
       margin-bottom: 0;
     }
   }
+
+  &__catalog {
+    margin-bottom: 24px;
+
+    onTablet {
+      margin-bottom: 40px;
+    }
+  }
 }

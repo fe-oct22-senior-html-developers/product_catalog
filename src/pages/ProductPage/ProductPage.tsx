@@ -7,6 +7,7 @@ import { SortBy, ItemsNum } from '../../types/CustomSelect';
 import { Phone } from '../../types/Phone';
 import { getPhonesWithPagination } from '../../api/requests';
 import { Catalog } from '../../components/ProductPage/Catalog';
+import { Pagination } from '../../components/ProductPage/Pagination';
 
 type Props = {
   pageTitle: string;
@@ -60,7 +61,7 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
 
         <Catalog phones={phones} />
       </div>
-      <div>Pagination</div>
+      <Pagination />
     </div>
   );
 };

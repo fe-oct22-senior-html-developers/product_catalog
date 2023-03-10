@@ -10,7 +10,7 @@ interface Props {
 
 export const Catalog: React.FC<Props> = memo(({ phones }) => {
   return (
-    <section className="catalog">
+    <section className="catalog page__catalog">
       <CatalogList>
         {phones.map((catalogItem) => (
           <li className="catalog__list-item" key={catalogItem.itemId}>
