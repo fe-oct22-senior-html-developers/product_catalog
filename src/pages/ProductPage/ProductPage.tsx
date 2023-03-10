@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Dimmer, Loader } from 'semantic-ui-react';
 import './ProductPage.scss';
 import { PageTitle } from '../../components/PageTitle';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
@@ -34,24 +35,44 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
   const [itemsNum, setItemsNum] = useState<ItemsNum>('16');
   const [page] = useState('1');
   const [phonesAmount, setPhonesAmount] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [phones, setPhones] = useState<Phone[]>([]);
 
   useEffect(() => {
+    setIsLoading(true);
     getPhonesAmount()
       .then((res) => res.data)
-      .then(setPhonesAmount);
+      .then((data) => {
+        setPhonesAmount(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        window.console.log(error);
+      });
   }, []);
 
   useEffect(() => {
+    setIsLoading(true);
     getPhonesWithPagination(sortByQueries[sortBy], itemsNum, page)
       .then((res) => res.data)
-      .then(setPhones);
-  }, [sortBy, itemsNum]);
+      .then((data) => {
+        setPhones(data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        window.console.log(error);
+      });
+  }, [sortBy, itemsNum, page]);
 
   return (
     <div className="product-page">
       <div className="container">
+        <Dimmer active={isLoading} inverted>
+          <Loader size="medium">Loading</Loader>
+        </Dimmer>
         <Breadcrumbs />
         <PageTitle mixClass="product-page__title">{pageTitle}</PageTitle>
         <p className="product-page__amount">{`${phonesAmount} models`}</p>
