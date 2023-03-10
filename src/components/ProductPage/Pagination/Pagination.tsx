@@ -14,10 +14,7 @@ export const Pagination: React.FC = memo(() => {
       </button>
       <ul className="pagination__list">
         <li>
-          <Link
-            to="/"
-            className="pagination__item"
-          >
+          <Link to="/" className="pagination__item">
             1
           </Link>
         </li>
