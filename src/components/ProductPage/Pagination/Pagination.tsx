@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 import cn from 'classnames';
 import './Pagination.scss';
-// import { useSearchParams } from 'react-router-dom';
 
 interface Props {
   currentPage: number;

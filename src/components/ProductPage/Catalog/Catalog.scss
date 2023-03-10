@@ -7,19 +7,6 @@
   flex-direction: column;
   align-items: center;
 
-  // &__amount {
-  //   align-self: baseline;
-  //   margin-bottom: 32px;
-  //   font-weight: 600;
-  //   font-size: 14px;
-  //   line-height: 21px;
-  //   color: $color__secondary;
-
-  //   @include onTablet {
-  //     margin-bottom: 40px;
-  //   }
-  // }
-
   &__list {
     width: 100%;
     display: grid;
@@ -47,8 +34,4 @@
     display: flex;
     height: 100%;
   }
-
-  // &__empty-message {
-  //   margin-top: 50px;
-  // }
 }

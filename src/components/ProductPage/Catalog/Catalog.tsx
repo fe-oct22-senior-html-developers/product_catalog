@@ -6,15 +6,9 @@ import './Catalog.scss';
 
 interface Props {
   phones: Phone[];
-  // page: number,
-  // itemsNum: number,
 }
 
 export const Catalog: React.FC<Props> = memo(({ phones }) => {
-  // const lastCardIndex = page * itemsNum;
-  // const firstCardIndex = lastCardIndex - itemsNum;
-  // const currentPhones = phones.slice(firstCardIndex, lastCardIndex);
-
   return (
     <section className="catalog page__catalog">
       <CatalogList>
