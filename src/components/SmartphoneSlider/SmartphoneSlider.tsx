@@ -102,9 +102,11 @@ export const SmartphoneSlider: React.FC<SliderCustomProps> = ({ children }) => {
   };
 
   return (
-    <Slider {...settings} className="smartphone-slider">
-      {children}
-    </Slider>
+    <>
+      <Slider {...settings} className="smartphone-slider">
+        {children}
+      </Slider>
+    </>
   );
 };
 

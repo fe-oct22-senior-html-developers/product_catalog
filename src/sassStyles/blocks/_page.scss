@@ -73,4 +73,20 @@
       margin-bottom: 80px;
     }
   }
+
+  &__product-sidebar {
+    margin-bottom: 56px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__product-slider {
+    margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
 }
