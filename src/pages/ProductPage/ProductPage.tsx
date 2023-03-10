@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Dimmer, Loader } from 'semantic-ui-react';
 import './ProductPage.scss';
 import { PageTitle } from '../../components/PageTitle';
@@ -35,11 +36,13 @@ const itemsNumOptions: ItemsNum[] = ['8', '16', '32', '64'];
 export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
   const [sortBy, setSortBy] = useState<SortBy>('Name: A - Z');
   const [itemsNum, setItemsNum] = useState<ItemsNum>('16');
-  const [page] = useState('1');
-  const [phonesAmount, setPhonesAmount] = useState(null);
+  const [page, setPage] = useState('1');
+  const [phonesAmount, setPhonesAmount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
   const [phones, setPhones] = useState<Phone[]>([]);
+
+  const location = useLocation().pathname.split('/');
 
   useEffect(() => {
     setIsLoading(true);
@@ -75,7 +78,7 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
         <Dimmer active={isLoading} inverted>
           <Loader size="medium">Loading</Loader>
         </Dimmer>
-        <Breadcrumbs />
+        <Breadcrumbs path={[location[location.length - 1]]} />
         <PageTitle mixClass="product-page__title">{pageTitle}</PageTitle>
         <p className="product-page__amount">{`${phonesAmount} models`}</p>
         <div className="product-page__filters">
