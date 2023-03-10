@@ -61,11 +61,7 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
 
         <Catalog phones={phones} />
       </div>
-      <Pagination
-        setPage={setPage}
-        currentPage={+page}
-        itemsNum={+itemsNum}
-      />
+      <Pagination setPage={setPage} currentPage={+page} itemsNum={+itemsNum} />
     </div>
   );
 };
