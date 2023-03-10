@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './ProductPage.scss';
+import { useLocation } from 'react-router-dom';
 import { PageTitle } from '../../components/PageTitle';
 import { Breadcrumbs } from '../../components/Breadcrumbs';
 import { CustomSelect } from '../../components/ProductPage/CustomSelect';
@@ -39,6 +40,8 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
 
   const [phones, setPhones] = useState<Phone[]>([]);
 
+  const location = useLocation().pathname.split('/');
+
   useEffect(() => {
     getPhonesAmount()
       .then((res) => res.data)
@@ -54,7 +57,7 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
   return (
     <div className="product-page">
       <div className="container">
-        <Breadcrumbs />
+        <Breadcrumbs path={[location[location.length - 1]]} />
         <PageTitle mixClass="product-page__title">{pageTitle}</PageTitle>
         <p className="product-page__amount">{`${phonesAmount} models`}</p>
         <div className="product-page__filters">
