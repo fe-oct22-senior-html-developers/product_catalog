@@ -59,7 +59,7 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
       <div className="container">
         <Breadcrumbs path={[location[location.length - 1]]} />
         <PageTitle mixClass="product-page__title">{pageTitle}</PageTitle>
-        {pageTitle === 'Mobile phones' ? (
+        {pageTitle === 'Mobile Phones' ? (
           <>
             <p className="product-page__amount">{`${phonesAmount} models`}</p>
             <div className="product-page__filters">
@@ -89,7 +89,7 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
         )}
       </div>
 
-      {pageTitle === 'Mobile phones' && (
+      {pageTitle === 'Mobile Phones' && (
         <Pagination
           setPage={setPage}
           currentPage={+page}
