@@ -1,0 +1,8 @@
+@import './colors';
+
+$product-colors: 'black' $product__black, 'green' $product__green,
+  'yellow' $product__yellow, 'white' $product__white, 'purple' $product__purple,
+  'red' $product__red, 'spacegray' $product__spacegray,
+  'midnightgreen' $product__midnightgreen, 'gold' $product__gold,
+  'silver' $product__silver, 'rosegold' $product__rosegold,
+  'coral' $product__coral;
