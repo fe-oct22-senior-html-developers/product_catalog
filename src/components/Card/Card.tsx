@@ -1,6 +1,7 @@
 import React, {
   memo, useContext, useState, useEffect,
 } from 'react';
+import { Link } from 'react-router-dom';
 import { GlobalContext } from '../../contexts/GlobalProvider/GlobalProvider';
 import { CartItem } from '../../types/CartItem';
 import { Phone } from '../../types/Phone';
@@ -9,11 +10,12 @@ import './Card.scss';
 type Props = {
   phone: Phone;
   mixClass: string;
+  handleProductChange?: (newProductId: string) => void;
 };
 
-export const Card: React.FC<Props> = memo(({ phone, mixClass }) => {
+export const Card: React.FC<Props> = memo(({ phone, mixClass, handleProductChange }) => {
   // eslint-disable-next-line object-curly-newline
-  const { image, name, price, fullPrice, screen, capacity, ram } = phone;
+  const { image, name, price, fullPrice, screen, capacity, ram, phoneId } = phone;
 
   const {
     cart, updateCart, favourites, updateFavourites,
@@ -89,21 +91,32 @@ export const Card: React.FC<Props> = memo(({ phone, mixClass }) => {
   return (
     <article className={`card ${mixClass}`}>
       <div>
-        <img className="card__img" src={image} alt={name} />
-
-        <h4 className="card__title">{name}</h4>
+        {handleProductChange
+          ? (
+            <Link
+              to={`/product/${phoneId}`}
+              onClick={() => {
+                setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 200);
+                handleProductChange(phoneId);
+              }}
+            >
+              <img className="card__img" src={image} alt={name} />
+              <h4 className="card__title">{name}</h4>
+            </Link>
+          ) : (
+            <Link
+              to={`/product/${phoneId}`}
+            >
+              <img className="card__img" src={image} alt={name} />
+              <h4 className="card__title">{name}</h4>
+            </Link>
+          )}
       </div>
 
       <div className="block">
         <div className="card__prices">
-          {price === fullPrice ? (
-            <span className="card__prices--price">{`$${fullPrice}`}</span>
-          ) : (
-            <>
-              <span className="card__prices--price">{`$${price}`}</span>
-              <span className="card__prices--old-price">{`$${fullPrice}`}</span>
-            </>
-          )}
+          <span className="card__prices--price">{`$${price}`}</span>
+          <span className="card__prices--old-price">{`$${fullPrice}`}</span>
         </div>
 
         <div className="card__specifications">

@@ -95,7 +95,10 @@ export const ProductDetailsPage: React.FC = memo(() => {
       )}
 
       {recommendedProducts && (
-        <ProductRecommendedSlider products={recommendedProducts} />
+        <ProductRecommendedSlider
+          handleProductChange={handleProductChange}
+          products={recommendedProducts}
+        />
       )}
     </div>
   );
