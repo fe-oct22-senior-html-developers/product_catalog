@@ -11,6 +11,7 @@ type Props = {
   mixClass: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   updater: React.Dispatch<React.SetStateAction<any>>;
+  setPage: React.Dispatch<React.SetStateAction<string>>
 };
 
 export const CustomSelect: React.FC<Props> = ({
@@ -18,12 +19,14 @@ export const CustomSelect: React.FC<Props> = ({
   list,
   current,
   mixClass,
+  setPage,
   updater,
 }) => {
   const [opened, setOpened] = useState(false);
 
   const handleUpdate = (value: SortBy | ItemsNum) => {
     updater(value);
+    setPage('1');
     setOpened(false);
   };
 
