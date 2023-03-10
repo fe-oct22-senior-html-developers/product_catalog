@@ -92,19 +92,17 @@
 
   &__catalog {
     margin-bottom: 24px;
-  
+
     onTablet {
       margin-bottom: 40px;
     }
   }
-  
+
   &__pagination {
     margin-bottom: 64px;
-  
+
     @include onDesktop {
       margin-bottom: 80px;
     }
   }
 }
-
-

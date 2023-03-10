@@ -11,7 +11,7 @@ type Props = {
   mixClass: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   updater: React.Dispatch<React.SetStateAction<any>>;
-  setPage: React.Dispatch<React.SetStateAction<string>>
+  setPage: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export const CustomSelect: React.FC<Props> = ({
