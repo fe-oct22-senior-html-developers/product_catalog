@@ -6,6 +6,8 @@ import { CustomSelect } from '../../components/ProductPage/CustomSelect';
 import { SortBy, ItemsNum } from '../../types/CustomSelect';
 import { Phone } from '../../types/Phone';
 import { getPhonesWithPagination, getPhonesAmount } from '../../api/requests';
+import { Catalog } from '../../components/ProductPage/Catalog';
+import { Pagination } from '../../components/ProductPage/Pagination';
 
 type Props = {
   pageTitle: string;
@@ -32,8 +34,8 @@ const itemsNumOptions: ItemsNum[] = ['8', '16', '32', '64'];
 export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
   const [sortBy, setSortBy] = useState<SortBy>('Name: A - Z');
   const [itemsNum, setItemsNum] = useState<ItemsNum>('16');
-  const [page] = useState('1');
-  const [phonesAmount, setPhonesAmount] = useState(null);
+  const [page, setPage] = useState('1');
+  const [phonesAmount, setPhonesAmount] = useState(0);
 
   const [phones, setPhones] = useState<Phone[]>([]);
 
@@ -47,7 +49,7 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
     getPhonesWithPagination(sortByQueries[sortBy], itemsNum, page)
       .then((res) => res.data)
       .then(setPhones);
-  }, [sortBy, itemsNum]);
+  }, [sortBy, itemsNum, page]);
 
   return (
     <div className="product-page">
@@ -62,6 +64,7 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
             current={sortBy}
             mixClass="custom-select--sort-by"
             updater={setSortBy}
+            setPage={setPage}
           />
           <CustomSelect
             title="Items on page"
@@ -69,12 +72,19 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
             current={itemsNum}
             mixClass="custom-select--items-num"
             updater={setItemsNum}
+            setPage={setPage}
           />
         </div>
+
+        <Catalog phones={phones} />
       </div>
-      {/* Настя, заміни 61 строку на свій код (ну і цю) */}
-      <div>{JSON.stringify(phones)}</div>
-      <div>Pagination</div>
+
+      <Pagination
+        setPage={setPage}
+        currentPage={+page}
+        itemsNum={+itemsNum}
+        phonesAmount={phonesAmount}
+      />
     </div>
   );
 };
