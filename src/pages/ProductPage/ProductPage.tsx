@@ -83,7 +83,9 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
             <Catalog phones={phones} />
           </>
         ) : (
-          <div className="product-page__data-coming">The data is coming soon...🥲</div>
+          <div className="product-page__data-coming">
+            The data is coming soon...🥲
+          </div>
         )}
       </div>
 
