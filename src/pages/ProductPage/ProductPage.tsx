@@ -59,35 +59,42 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
       <div className="container">
         <Breadcrumbs path={[location[location.length - 1]]} />
         <PageTitle mixClass="product-page__title">{pageTitle}</PageTitle>
-        <p className="product-page__amount">{`${phonesAmount} models`}</p>
-        <div className="product-page__filters">
-          <CustomSelect
-            title="Sort by"
-            list={sortByOptions}
-            current={sortBy}
-            mixClass="custom-select--sort-by"
-            updater={setSortBy}
-            setPage={setPage}
-          />
-          <CustomSelect
-            title="Items on page"
-            list={itemsNumOptions}
-            current={itemsNum}
-            mixClass="custom-select--items-num"
-            updater={setItemsNum}
-            setPage={setPage}
-          />
-        </div>
-
-        <Catalog phones={phones} />
+        {pageTitle === 'Mobile phones' ? (
+          <>
+            <p className="product-page__amount">{`${phonesAmount} models`}</p>
+            <div className="product-page__filters">
+              <CustomSelect
+                title="Sort by"
+                list={sortByOptions}
+                current={sortBy}
+                mixClass="custom-select--sort-by"
+                updater={setSortBy}
+                setPage={setPage}
+              />
+              <CustomSelect
+                title="Items on page"
+                list={itemsNumOptions}
+                current={itemsNum}
+                mixClass="custom-select--items-num"
+                updater={setItemsNum}
+                setPage={setPage}
+              />
+            </div>
+            <Catalog phones={phones} />
+          </>
+        ) : (
+          <div className="product-page__data-coming">The data is coming soon...🥲</div>
+        )}
       </div>
 
-      <Pagination
-        setPage={setPage}
-        currentPage={+page}
-        itemsNum={+itemsNum}
-        phonesAmount={phonesAmount}
-      />
+      {pageTitle === 'Mobile phones' && (
+        <Pagination
+          setPage={setPage}
+          currentPage={+page}
+          itemsNum={+itemsNum}
+          phonesAmount={phonesAmount}
+        />
+      )}
     </div>
   );
 };
