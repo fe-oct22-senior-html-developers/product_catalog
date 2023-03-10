@@ -57,7 +57,7 @@ export const ProductDetailsPage: React.FC = memo(() => {
 
   return (
     <div className="container">
-      <Breadcrumbs />
+      <Breadcrumbs path={[product?.category, product?.phoneId]} />
       <BackButton />
       <Dimmer active={isLoading} inverted>
         <Loader size="medium">Loading</Loader>

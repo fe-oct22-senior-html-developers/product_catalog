@@ -15,8 +15,9 @@ type Props = {
 
 export const Card: React.FC<Props> = memo(
   ({ phone, mixClass, handleProductChange }) => {
-    // eslint-disable-next-line object-curly-newline
-    const { image, name, price, fullPrice, screen, capacity, ram, phoneId }
+    const {
+      image, name, price, fullPrice, screen, capacity, ram, phoneId,
+    }
       = phone;
 
     const {

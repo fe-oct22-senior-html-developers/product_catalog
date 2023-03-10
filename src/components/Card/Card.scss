@@ -16,6 +16,8 @@
   border: 1px solid $color__elemets;
   padding: 16px;
 
+  transition: box-shadow 0.5s;
+
   @include onTablet {
     max-width: 288px;
     width: 100%;
@@ -24,6 +26,10 @@
   @include onDesktop {
     max-width: 272px;
     width: 100%;
+
+    &:hover {
+      box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.1);
+    }
   }
 
   &__img {
@@ -111,6 +117,18 @@
     font-size: 14px;
     font-weight: 700;
 
+    transition: transform 0.3s;
+
+    &:active {
+      background-color: #000;
+    }
+
+    @include onDesktop {
+      &:hover {
+        transform: scale(1.03);
+      }
+    }
+
     &--active {
       background-color: $color__main;
       color: $color__accent--text;
@@ -130,6 +148,10 @@
     border: 1px solid $color__icons;
 
     cursor: pointer;
+
+    &:hover .card__fav-icon {
+      animation: pulse 1s;
+    }
   }
 
   &__fav-icon {
@@ -152,5 +174,27 @@
     @include onTablet {
       max-width: none;
     }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+
+  80% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

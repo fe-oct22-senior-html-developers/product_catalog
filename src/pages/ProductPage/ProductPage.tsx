@@ -7,6 +7,8 @@ import { CustomSelect } from '../../components/ProductPage/CustomSelect';
 import { SortBy, ItemsNum } from '../../types/CustomSelect';
 import { Phone } from '../../types/Phone';
 import { getPhonesWithPagination, getPhonesAmount } from '../../api/requests';
+import { Catalog } from '../../components/ProductPage/Catalog';
+import { Pagination } from '../../components/ProductPage/Pagination';
 
 type Props = {
   pageTitle: string;
@@ -83,6 +85,7 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
             current={sortBy}
             mixClass="custom-select--sort-by"
             updater={setSortBy}
+            setPage={setPage}
           />
           <CustomSelect
             title="Items on page"
@@ -90,12 +93,19 @@ export const ProductPage: React.FC<Props> = ({ pageTitle }) => {
             current={itemsNum}
             mixClass="custom-select--items-num"
             updater={setItemsNum}
+            setPage={setPage}
           />
         </div>
+
+        <Catalog phones={phones} />
       </div>
-      {/* Настя, заміни 61 строку на свій код (ну і цю) */}
-      <div>{JSON.stringify(phones)}</div>
-      <div>Pagination</div>
+
+      <Pagination
+        setPage={setPage}
+        currentPage={+page}
+        itemsNum={+itemsNum}
+        phonesAmount={phonesAmount}
+      />
     </div>
   );
 };

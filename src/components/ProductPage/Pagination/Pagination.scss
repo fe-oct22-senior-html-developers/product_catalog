@@ -1,0 +1,76 @@
+@import '../../../sassStyles/_colors';
+@import '../../../sassStyles/_mixins';
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+
+  &__arrow-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 32px;
+    width: 32px;
+    border: 1px solid $color__icons;
+
+    transition: border 0.2s ease-in-out;
+
+    &:hover {
+      border: 1px solid $color__primary;
+    }
+
+    &--disabled {
+      pointer-events: none;
+    }
+  }
+
+  &__arrow-icon {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 5px;
+    height: 9px;
+
+    &--left {
+      background-image: url('../../../static/Pagination/arrow-left-icon.svg');
+    }
+
+    &--right {
+      background-image: url('../../../static/Pagination/arrow-right-icon.svg');
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 32px;
+    width: 32px;
+
+    font-family: 'Mont';
+
+    border: 1px solid $color__elemets;
+
+    transition: border 0.2s ease-in-out;
+
+    &:hover {
+      border: 1px solid $color__icons;
+    }
+
+    &--active {
+      background-color: $color__primary;
+      border: 1px solid $color__primary;
+      color: $color__main;
+      pointer-events: none;
+    }
+  }
+}
